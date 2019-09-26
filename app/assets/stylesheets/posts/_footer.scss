@@ -1,0 +1,16 @@
+#footer-main {
+  background: green;
+  width: 100%;
+  height: 70px;
+  .footer-list {
+    text-align: center;
+    .information {
+      display: inline;
+      margin: 20px;
+    }
+  }
+  .footer-copyright {
+    text-align: center;
+    margin: 10px;
+  }
+}
