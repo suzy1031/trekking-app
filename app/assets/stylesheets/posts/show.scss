@@ -1,0 +1,65 @@
+.detail-post-box {
+  width: 800px;
+  margin: 0 auto;
+  background: white;
+  .detail-post-container {
+    width: 100%;
+    text-align: center;
+    .detail-name {
+      font-size: 32px;
+      padding: 10px;
+    }
+    .detail-yama-picture {
+      width: 450px;
+      height: 450px;
+      border-radius: 3px;
+    }
+    h2 {
+      font-size: 24px;
+      padding: 10px;
+      border-top: 1px solid #f5f3f4;
+      margin-top: 20px;
+    }
+    .detail-description {
+      .detail-display {
+        width: 450px;
+        height: auto;
+        margin: 0 auto;
+        background: #f5f3f4;
+        border-radius: 3px;
+        font-size: 18px;
+        padding: 10px;
+      }
+    }
+    .detail-comment {
+      width: 450px;
+      height: auto;
+      margin: 0 auto;
+      background: #f5f3f4;
+      border: 1px solid #f5f3f4;
+      border-radius: 3px;
+      padding: 10px;
+    }
+    .detail-btn {
+      border-top: 1px solid #f5f3f4;
+      margin-top: 20px;
+    }
+    .detail-edit-btn {
+      font-size: 24px;
+      background: #f5f3f4;
+      border: none;
+      border-radius: 3px;
+      margin: 10px;
+      padding: 10px;
+    }
+    .detail-delete-btn {
+      font-size: 24px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      margin: 10px;
+      padding: 10px;
+    }
+  }
+}
