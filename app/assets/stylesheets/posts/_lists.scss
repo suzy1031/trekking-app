@@ -1,0 +1,59 @@
+.list-title {
+  font-size: 28px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  padding: 20px;
+}
+.horizontal-list {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.item {
+  /* 横スクロール用 */
+  display: inline-block;
+  width: 480px;
+  /* 見た目調整 */
+  height: 225px;
+  margin: 16px;
+  font-size: 48px;
+  background: white;
+  border: 1px solid #f5f3f4;
+  .box-top {
+    display: flex;
+    .yama-picture {
+      width: 200px;
+      height: 200px;
+      margin: 10px;
+      border-radius: 3px;
+    }
+    .yama-description {
+      margin: 10px;
+      color: black;
+      position: relative;
+    }
+    .fa.fa-heart {
+      position: absolute;
+      color: black;
+      right: 5px;
+      top: 10%;
+    }
+    .yama-description .name {
+      color: black;
+      font-size: 20px;
+    }
+    .latest-comment {
+      width: 230px;
+      height: 40px;
+      background: #fff;
+      border: 1px solid #f5f3f4;
+      color: black;
+      border-radius: 3px;
+      padding: 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
