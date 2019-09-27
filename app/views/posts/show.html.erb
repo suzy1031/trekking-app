@@ -1,4 +1,28 @@
 <body>
-<%= render "posts/header" %>
-<%= render "posts/footer" %>
+  <%= render "posts/header" %>
+  <div class="detail-post-box">
+    <div class="detail-post-container">
+      <div class="detail-name">
+        <h1>富士山</h1>
+      </div>
+      <div class="detail-post-picture">
+        <%= image_tag"富士山.png", class:"detail-yama-picture"%>
+      </div>
+      <h2>山の詳細データ</h2>
+      <div class="detail-description">
+        <div class="detail-display">山頂標高:3333m</div>
+        <div class="detail-display">歩行距離:15km</div>
+        <div class="detail-display">難易度:上級</div>
+      </div>
+      <h2>hogeさんの一言コメント</h2>
+      <div class="detail-comment">ここにcurrent_userのコメントを表示する。ここにcurrent_userのコメントを表示する。ここにcurrent_userのコメントを表示する。</div>
+      <h2>ユーザーさんからのコメント</h2>
+      <div class="detail-comment">ここにuser.commentを最大4件表示する。</div>
+      <div class="detail-btn">
+        <button class="detail-edit-btn">編集する</button>
+        <button class="detail-delete-btn">削除する</button>
+      </div>
+    </div>
+  </div>
+  <%= render "posts/footer" %>
 </body>
