@@ -1,0 +1,33 @@
+<header id="header-main">
+  <div id="header">
+    <h3 class="logo-txt">大好きな山や山メシをシェアしよう</h3>
+    <div class="logo-box">
+      <div class="logo">
+        <a href="#">
+          <%= image_tag"初日の出のアイコン.png", class:"yama-icon"%>
+        </a>
+        <h1 class="small-txt">岳人</h1>
+      </div>
+    </div>
+    <form id="search">
+      <input type="text" class="search-txt" placeholder="山の名前を入力", name="query-search">
+      <input type="submit" class="search-btn" value="検索">
+    </form>
+    <div id="mypage-header">
+      <ul class="mypage-contents">
+        <div class="link-reg">
+          <i class="fa fa-mountain fa-2x"></i>
+          <%= link_to "登った山を投稿", {}, class:"mypage-box" %>
+        </div>
+        <div class="link-reg">
+          <i class="fa fa-utensils fa-2x"></i>
+          <%= link_to "山メシを投稿", {}, class:"mypage-box" %>
+        </div>
+        <div class="link-reg">
+          <i class="far fa-user fa-2x"></i>
+          <%= link_to "マイページ", {}, class:"mypage-box" %>
+        </div>
+      </ul>
+    </div>
+  </div>
+</header>

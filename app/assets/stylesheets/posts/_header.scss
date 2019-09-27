@@ -1,0 +1,78 @@
+#header-main {
+  background: green;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .logo-txt {
+    color: white;
+    padding: 10px 0 0 10px;
+    font-weight: bold;
+  }
+  .yama-icon {
+    width: 100px;
+    margin-left: 10px;
+  }
+  .small-txt {
+    color: white;
+    display: inline;
+    font-size: 48px;
+    position: absolute;
+    left: 115px;
+    top: 30%;
+  }
+  #search {
+    position: absolute;
+    right: 10px;
+    top: 25%;
+    .search-txt {
+      padding: 5px 8px 5px 8px;
+      width: 280px;
+      height: 28px;
+      border: none;
+      border-radius: 3px;
+    }
+    .search-btn {
+      padding: 5px 8px 5px 8px;
+      margin-left: 8px;
+      width: 50px;
+      height: 30px;
+      border: none;
+      border-radius: 5px;
+      background: #f5f3f4;
+    }
+  }
+}
+#mypage-header {
+  display: none !important;
+}
+@media screen and (max-width: 1024px) {
+  .user-container {
+    display: none !important;
+  }
+  #mypage-header {
+    display: block !important;
+    background: green;
+    border-top: 1px solid #f5f3f4;
+    border-radius: 3px;
+    .mypage-contents {
+      display: flex;
+      margin: 12px;
+      .link-reg {
+        display: flex;
+        border: 1px solid #f5f3f4;
+        border-radius: 3px;
+        background: white;
+        margin: 0 auto;
+        .mypage-box {
+          color: black;
+          font-size: 24px;
+          margin: 5px 10px;
+          text-decoration: none;
+        }
+        i.fa, .far {
+          margin: 5px 5px 5px 10px;
+        }
+      }
+    }
+  }
+}

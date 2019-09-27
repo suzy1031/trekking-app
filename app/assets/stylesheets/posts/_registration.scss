@@ -1,0 +1,60 @@
+.trekking-registration {
+  width: 320px;
+  height: 100%;
+  background: #cd853f;
+  text-align: center;
+  position: relative;
+  .title {
+    font-size: 24px;
+    text-align: center;
+    color: white;
+  }
+  .yama-info-input {
+    margin: 10px;
+    padding-top: 10px;
+    label {
+      color: white;
+      font-size: 18px;
+    }
+    .yama-input-box {
+      margin-top: 10px;
+      padding: 5px 8px 5px 8px;
+      width: 280px;
+      height: 28px;
+      border: solid 1px #eee;
+      border-radius: 3px;
+      background: white;
+      display: block;
+    }
+  }
+  .yama-info-select {
+    margin: 10px;
+    padding-top: 10px;
+    label {
+      color: white;
+      font-size: 18px;
+    }
+    .yama-input-select-box {
+      margin-top: 10px;
+      padding: 5px 8px 5px 8px;
+      width: 295px;
+      height: 38px;
+      border: solid 1px #eee;
+      border-radius: 3px;
+      background: white;
+      display: block;
+    }
+  }
+  .yama-registration-btn {
+    .search-btn {
+      margin: 20px 110px;
+      padding: 5px 8px 5px 8px;
+      width: 100px;
+      height: 28px;
+      border: solid 1px #eee;
+      border-radius: 3px;
+      background: #eee;
+      display: block;
+    }
+  }
+}

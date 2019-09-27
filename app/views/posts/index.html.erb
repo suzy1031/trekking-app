@@ -1,0 +1,84 @@
+<body>
+  <%= render "posts/header" %>
+  <main>
+    <div class="large-container">
+      <div class="middle-container">
+        <div class="post-title-container">
+          <h2 class="list-title">山登り好きの最新投稿</h2>
+          <div class="new-icon">
+            <p>new</p>
+          </div>
+        </div>
+        <div class="latest-posts">
+          <div class="post-box">
+            <div class="post-picture">
+              <%= image_tag"利尻山.png", class:"post-yama-picture"%>
+            </div>
+            <div class="post-yama-description">
+              <label>fugaさんの投稿</label>
+              <div class="post-yama-display name">富士山</div>
+              <div class="post-latest-comment">ここに一言コメント表示するここに最新のコメントを一件表示する</div>
+            </div>
+          </div>
+          <div class="post-box">
+            <div class="post-picture">
+              <%= image_tag"利尻山.png", class:"post-yama-picture"%>
+            </div>
+            <div class="post-yama-description">
+              <label>fugaさんの投稿</label>
+              <div class="post-yama-display name">富士山</div>
+              <div class="post-latest-comment">ここに一言コメント表示するここに最新のコメントを一件表示する</div>
+            </div>
+          </div>
+          <div class="post-box">
+            <div class="post-picture">
+              <%= image_tag"利尻山.png", class:"post-yama-picture"%>
+            </div>
+            <div class="post-yama-description">
+              <label>fugaさんの投稿</label>
+              <div class="post-yama-display name">富士山</div>
+              <div class="post-latest-comment">ここに一言コメント表示するここに最新のコメントを一件表示する</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%# 上が他ユーザーが投稿した新着山情報の表示範囲 %>
+      <%# 下が他ユーザーが投稿した新着山メシ情報の表示範囲 %>
+      <div class="middle-container">
+        <div class="post-title-container">
+          <h2 class="list-title">山メシ最新投稿</h2>
+          <div class="new-icon">
+            <p>new</p>
+          </div>
+        </div>
+        <div class="latest-posts">
+          <div class="post-box">
+            <div class="post-picture">
+              <%= image_tag"肉.png", class:"post-yama-picture"%>
+            </div>
+            <div class="post-yama-description">
+              <label>fugaさんの投稿</label>
+              <div class="post-yama-display name">ステーキ</div>
+              <div class="post-latest-comment">ここに一言コメント表示するここに最新のコメントを一件表示する</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%# 下はレスポンシブユーザーマイページの表示範囲 %>
+      <div class="user-container">
+        <div class="user-top">
+          <h2 class="user-name">hogeさんマイページ</h2>
+          <%= image_tag"顔.png", class:"user-picture"%>
+        </div>
+        <div class="responsive-user-box">
+          <div class="user-box-top">
+          仮置き。実装中。
+          </div>
+        </div>
+      </div>
+    </div>
+    <%# <%= render "posts/registration" %>
+    <%= render "posts/lists" %>
+  </main>
+  <%= render "posts/footer" %>
+</body>
