@@ -1,0 +1,16 @@
+<%= form_for @post do |f| %>
+  <%= f.label :山の名前 %>
+  <span>必須</span>
+  <%= f.text_field :name, placeholder: '例) 高尾山' %>
+  <%= f.label :歩行距離（km） %>
+  <%= f.text_field :walking_distance, placeholder: '例) 1.2km→1200' %>
+  <%= f.label :山頂標高（m） %>
+  <%= f.text_field :elevation, placeholder: '例) 1200' %>
+  <%= f.label :難易度 %>
+  <%= f.select :difficulty, Post.difficulties_i18n.invert, {}, class: 'hoge', placeholder: '歩行距離(km)' %>
+  <%= f.label :コメント %>
+  <span>必須</span>
+  <%= f.text_area :text, placeholder: '一言コメント' %>
+  <%= f.file_field :image %>
+  <%= f.submit '登録' %>
+<% end %>

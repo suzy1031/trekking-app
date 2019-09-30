@@ -5,7 +5,7 @@
       <div class="box-top">
         <div class="picture">
           <% if post.image.present? %>
-            <%= image_tag post.image, class:"yama-picture"%>
+            <%= image_tag post.image.url, class:"yama-picture"%>
           <% else %>
             <%= image_tag"no_image.png", class:"yama-picture"%>
           <% end %>
@@ -22,7 +22,7 @@
               歩行距離:<%= post.walking_distance %>KM
             </div>
             <div class="yama-display">
-              難易度:<%= post.difficulty %>
+              <%= post.difficulty_i18n %>
             </div>
           </div>
           <label>hogeさんの一言コメント</label>
