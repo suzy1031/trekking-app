@@ -1,16 +1,64 @@
-<%= form_for @post do |f| %>
-  <%= f.label :山の名前 %>
-  <span>必須</span>
-  <%= f.text_field :name, placeholder: '例) 高尾山' %>
-  <%= f.label :歩行距離（km） %>
-  <%= f.text_field :walking_distance, placeholder: '例) 1.2km→1200' %>
-  <%= f.label :山頂標高（m） %>
-  <%= f.text_field :elevation, placeholder: '例) 1200' %>
-  <%= f.label :難易度 %>
-  <%= f.select :difficulty, Post.difficulties_i18n.invert, {}, class: 'hoge', placeholder: '歩行距離(km)' %>
-  <%= f.label :コメント %>
-  <span>必須</span>
-  <%= f.text_area :text, placeholder: '一言コメント' %>
-  <%= f.file_field :image %>
-  <%= f.submit '登録' %>
-<% end %>
+<body>
+  <%= render "posts/header" %>
+  <div class="new-post-box">
+    <div class="new-post-container">
+      <div class="new-name">
+        登った山を投稿しよう
+      </div>
+      <%= form_for @post do |f| %>
+        <div class="form-registration-box">
+          <%= f.label :山の名前, class:'new-name-form' %>
+          <%= f.label :必須, class:'form-require' %>
+        </div>
+        <div class="text-form-box">
+          <%= f.text_field :name, autofocus: true, placeholder: '例) 高尾山', class:'new-part-form' %>
+        </div>
+        <div class="form-registration-box">
+          <%= f.label :歩行距離, class:'new-name-form' %>
+          <%= f.label :任意, class:'form-any-require' %>
+        </div>
+        <div class="text-form-box">
+          <%= f.text_field :walking_distance, placeholder: '例) 1.2km→12', class:'new-part-form' %>
+        </div>
+        <div class="form-registration-box">
+          <%= f.label :山頂標高, class:'new-name-form'  %>
+          <%= f.label :任意, class:'form-any-require' %>
+        </div>
+        <div class="text-form-box">
+          <%= f.text_field :elevation, placeholder: '例) 1200m→1200', class:'new-part-form' %>
+        </div>
+        <div class="form-registration-box">
+          <%= f.label :難易度, class:'new-name-form' %>
+          <%= f.label :任意, class:'form-any-require' %>
+        </div>
+        <div class="select-form-box">
+          <i class="fa fa-chevron-down"></i>
+          <%= f.select :difficulty, Post.difficulties_i18n.invert, include_blank: '---', placeholder: '歩行距離(km)' %>
+        </div>
+        <div class="form-registration-box">
+          <%= f.label :コメント, class:'new-name-form' %>
+          <%= f.label :必須, class:'form-require' %>
+        </div>
+        <div class="text-form-box">
+          <%= f.text_area :text, placeholder: '登った感想を書きましょう!', id:'textarea' %>
+        </div>
+        <div class="form-registration-box">
+          <%= f.label :画像, class:'new-name-form' %>
+          <%= f.label :任意, class:'form-any-require' %>
+        </div>
+        <div class="photo-form">
+          <div class="form-mask">
+            <%= f.label :image, class:'form-mask-image' do %>
+              <%= f.file_field :image, class:'hidden' %>
+              <div class="form-mask-image">お気に入りの画像をアップロード</div>
+              <i class="far fa-image fa-3x"></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="preview"></div>
+        <%= f.submit '投稿する', class:'new-form-btn' %>
+      <% end %>
+    </div>
+  </div>
+  <%= render "posts/footer" %>
+</body>
