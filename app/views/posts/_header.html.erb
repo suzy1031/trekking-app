@@ -3,10 +3,10 @@
     <h3 class="logo-txt">大好きな山や山メシをシェアしよう</h3>
     <div class="logo-box">
       <div class="logo">
-        <a href="#">
+        <%= link_to root_path, class:'root-path-logo' do %>
           <%= image_tag"初日の出のアイコン.png", class:"yama-icon"%>
-        </a>
-        <h1 class="small-txt">岳人</h1>
+          <h1 class="small-txt">岳人</h1>
+        <% end %>
       </div>
     </div>
     <form id="search">
