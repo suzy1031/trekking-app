@@ -1,37 +1,39 @@
 <h2 class="list-title">hogeさんが登った山リスト</h2>
 <ul class="horizontal-list">
   <% @posts.each do |post| %>
-    <li class="item">
-      <div class="box-top">
-        <div class="picture">
-          <% if post.image.present? %>
-            <%= image_tag post.image.url, class:"yama-picture"%>
-          <% else %>
-            <%= image_tag"no_image.png", class:"yama-picture"%>
-          <% end %>
-        </div>
-        <div class="yama-description">
-          <div class="yama-display name">
-            <%= post.name %>
+    <%= link_to "posts/#{ post.id }" do %>
+      <li class="item">
+        <div class="box-top">
+          <div class="picture">
+            <% if post.image.present? %>
+              <%= image_tag post.image.url, class:"yama-picture"%>
+            <% else %>
+              <%= image_tag"no_image.png", class:"yama-picture"%>
+            <% end %>
           </div>
           <div class="yama-description">
-            <div class="yama-display">
-              山頂標高：<%= post.elevation %>M
+            <div class="yama-display name">
+              <%= post.name %>
             </div>
-            <div class="yama-display">
-              歩行距離:<%= post.walking_distance %>KM
+            <div class="yama-description">
+              <div class="yama-display">
+                山頂標高：<%= post.elevation %>M
+              </div>
+              <div class="yama-display">
+                歩行距離:<%= post.walking_distance %>KM
+              </div>
+              <div class="yama-display">
+                <%= post.difficulty_i18n %>
+              </div>
             </div>
-            <div class="yama-display">
-              <%= post.difficulty_i18n %>
+            <label>hogeさんの一言コメント</label>
+            <div class="latest-comment">
+              <%= post.text %>
             </div>
+            <i class="fa fa-heart fa-2x"></i>
           </div>
-          <label>hogeさんの一言コメント</label>
-          <div class="latest-comment">
-            <%= post.text %>
-          </div>
-          <i class="fa fa-heart fa-2x"></i>
         </div>
-      </div>
-    </li>
+      </li>
+      <% end %>
   <% end %>
 </ul>

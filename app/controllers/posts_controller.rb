@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find( params[:id] )
   end
 
   def new
@@ -14,8 +15,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.create(post_params)
     if @post.save
+      flash[:success] = "投稿が完了しました！"
       redirect_to :root
     else
+      # flash.nowを使うシチュエーションは、リダイレクトをしない場合
+      flash.now[:alert] = "投稿が失敗しました。"
       render :new
     end
   end
