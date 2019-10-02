@@ -4,7 +4,7 @@
     <div class="logo-box">
       <div class="logo">
         <%= link_to root_path, class:'root-path-logo' do %>
-          <%= image_tag"初日の出のアイコン.png", class:"yama-icon"%>
+          <%= image_tag"初日の出のアイコン.png", class:'yama-icon' %>
           <h1 class="small-txt">岳人</h1>
         <% end %>
       </div>
@@ -13,21 +13,37 @@
       <input type="text" class="search-txt" placeholder="山の名前を入力", name="query-search">
       <input type="submit" class="search-btn" value="検索">
     </form>
-    <div id="mypage-header">
-      <ul class="mypage-contents">
-        <div class="link-reg">
-          <i class="fa fa-mountain fa-2x"></i>
-          <%= link_to "登った山を投稿", new_post_path, class:"mypage-box" %>
+    <% if user_signed_in? %>
+      <div id="mypage-header">
+        <ul class="mypage-contents">
+          <div class="link-reg">
+            <i class="fa fa-mountain fa-2x"></i>
+            <%= link_to "登った山を投稿", new_post_path, class:'mypage-box' %>
+          </div>
+          <div class="link-reg">
+            <i class="fa fa-utensils fa-2x"></i>
+            <%= link_to "山メシを投稿", {}, class:'mypage-box' %>
+          </div>
+          <div class="link-reg">
+            <i class="far fa-user fa-2x"></i>
+            <%= link_to "マイページ", {}, class:'mypage-box' %>
+          </div>
+          <div class="link-reg">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'mypage-box' %>
+          </div>
+        </ul>
+      </div>
+      <% else %>
+        <div id="mypage-header">
+          <ul class="mypage-contents">
+            <div class="link-reg">
+              <%= link_to "ログイン", new_user_session_path, class: 'post', class:'mypage-box' %>
+            </div>
+            <div class="link-reg">
+              <%= link_to "新規登録", new_user_registration_path, class: 'post', class:'mypage-box' %>
+            </div>
+          </ul>
         </div>
-        <div class="link-reg">
-          <i class="fa fa-utensils fa-2x"></i>
-          <%= link_to "山メシを投稿", {}, class:"mypage-box" %>
-        </div>
-        <div class="link-reg">
-          <i class="far fa-user fa-2x"></i>
-          <%= link_to "マイページ", {}, class:"mypage-box" %>
-        </div>
-      </ul>
-    </div>
+      <% end %>
   </div>
 </header>

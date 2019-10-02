@@ -73,15 +73,22 @@
         </div>
         <div class="responsive-user-box">
           <div class="user-box-top">
-            仮置き。実装中。
-            <%= link_to "登った山を投稿", new_post_path, class:"yama-link"%>
+            仮置き。実装中。<br/>
+            <% if user_signed_in? %>
+              <%= link_to "登った山を投稿", new_post_path %><br/>
+              <%= link_to "マイページ", {}, class:'mypage-box' %><br/>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <% else%>
+              <%= link_to "ログイン", new_user_session_path, class: 'post' %><br/>
+              <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
     <div id="main-container">
       <%= render "posts/yama-lists" %>
-      <%= render "meals/meshi-lists"%>
+      <%= render "meals/meshi-lists" %>
     </div>
   </main>
   <%= render "posts/footer" %>
