@@ -1,6 +1,6 @@
-<h2 class="list-title">hogeさんが登った山リスト</h2>
+<h2 class="list-title"><%=current_user.nickname %>さんが登った山リスト</h2>
 <ul class="horizontal-list">
-  <% @posts.each do |post| %>
+  <% @current_user_posts.each do |post| %>
     <%= link_to "posts/#{ post.id }" do %>
       <li class="item">
         <div class="box-top">
@@ -20,7 +20,7 @@
                 山頂標高：<%= post.elevation %>M
               </div>
               <div class="yama-display">
-                歩行距離:<%= post.walking_distance %>KM
+                歩行距離：<%= post.walking_distance %>KM
               </div>
               <div class="yama-display">
                 <%= post.difficulty_i18n %>
@@ -34,6 +34,6 @@
           </div>
         </div>
       </li>
-      <% end %>
+    <% end %>
   <% end %>
 </ul>

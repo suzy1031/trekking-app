@@ -1,4 +1,4 @@
-<h2 class="list-title">hogeさんが食べた山メシリスト</h2>
+<h2 class="list-title"><%= current_user.nickname %>さんが食べた山メシリスト</h2>
 <ul class="horizontal-list">
   <% @meals.each do |meal| %>
     <li class="item">

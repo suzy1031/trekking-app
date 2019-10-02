@@ -1,7 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order('updated_at DESC')
-    @meals = Meal.all.order('updated_at DESC')
+    @posts = Post.includes(:user).order('updated_at DESC')
+    @meals = Meal.includes(:user).order('updated_at DESC')
+    if user_signed_in?
+        @current_user_posts=Post.where(user_id:current_user.id)
+    end
   end
 
   def show
