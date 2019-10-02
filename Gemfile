@@ -7,6 +7,9 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.3'
 gem 'carrierwave','1.2.2'
 gem 'mini_magick', '4.7.0'
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
