@@ -44,23 +44,28 @@
     .detail-btn {
       border-top: 1px solid #f5f3f4;
       margin-top: 20px;
-    }
-    .detail-edit-btn {
-      font-size: 24px;
-      background: #f5f3f4;
-      border: none;
-      border-radius: 3px;
-      margin: 10px;
-      padding: 10px;
-    }
-    .detail-delete-btn {
-      font-size: 24px;
-      background: red;
-      color: white;
-      border: none;
-      border-radius: 3px;
-      margin: 10px;
-      padding: 10px;
+      .detail-edit-btn {
+        font-size: 24px;
+        color: black;
+        background: #f5f3f4;
+        border: none;
+        border-radius: 3px;
+        margin: 10px;
+        padding: 10px;
+        text-decoration: none;
+      }
+      .detail-delete-btn {
+        font-size: 24px;
+        background: red;
+        color: white;
+        border-radius: 3px;
+        margin: 10px;
+        padding: 10px;
+        text-decoration: none;
+      }
+      .detail-delete-btn:hover,.detail-edit-btn:hover {
+        opacity: 0.7;
+      }
     }
   }
 }

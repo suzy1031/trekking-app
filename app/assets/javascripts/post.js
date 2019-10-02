@@ -36,3 +36,15 @@ $(function() {
     reader.readAsDataURL(file);
   });
 });
+// 削除する時に確認するwindowを表示
+$(function() {
+  $(".detail-delete-btn").click(function() {
+  // キャンセルの時の処理
+    if(!confirm('本当に削除しますか？')){
+      return false;
+    }else{
+      // OKの時の処理
+      location.href = '/posts';
+    }
+  });
+});

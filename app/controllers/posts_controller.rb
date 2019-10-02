@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     @posts = Post.includes(:user).order('updated_at DESC')
     @meals = Meal.includes(:user).order('updated_at DESC')
     if user_signed_in?
-        @current_user_posts=Post.where(user_id:current_user.id)
+        @current_user_posts=Post.where(user_id:current_user.id).order('updated_at DESC')
     end
   end
 
@@ -24,6 +24,17 @@ class PostsController < ApplicationController
       # flash.nowを使うシチュエーションは、リダイレクトをしない場合
       flash.now[:alert] = "投稿が失敗しました。"
       render :new
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      flash[:success] = '商品を削除しました'
+      redirect_to :root
+    else
+      flash.now[:alert] = '商品の削除に失敗しました'
+      render :show
     end
   end
 
