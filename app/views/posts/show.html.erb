@@ -1,5 +1,5 @@
 <body>
-  <%= render "posts/header" %>
+<%= render "posts/header" %>
   <div class="detail-post-box">
     <div class="detail-post-container">
       <div class="detail-name">
@@ -30,11 +30,18 @@
       </div>
       <h2>ユーザーさんからのコメント</h2>
       <div class="detail-comment">ここにuser.commentを最大4件表示する。</div>
-      <div class="detail-btn">
-        <button class="detail-edit-btn">編集する</button>
-        <button class="detail-delete-btn">削除する</button>
-      </div>
+      <% if user_signed_in? && current_user.id == @post.user_id %>
+        <div class="detail-btn">
+          <%= link_to 'ホーム', root_path, class:'detail-edit-btn' %>
+          <button class="detail-edit-btn">編集する</button>
+          <%= link_to '削除する', post_path(@post), method: :delete, class:'detail-delete-btn' %>
+        </div>
+      <% else %>
+        <div class="detail-btn">
+          <%= link_to 'ホームへ戻る', root_path %>
+        </div>
+      <% end %>
     </div>
   </div>
-  <%= render "posts/footer" %>
+<%= render "posts/footer" %>
 </body>
