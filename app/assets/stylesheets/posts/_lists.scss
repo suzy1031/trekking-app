@@ -5,6 +5,18 @@
   font-weight: bold;
   padding: 20px;
 }
+.before-login-box {
+  margin: 0 auto;
+  width: 480px;
+  height: 225px;
+  background: white;
+  margin-bottom: 20px;
+  .before-login-text {
+    font-size: 16px;
+    text-align: center;
+    line-height: 225px;
+  }
+}
 .horizontal-list {
   overflow-x: auto;
   white-space: nowrap;
