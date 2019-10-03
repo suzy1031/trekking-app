@@ -7,20 +7,22 @@
   </div>
   <div class="latest-posts">
     <% @meals.each do |meal| %>
-      <div class="post-box">
-        <div class="post-picture">
-          <% if meal.image.present? %>
-            <%= image_tag meal.image.url, class:"post-yama-picture"%>
-          <% else %>
-            <%= image_tag"no_image.png", class:"post-yama-picture"%>
-          <% end %>
+      <%= link_to "meals/#{ meal.id }" do %>
+        <div class="post-box">
+          <div class="post-picture">
+            <% if meal.image.present? %>
+              <%= image_tag meal.image.url, class:"post-yama-picture"%>
+            <% else %>
+              <%= image_tag"no_image.png", class:"post-yama-picture"%>
+            <% end %>
+          </div>
+          <div class="post-yama-description">
+            <label><%= meal.user.nickname %>さんの投稿</label>
+            <div class="post-yama-display name"><%= meal.name %></div>
+            <div class="post-latest-comment"><%= meal.food_stuff %></div>
+          </div>
         </div>
-        <div class="post-yama-description">
-          <label><%= meal.user.nickname %>さんの投稿</label>
-          <div class="post-yama-display name"><%= meal.name %></div>
-          <div class="post-latest-comment"><%= meal.food_stuff %></div>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -1,33 +1,35 @@
 <h2 class="list-title"><%= current_user.nickname %>さんが食べた山メシリスト</h2>
 <ul class="horizontal-list">
   <% @current_user_meals.each do |meal| %>
-    <li class="item">
-      <div class="box-top">
-        <div class="picture">
-          <% if meal.image.present? %>
-            <%= image_tag meal.image.url, class:"yama-picture"%>
-          <% else %>
-            <%= image_tag"no_image.png", class:"yama-picture"%>
-          <% end %>
+    <%= link_to "meals/#{ meal.id }" do %>
+      <li class="item">
+        <div class="box-top">
+          <div class="picture">
+            <% if meal.image.present? %>
+              <%= image_tag meal.image.url, class:"yama-picture"%>
+            <% else %>
+              <%= image_tag"no_image.png", class:"yama-picture"%>
+            <% end %>
+          </div>
+          <div class="yama-description">
+            <div class="yama-display name">
+              <%= meal.name %>
+            </div>
+            <i class="fa fa-heart fa-2x"></i>
+            <div class="yama-display">
+              調理時間:<%= meal.cooking_time %>分
+            </div>
+            <label>調理方法</label>
+            <div class="latest-comment">
+              <%= meal.cooking_method %>
+            </div>
+            <label>食材・材料</label>
+            <div class="latest-comment">
+              <%= meal.food_stuff %>
+            </div>
+          </div>
         </div>
-        <div class="yama-description">
-          <div class="yama-display name">
-            <%= meal.name %>
-          </div>
-          <i class="fa fa-heart fa-2x"></i>
-          <div class="yama-display">
-            調理時間:<%= meal.cooking_time %>分
-          </div>
-          <label>調理方法</label>
-          <div class="latest-comment">
-            <%= meal.cooking_method %>
-          </div>
-          <label>食材・材料</label>
-          <div class="latest-comment">
-            <%= meal.food_stuff %>
-          </div>
-        </div>
-      </div>
-    </li>
+      </li>
+    <% end %>
   <% end %>
 </ul>

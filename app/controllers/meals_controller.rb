@@ -3,6 +3,10 @@ class MealsController < ApplicationController
     @meal = Meal.new
   end
 
+  def show
+    @meal = Meal.find(params[:id])
+  end
+
   def create
     @meal = Meal.create(meal_params)
     if @meal.save
