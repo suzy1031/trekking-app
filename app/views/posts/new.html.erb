@@ -1,5 +1,13 @@
 <body>
   <%= render "posts/header" %>
+  <%= render 'layouts/flash' %>
+  <% if @post.errors.any? %>
+    <ul>
+      <% @post.errors.full_messages.each do |message|%>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <div class="new-post-box">
     <div class="new-post-container">
       <div class="new-name">
