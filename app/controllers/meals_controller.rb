@@ -54,6 +54,7 @@ class MealsController < ApplicationController
                                 :image,
                                 :food_stuff,
                                 :cooking_time,
+                                :cooking_method,
                                 :remove_image
                                 ).merge(user_id: current_user.id)
   end
