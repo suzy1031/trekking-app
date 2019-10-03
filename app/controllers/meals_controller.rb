@@ -18,6 +18,23 @@ class MealsController < ApplicationController
     end
   end
 
+  def edit
+    @meal = Meal.find(params[:id])
+  end
+
+  def update
+    @meal = Meal.find(params[:id])
+    if @meal.user_id == current_user.id
+      if @meal.update(meal_params)
+        flash[:success] = "編集が完了しました！"
+        redirect_to :root
+      else
+        flash.now[:alert] = '商品の編集に失敗しました'
+        render :edit
+      end
+    end
+  end
+
   def destroy
     @meal = Meal.find(params[:id])
     if @meal.destroy
@@ -37,6 +54,7 @@ class MealsController < ApplicationController
                                 :image,
                                 :food_stuff,
                                 :cooking_time,
+                                :remove_image
                                 ).merge(user_id: current_user.id)
   end
 

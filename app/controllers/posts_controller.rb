@@ -40,7 +40,7 @@ class PostsController < ApplicationController
         redirect_to :root
       else
         flash.now[:alert] = '商品の編集に失敗しました'
-        render :show
+        render :edit
       end
     end
   end
