@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     @meals = Meal.includes(:user).order('updated_at DESC')
     if user_signed_in?
         @current_user_posts=Post.where(user_id:current_user.id).order('updated_at DESC')
+        @current_user_meals=Meal.where(user_id:current_user.id).order('updated_at DESC')
     end
   end
 

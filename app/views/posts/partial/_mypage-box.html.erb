@@ -1,0 +1,25 @@
+<div class="middle-container mypage">
+  <% if user_signed_in? %>
+    <div class="post-title-container">
+      <h2 class="user-name"><%= current_user.nickname %>さんのマイページ</h2>
+    </div>
+    <div class="responsive-user-box">
+      <div class="user-box-top">
+        仮置き。実装中。<br/>
+        <%= link_to "山メシを投稿", new_meal_path %><br/>
+        <%= link_to "登った山を投稿", new_post_path %><br/>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </div>
+    </div>
+  <% else%>
+    <div class="user-top">
+      <h2 class="user-name">ログインしよう！</h2>
+    </div>
+    <div class="responsive-user-box">
+      仮置き。実装中。<br/>
+      <%= link_to "ログイン", new_user_session_path, class: 'post' %><br/>
+      <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+    </div>
+  <% end %>
+  </div>
+</div>

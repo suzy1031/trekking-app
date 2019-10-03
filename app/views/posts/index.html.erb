@@ -1,100 +1,20 @@
 <body>
-  <%= render "layouts/flash" %>
-  <%= render "posts/header" %>
+  <%= render "layouts/shared/header" %>
+  <%= render "layouts/shared/flash" %>
   <main>
     <div class="large-container">
-      <div class="middle-container">
-        <div class="post-title-container">
-          <h2 class="list-title">山登り好きの最新投稿</h2>
-          <div class="new-icon">
-            <p>new</p>
-          </div>
-        </div>
-        <div class="latest-posts">
-          <% @posts.each do |post| %>
-            <%= link_to "posts/#{ post.id }" do %>
-              <div class="post-box">
-                <div class="post-picture">
-                  <% if post.image.present? %>
-                    <%= image_tag post.image.url, class:"post-yama-picture"%>
-                  <% else %>
-                    <%= image_tag"no_image.png", class:"post-yama-picture"%>
-                  <% end %>
-                </div>
-                <div class="post-yama-description">
-                  <label><%= post.user.nickname %>さんの投稿</label>
-                  <div class="post-yama-display name"><%= post.name %></div>
-                  <div class="post-latest-comment"><%= post.text %></div>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-      <%# 上が他ユーザーが投稿した新着山情報の表示範囲 %>
-      <%# 下が他ユーザーが投稿した新着山メシ情報の表示範囲 %>
-      <div class="middle-container">
-        <div class="post-title-container">
-          <h2 class="list-title">山メシ最新投稿</h2>
-          <div class="new-icon">
-            <p>new</p>
-          </div>
-        </div>
-        <div class="latest-posts">
-          <% @posts.each do |post| %>
-            <%= link_to "posts/#{ post.id }" do %>
-              <div class="post-box">
-                <div class="post-picture">
-                  <% if post.image.present? %>
-                    <%= image_tag post.image.url, class:"post-yama-picture"%>
-                  <% else %>
-                    <%= image_tag"no_image.png", class:"post-yama-picture"%>
-                  <% end %>
-                </div>
-                <div class="post-yama-description">
-                  <label><%= post.user.nickname %>さんの投稿</label>
-                  <div class="post-yama-display name"><%= post.name %></div>
-                  <div class="post-latest-comment"><%= post.text %></div>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-      <%# 下はレスポンシブユーザーマイページの表示範囲 %>
-      <div class="middle-container mypage">
-        <% if user_signed_in? %>
-          <div class="post-title-container">
-            <h2 class="user-name"><%= current_user.nickname %>さんのマイページ</h2>
-          </div>
-          <div class="responsive-user-box">
-            <div class="user-box-top">
-              仮置き。実装中。<br/>
-              <%= link_to "登った山を投稿", new_post_path %><br/>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            </div>
-          </div>
-        <% else%>
-          <div class="user-top">
-            <h2 class="user-name">ログインしよう！</h2>
-          </div>
-          <div class="responsive-user-box">
-            仮置き。実装中。<br/>
-            <%= link_to "ログイン", new_user_session_path, class: 'post' %><br/>
-            <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
-          </div>
-        <% end %>
-        </div>
-      </div>
+      <%= render "posts/partial/new-posts"%>
+      <%= render "meals/partial/new-meals"%>
+      <%= render "posts/partial/mypage-box"%>
     </div>
     <div id="main-container">
       <% if signed_in? %>
-        <%= render "posts/yama-lists" %>
-        <%= render "meals/meshi-lists" %>
+        <%= render "posts/partial/yama-lists" %>
+        <%= render "meals/partial/meshi-lists" %>
       <% else %>
-        <%= render "posts/before-lists" %>
+        <%= render "posts/partial/before-lists" %>
       <% end %>
     </div>
   </main>
-  <%= render "posts/footer" %>
+  <%= render "layouts/shared/footer" %>
 </body>
