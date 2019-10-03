@@ -27,6 +27,23 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.user_id == current_user.id
+      if @post.update(post_params)
+        flash[:success] = "編集が完了しました！"
+        redirect_to :root
+      else
+        flash.now[:alert] = '商品の編集に失敗しました'
+        render :show
+      end
+    end
+  end
+
   def destroy
     @post = Post.find(params[:id])
     if @post.destroy
@@ -46,7 +63,8 @@ class PostsController < ApplicationController
                                 :image,
                                 :elevation,
                                 :walking_distance,
-                                :difficulty
+                                :difficulty,
+                                :remove_image
                               ).merge(user_id: current_user.id)
   end
 

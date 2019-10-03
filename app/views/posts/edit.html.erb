@@ -1,0 +1,65 @@
+<body>
+  <%= render "posts/header" %>
+  <div class="new-post-box">
+    <div class="new-post-container">
+      <div class="new-name">
+        投稿を編集
+      </div>
+      <%= form_for @post, url:{ action: 'update' } do |f| %>
+        <div class="form-registration-box">
+          <%= f.label :山の名前, class:'new-name-form' %>
+          <%= f.label :必須, class:'form-require' %>
+        </div>
+        <div class="text-form-box">
+          <%= f.text_field :name, autofocus: true, placeholder: '例) 高尾山', class:'new-part-form' %>
+        </div>
+        <div class="form-registration-box">
+          <%= f.label :歩行距離, class:'new-name-form' %>
+          <%= f.label :任意, class:'form-any-require' %>
+        </div>
+        <div class="text-form-box">
+          <%= f.text_field :walking_distance, placeholder: '例) 1.2km→12', class:'new-part-form' %>
+        </div>
+        <div class="form-registration-box">
+          <%= f.label :山頂標高, class:'new-name-form'  %>
+          <%= f.label :任意, class:'form-any-require' %>
+        </div>
+        <div class="text-form-box">
+          <%= f.text_field :elevation, placeholder: '例) 1200m→1200', class:'new-part-form' %>
+        </div>
+        <div class="form-registration-box">
+          <%= f.label :難易度, class:'new-name-form' %>
+          <%= f.label :任意, class:'form-any-require' %>
+        </div>
+        <div class="select-form-box">
+          <i class="fa fa-chevron-down"></i>
+          <%= f.select :difficulty, Post.difficulties_i18n.invert, include_blank: '---', placeholder: '歩行距離(km)' %>
+        </div>
+        <div class="form-registration-box">
+          <%= f.label :コメント, class:'new-name-form' %>
+          <%= f.label :必須, class:'form-require' %>
+        </div>
+        <div class="text-form-box">
+          <%= f.text_area :text, placeholder: '感想を編集', id:'textarea' %>
+        </div>
+        <div class="form-registration-box">
+          <%= f.label :画像, class:'new-name-form' %>
+          <%= f.label :任意, class:'form-any-require' %>
+        </div>
+        <div class="photo-form">
+          <%= f.file_field :image, id:'post_img' %>
+        </div>
+        <div class="update-image-area">
+          <% if @post.image.present? %><%# 画像が1枚ある時はプレビューを表示させ、新しいimageはimg_prevエリアに表示 %>
+            <%= image_tag @post.image.url, id:'img_prev' if @post.image? %>
+          <% else %><%# 画像が無い場合、新しいimageはpreviewエリアに表示 %>
+            <div class="preview"></div>
+          <% end %>
+        </div>
+        <p><%= f.check_box :remove_image %>画像を削除する</p>
+        <%= f.submit '編集を完了する', class:'new-form-btn' %>
+      <% end %>
+    </div>
+  </div>
+  <%= render "posts/footer" %>
+</body>
