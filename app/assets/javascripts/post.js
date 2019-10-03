@@ -35,6 +35,21 @@ $(function() {
 
     reader.readAsDataURL(file);
   });
+  // 編集する時に画像をpreviewさせる=>変更後の画像をpreviewさせる
+  $(function() {
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    $("#post_img").change(function(){
+      readURL(this);
+    });
+   });
 });
 // 削除する時に確認するwindowを表示
 $(function() {
