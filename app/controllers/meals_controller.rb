@@ -18,6 +18,17 @@ class MealsController < ApplicationController
     end
   end
 
+  def destroy
+    @meal = Meal.find(params[:id])
+    if @meal.destroy
+      flash[:success] = '商品を削除しました'
+      redirect_to :root
+    else
+      flash.now[:alert] = '商品の削除に失敗しました'
+      render :show
+    end
+  end
+
   private
 
   def meal_params
