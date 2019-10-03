@@ -31,7 +31,7 @@
       <% if user_signed_in? && current_user.id == @meal.user_id %>
         <div class="detail-btn">
           <%= link_to 'ホーム', root_path, class:'detail-edit-btn' %>
-          <%= link_to '編集'  %>
+          <%= link_to '編集', edit_meal_path(@meal), method: :get, class:'detail-edit-btn' %>
           <%= link_to '削除する', meal_path(@meal), method: :delete, class:'detail-delete-btn' %>
         </div>
       <% else %>
