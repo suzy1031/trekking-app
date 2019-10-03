@@ -1,11 +1,11 @@
 <h2 class="list-title"><%= current_user.nickname %>さんが食べた山メシリスト</h2>
 <ul class="horizontal-list">
-  <% @meals.each do |meal| %>
+  <% @current_user_meals.each do |meal| %>
     <li class="item">
       <div class="box-top">
         <div class="picture">
           <% if meal.image.present? %>
-            <%= image_tag meal.image, class:"yama-picture"%>
+            <%= image_tag meal.image.url, class:"yama-picture"%>
           <% else %>
             <%= image_tag"no_image.png", class:"yama-picture"%>
           <% end %>

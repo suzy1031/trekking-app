@@ -1,6 +1,6 @@
 <body>
-  <%= render "posts/header" %>
-  <%= render 'layouts/flash' %>
+  <%= render "layouts/shared/header" %>
+  <%= render 'layouts/shared/flash' %>
   <% if @post.errors.any? %>
     <ul>
       <% @post.errors.full_messages.each do |message|%>
@@ -68,5 +68,5 @@
       <% end %>
     </div>
   </div>
-  <%= render "posts/footer" %>
+  <%= render "layouts/shared/footer" %>
 </body>
