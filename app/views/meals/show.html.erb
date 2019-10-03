@@ -1,0 +1,45 @@
+<body>
+<%= render "layouts/shared/header" %>
+  <div class="detail-post-box">
+    <div class="detail-post-container">
+      <div class="detail-name">
+        <%= @meal.name %>
+      </div>
+      <div class="detail-post-picture">
+        <% if @meal.image.present? %>
+          <%= image_tag @meal.image.url, class:"detail-yama-picture"%>
+        <% else %>
+          <%= image_tag"no_image.png", class:"yama-picture"%>
+        <% end %>
+      </div>
+      <h2>山メシの詳細データ</h2>
+      <div class="detail-description">
+        <div class="detail-display">
+          調理時間:<%= @meal.cooking_time %>分
+        </div>
+      </div>
+      <h2>使用する食材</h2>
+      <div class="detail-comment">
+        <%= simple_format(@meal.food_stuff) %>
+      </div>
+      <h2>調理方法</h2>
+      <div class="detail-comment">
+        <%= simple_format(@meal.cooking_method) %>
+      </div>
+      <h2>ユーザーさんからのコメント</h2>
+      <div class="detail-comment">ここにuser.commentを最大4件表示する。</div>
+      <% if user_signed_in? && current_user.id == @meal.user_id %>
+        <div class="detail-btn">
+          <%= link_to 'ホーム', root_path, class:'detail-edit-btn' %>
+          <%= link_to '編集'  %>
+          <%= link_to '削除する' %>
+        </div>
+      <% else %>
+        <div class="detail-btn">
+          <%= link_to 'ホームへ戻る', root_path, class:'detail-edit-btn' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<%= render "layouts/shared/footer" %>
+</body>
