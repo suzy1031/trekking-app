@@ -30,16 +30,53 @@
         border-radius: 3px;
         font-size: 18px;
         padding: 10px;
+        .comment-form {
+          width: 400px;
+          max-height: 200px;
+          margin: 10px;
+          padding: 8px;
+          line-height: 20px;
+          border: solid 1px #ccc;
+          border-radius: 3px;
+        }
+        .comment-btn {
+          color: black;
+          background: white;
+          border-radius: 3px;
+          margin-bottom: 10px;
+          padding: 10px;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        .comment-btn:hover {
+          opacity: 0.7
+        }
       }
     }
     .detail-comment {
       width: 450px;
       height: auto;
-      margin: 0 auto;
+      margin: 10px auto;
       background: #f5f3f4;
       border: 1px solid #f5f3f4;
       border-radius: 3px;
       padding: 10px;
+      .comment-box {
+        overflow-y: scroll;
+        height: 300px;
+        .comment-text-area {
+          padding: 5px;
+          background: white;
+          margin: 10px 0px;
+          .comment-user-name {
+            padding: 5px;
+            border-bottom: solid 1px #f5f3f4;
+          }
+          .comment-text {
+            padding: 5px;
+          }
+        }
+      }
     }
     .detail-btn {
       margin-top: 40px;
