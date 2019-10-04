@@ -28,8 +28,36 @@
       <div class="detail-comment">
         <%= simple_format(@post.text) %>
       </div>
-      <h2>ユーザーさんからのコメント</h2>
-      <div class="detail-comment">ここにuser.commentを最大4件表示する。</div>
+      <h2>ユーザーさんからのコメント(<%= @comments.count %>)</h2>
+      <div class="detail-comment">
+        <div class="comment-box">
+          <div class="comment-box-small">
+            <% if @comments %>
+              <% @comments.each do |comment| %>
+                <div class="comment-text-area">
+                  <div class="comment-user-name">
+                    <%= comment.user.nickname %>さんからのコメント
+                  </div>
+                  <div class="comment-text">
+                  <%= simple_format(comment.text) %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <h2>コメントを書く</h2>
+      <div class="detail-description">
+        <div class="detail-display">
+          <% if current_user %>
+            <%= form_for [@post, Comment.new] do |f| %>
+              <%= f.text_area :text, class:"comment-form", id:"textarea" %>
+              <%= f.submit 'コメントする', class:"comment-btn" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
       <% if user_signed_in? && current_user.id == @post.user_id %>
         <div class="detail-btn">
           <%= link_to 'ホーム', root_path, class:'detail-edit-btn' %>
