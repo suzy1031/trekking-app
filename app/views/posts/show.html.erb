@@ -32,7 +32,7 @@
       <div class="detail-comment">
         <div class="comment-box">
           <div class="comment-box-small">
-            <% if @comments %>
+            <% if @comments.present? %>
               <% @comments.each do |comment| %>
                 <div class="comment-text-area">
                   <div class="comment-user-name">
@@ -43,21 +43,23 @@
                   </div>
                 </div>
               <% end %>
+            <% else %>
+              <h2>まだコメントはありません</h2>
             <% end %>
           </div>
         </div>
       </div>
-      <h2>コメントを書く</h2>
-      <div class="detail-description">
-        <div class="detail-display">
-          <% if current_user %>
+      <% if current_user %>
+        <h2>コメントを書く</h2>
+        <div class="detail-description">
+          <div class="detail-display">
             <%= form_for [@post, Comment.new] do |f| %>
               <%= f.text_area :text, class:"comment-form", id:"textarea" %>
               <%= f.submit 'コメントする', class:"comment-btn" %>
             <% end %>
-          <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
       <% if user_signed_in? && current_user.id == @post.user_id %>
         <div class="detail-btn">
           <%= link_to 'ホーム', root_path, class:'detail-edit-btn' %>
