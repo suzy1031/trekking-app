@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'posts#index'
-  resources :posts
-  resources :meals
+  resources :posts do
+    resources :comments, only: [:create]
+  end
+  resources :meals do
+    resources :comments, only: [:create]
+  end
 end
