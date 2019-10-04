@@ -13,37 +13,40 @@
       <input type="text" class="search-txt" placeholder="山の名前を入力", name="query-search">
       <input type="submit" class="search-btn" value="検索">
     </form>
-    <% if user_signed_in? %>
-      <div id="mypage-header">
-        <ul class="mypage-contents">
-          <div class="link-reg">
-            <i class="fa fa-mountain fa-2x"></i>
-            <%= link_to "登った山を投稿", new_post_path, class:'mypage-box' %>
-          </div>
-          <div class="link-reg">
-            <i class="fa fa-utensils fa-2x"></i>
-            <%= link_to "山メシを投稿", new_meal_path, class:'mypage-box' %>
-          </div>
-          <div class="link-reg">
-            <i class="far fa-user fa-2x"></i>
-            <%= link_to "マイページ", {}, class:'mypage-box' %>
-          </div>
-          <div class="link-reg">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'mypage-box' %>
-          </div>
-        </ul>
-      </div>
-      <% else %>
-        <div id="mypage-header">
-          <ul class="mypage-contents">
-            <div class="link-reg">
-              <%= link_to "ログイン", new_user_session_path, class: 'post', class:'mypage-box' %>
-            </div>
-            <div class="link-reg">
-              <%= link_to "新規登録", new_user_registration_path, class: 'post', class:'mypage-box' %>
-            </div>
-          </ul>
-        </div>
-      <% end %>
   </div>
+  <% if user_signed_in? %>
+<div id="mypage-header">
+  <div class="mypage-contents">
+    <div class="user-link">
+      <%= link_to "登った山を投稿", new_post_path, class:'user-link-yama header' %>
+    </div>
+    <div class="user-link">
+      <%= link_to "山メシを投稿", new_meal_path, class:'user-link-meshi header' %>
+    </div>
+    <div class="user-link">
+      <%= link_to "マイページ (仮)", "#", class:'user-link-meshi header' %>
+    </div>
+    <div class="logout-btn">
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'user-link-logout' %>
+    </div>
+    <div class="profile-btn">
+      <%= link_to 'プロフィール変更', edit_user_registration_path, class:'user-link-profile' %>
+    </div>
+  </div>
+</div>
+<% else %>
+  <div id="mypage-header">
+    <div class="mypage-contents">
+      <h2 class="user-name">
+        こんにちは！ユーザーさん！
+      </h2>
+      <div class="user-link">
+        <%= link_to "ログイン", new_user_session_path, class:'user-link-yama header' %>
+      </div>
+      <div class="user-link">
+        <%= link_to "新規登録", new_user_registration_path, class:'user-link-yama header' %>
+      </div>
+    </div>
+  </div>
+  <% end %>
 </header>

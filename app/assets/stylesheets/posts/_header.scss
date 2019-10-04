@@ -47,37 +47,3 @@
     }
   }
 }
-#mypage-header {
-  display: none !important;
-}
-@media screen and (max-width: 1024px) {
-  .middle-container.mypage {
-    display: none !important;
-  }
-  #mypage-header {
-    display: block !important;
-    background: green;
-    border-top: 1px solid #f5f3f4;
-    border-radius: 3px;
-    .mypage-contents {
-      display: flex;
-      margin: 12px;
-      .link-reg {
-        display: flex;
-        border: 1px solid #f5f3f4;
-        border-radius: 3px;
-        background: white;
-        margin: 0 auto;
-        .mypage-box {
-          color: black;
-          font-size: 24px;
-          margin: 5px 10px;
-          text-decoration: none;
-        }
-        i.fa, .far {
-          margin: 5px 5px 5px 10px;
-        }
-      }
-    }
-  }
-}

@@ -1,25 +1,48 @@
 <div class="middle-container mypage">
   <% if user_signed_in? %>
     <div class="post-title-container">
-      <h2 class="user-name"><%= current_user.nickname %>さんのマイページ</h2>
+      <h2 class="user-name">
+        マイページ
+      </h2>
+      <div class="logout-btn">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'user-link-logout' %>
+      </div>
+      <div class="profile-btn">
+        <%= link_to 'プロフィール変更', edit_user_registration_path, class:'user-link-profile' %>
+      </div>
     </div>
     <div class="responsive-user-box">
-      <div class="user-box-top">
-        仮置き。実装中。<br/>
-        <%= link_to "山メシを投稿", new_meal_path %><br/>
-        <%= link_to "登った山を投稿", new_post_path %><br/>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <div class="posts-count">
+        <%= current_user.nickname %>さんの投稿数
+      </div>
+      <div class="mypage-count-box">
+        登った山は<%= @current_user_posts.count %>ヶ所です！<br/>
+        山メシの投稿は<%=@current_user_meals.count %>食です！
+      </div>
+      <div class="follow-box">
+        <div class="follower">
+          フォロワー99人（仮）
+          フォロー50人（仮）
+        </div>
+      </div>
+      <div class="user-link">
+        <%= link_to "山メシを投稿", new_meal_path, class:'user-link-meshi' %>
+        <%= link_to "登った山を投稿", new_post_path, class:'user-link-yama' %>
       </div>
     </div>
   <% else%>
     <div class="user-top">
-      <h2 class="user-name">ログインしよう！</h2>
+      <h2 class="user-name">こんにちは！ユーザーさん！</h2>
     </div>
     <div class="responsive-user-box">
-      仮置き。実装中。<br/>
-      <%= link_to "ログイン", new_user_session_path, class: 'post' %><br/>
-      <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+      <div class="posts-count">
+        まずはログインしよう！
+      </div>
+      <div class="user-link">
+        <%= link_to "ログイン", new_user_session_path, class:'user-link-meshi' %>
+        <%= link_to "新規登録", new_user_registration_path, class:'user-link-meshi' %>
+      </div>
     </div>
-  <% end %>
+<% end %>
   </div>
 </div>
