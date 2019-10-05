@@ -26,8 +26,8 @@
         </div>
       </div>
       <div class="user-link">
-        <%= link_to "山メシを投稿", new_meal_path, class:'user-link-meshi' %>
-        <%= link_to "登った山を投稿", new_post_path, class:'user-link-yama' %>
+        <%= link_to "山メシを投稿", new_meal_path, class:'user-link-meshi',data: {"turbolinks"=>false} %>
+        <%= link_to "登った山を投稿", new_post_path, class:'user-link-yama',data: {"turbolinks"=>false} %>
       </div>
     </div>
   <% else%>
