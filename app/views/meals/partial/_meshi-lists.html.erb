@@ -1,7 +1,7 @@
 <h2 class="list-title"><%= current_user.nickname %>さんが食べた山メシリスト</h2>
 <ul class="horizontal-list">
   <% @current_user_meals.each do |meal| %>
-    <%= link_to "meals/#{ meal.id }" do %>
+    <%= link_to "meals/#{ meal.id }",data: {"turbolinks"=>false} do %>
       <li class="item">
         <div class="box-top">
           <div class="picture">
