@@ -48,11 +48,13 @@
       color: black;
       position: relative;
     }
-    .fa.fa-heart {
+    .like {
       position: absolute;
-      color: black;
       right: 5px;
-      top: 10%;
+      top: 5%;
+      .fas.fa-heart {
+        color: pink;
+      }
     }
     .yama-description .name {
       color: black;

@@ -4,8 +4,8 @@
     <div class="detail-post-container">
       <div class="detail-name">
         <%= @post.name %>
+        <%= render 'likes/like' %>
       </div>
-      <%= render 'likes/like' %>
       <div class="detail-post-picture">
         <% if @post.image.present? %>
           <%= image_tag @post.image.url, class:"detail-yama-picture"%>
