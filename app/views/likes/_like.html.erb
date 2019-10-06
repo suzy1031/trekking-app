@@ -1,11 +1,15 @@
 <%if @post.liked?(current_user)%>
   <%= link_to post_like_path(@post), method: :delete, id:"like-button", remote: true do %>
-    <i class="fas fa-heart"></i>
-    <a class="liked"><%= @post.likes_count %></a>
+    <div class="detail-like">
+      <i class="fas fa-heart fa-2x"></i>
+      <span><%= @post.likes_count %></span>
+    </div>
   <%end%>
 <%else%>
   <%= link_to post_likes_path(@post), method: :post, id:"like-button", remote: true do %>
-    <i class="far fa-heart"></i>
-    <a class="like"><%= @post.likes_count %></a>
+    <div class="detail-like">
+      <i class="far fa-heart fa-2x"></i>
+      <span><%= @post.likes_count %></span>
+    </div>
   <%end%>
 <%end%>
