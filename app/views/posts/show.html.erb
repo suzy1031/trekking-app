@@ -25,7 +25,7 @@
           <%= @post.difficulty_i18n %>
         </div>
       </div>
-      <h2>hogeさんの一言コメント</h2>
+      <h2><%= @post.user.nickname %>さんのコメント</h2>
       <div class="detail-comment">
         <%= simple_format(@post.text) %>
       </div>
@@ -63,13 +63,13 @@
       <% end %>
       <% if user_signed_in? && current_user.id == @post.user_id %>
         <div class="detail-btn">
-          <%= link_to 'ホーム', root_path, class:'detail-edit-btn' %>
+          <%= link_to '戻る', :back, class:'detail-edit-btn' %>
           <%= link_to '編集', edit_post_path(@post), method: :get, class:'detail-edit-btn' %>
           <%= link_to '削除する', post_path(@post), method: :delete, class:'detail-delete-btn' %>
         </div>
       <% else %>
         <div class="detail-btn">
-          <%= link_to 'ホームへ戻る', root_path, class:'detail-edit-btn' %>
+          <%= link_to '戻る', :back, class:'detail-edit-btn' %>
         </div>
       <% end %>
     </div>
