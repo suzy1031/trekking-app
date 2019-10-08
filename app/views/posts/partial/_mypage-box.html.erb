@@ -8,7 +8,7 @@
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'user-link-logout' %>
       </div>
       <div class="profile-btn">
-        <%= link_to 'プロフィール変更', edit_user_registration_path, class:'user-link-profile' %>
+        <%= link_to 'プロフィール変更', edit_user_registration_path, class:'user-link-profile',data: {"turbolinks"=>false} %>
       </div>
     </div>
     <div class="responsive-user-box">
@@ -40,7 +40,7 @@
       </div>
       <div class="user-link">
         <%= link_to "ログイン", new_user_session_path, class:'user-link-meshi' %>
-        <%= link_to "新規登録", new_user_registration_path, class:'user-link-meshi' %>
+        <%= link_to "新規登録", new_user_registration_path, class:'user-link-meshi',data: {"turbolinks"=>false} %>
       </div>
     </div>
 <% end %>

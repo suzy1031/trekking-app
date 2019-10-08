@@ -1,6 +1,12 @@
 <body>
 <%= render "layouts/shared/header" %>
   <div class="detail-post-box">
+    <div class="user-info-top">
+      <img class="user-face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+      <div class="detail-user-name">
+        <%= @post.user.nickname %>
+      </div>
+    </div>
     <div class="detail-post-container">
       <div class="detail-name">
         <%= @post.name %>
