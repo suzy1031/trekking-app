@@ -19,11 +19,9 @@
         登った山は<%= @current_user_posts.count %>ヶ所です！<br/>
         山メシの投稿は<%=@current_user_meals.count %>食です！
       </div>
-      <div class="follow-box">
-        <div class="follower">
-          <%= render 'users/shared/stats' %>
-        </div>
-      </div>
+      <%# フォロー件数表示 %>
+      <%= render 'users/shared/stats' %>
+
       <div class="user-link">
         <%= link_to "山メシを投稿", new_meal_path, class:'user-link-meshi',data: {"turbolinks"=>false} %>
         <%= link_to "登った山を投稿", new_post_path, class:'user-link-yama',data: {"turbolinks"=>false} %>

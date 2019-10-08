@@ -1,15 +1,14 @@
 <body>
   <%= render "layouts/shared/header" %>
     <div class="detail-post-box">
-      <div class="detail-post-container">
-        <div class="detail-name">
+      <div class="detail-user-container">
+        <div class="detail-picture">
           <img class="user-face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
-          <%= @user.nickname %>
-          <section class="stats">
-            <%= render 'users/shared/stats' %>
-          </section>
+        </div>
+        <div class="user-follow-box">
+          <%= render 'users/shared/stats' %>
           <%= render 'follow_form' if user_signed_in? %>
-
+          <div class="detail-nickname"><%= @user.nickname %></div>
         </div>
       </div>
       <div class="detail-post-container">
@@ -28,8 +27,8 @@
         <% else %>
           <h2>まだ投稿はありません</h2>
         <% end %>
+        <%= link_to '戻る', root_path %>
       </div>
     </div>
-    <%= link_to '戻る', root_path %>
   <%= render "layouts/shared/footer" %>
 </body>
