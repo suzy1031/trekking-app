@@ -56,6 +56,19 @@
   margin-left: 10px;
   overflow-y: scroll;
   border: 1px solid #f5f3f4;
+  .follow-box {
+    text-align: center;
+    .follow-link {
+    text-decoration: none;
+    margin-left: 5px;
+    color: black;
+      .follower {
+        display: inline;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+  }
 }
 .user-box-top {
   width: 100%;
@@ -76,12 +89,8 @@
   border: solid 1px #f5f3f4;
   border-radius: 3px;
 }
-.follow-box {
-  text-align: center;
-  .follower {
-    font-size: 18px;
-    font-weight: bold;
-  }
+.follow-link:hover {
+  opacity: 0.7;
 }
 .user-description {
   width: 100%;
