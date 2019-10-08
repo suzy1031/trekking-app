@@ -3,10 +3,26 @@
   width: 800px;
   margin: 0 auto;
   background: white;
+  .user-info-top {
+    display: flex;
+    padding-top: 5px;
+    .detail-user-name {
+      font-size: 20px;
+      color: black;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+    .user-face {
+      border-radius: 50%;
+      width: 40px;
+      margin: 15px;
+    }
+  }
   .detail-post-container {
     width: 100%;
     text-align: center;
     .detail-name {
+      border-top: solid 1px #f5f3f4;
       font-size: 32px;
       padding: 10px;
     }

@@ -8,6 +8,7 @@ ja:
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
         nickname: "ニックネーム"
+        profile: "自己紹介"
     models:
       user: "ユーザ"
   devise:

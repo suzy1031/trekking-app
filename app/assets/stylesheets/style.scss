@@ -19,7 +19,6 @@ body {
     color: white;
     text-align: center;
   }
-
 }
 .new-icon {
   margin-top: 20px;
@@ -80,6 +79,11 @@ body {
           label {
             font-size: 18px;
           }
+        }
+        .user-face {
+          border-radius: 50%;
+          width: 40px;
+          margin: 15px;
         }
       }
     }

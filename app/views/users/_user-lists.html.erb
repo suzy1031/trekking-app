@@ -1,9 +1,6 @@
 <div class="middle-container">
   <div class="post-title-container">
     <h2 class="list-title">ユーザー一覧</h2>
-    <div class="new-icon">
-      <p>new</p>
-    </div>
   </div>
   <div class="latest-posts">
     <% @users.each do |user| %>
@@ -11,7 +8,7 @@
         <div class="post-box">
           <img class="user-face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
           <div class="post-yama-description">
-            <label><%= user.nickname %>さんの投稿</label>
+            <label><%= user.nickname %>さん</label>
           </div>
         </div>
       <% end %>

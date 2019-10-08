@@ -26,7 +26,9 @@
       <%= link_to "山メシを投稿", new_meal_path, class:'user-link-meshi header' %>
     </div>
     <div class="user-link">
-      <%= link_to "マイページ (仮)", "#", class:'user-link-meshi header' %>
+      <%= link_to "#", class:'user-link-meshi header' do %>
+        マイページ
+      <% end %>
     </div>
     <div class="logout-btn">
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'user-link-logout' %>
