@@ -28,6 +28,12 @@
           <%= f.text_field :nickname, placeholder: 'ニックネームを入力', maxlength: "6", class:'new-part-form' %>
         </div>
         <div class="form-registration-box">
+          <%= f.label :profile, class:'new-name-form' %>
+        </div>
+        <div class="text-form-box">
+          <%= f.text_area :profile, placeholder: '自己紹介しよう！', class:'new-part-form', id:'textarea' %>
+        </div>
+        <div class="form-registration-box">
           <%= f.label :新しいパスワード, class:'new-name-form' %>
         </div>
         <div class="form-registration-box">

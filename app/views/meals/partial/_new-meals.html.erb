@@ -1,25 +1,17 @@
 <div class="middle-container">
   <div class="post-title-container">
-    <h2 class="list-title">山メシ最新投稿</h2>
+    <h2 class="list-title">ユーザー一覧</h2>
     <div class="new-icon">
       <p>new</p>
     </div>
   </div>
   <div class="latest-posts">
-    <% @meals.each do |meal| %>
-      <%= link_to "meals/#{ meal.id }" do %>
+    <% @users.each do |user| %>
+      <%= link_to "users/#{ user.id }" do %>
         <div class="post-box">
-          <div class="post-picture">
-            <% if meal.image.present? %>
-              <%= image_tag meal.image.url, class:"post-yama-picture"%>
-            <% else %>
-              <%= image_tag"no_image.png", class:"post-yama-picture"%>
-            <% end %>
-          </div>
+          <img class="user-face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
           <div class="post-yama-description">
-            <label><%= meal.user.nickname %>さんの投稿</label>
-            <div class="post-yama-display name"><%= meal.name %></div>
-            <div class="post-latest-comment"><%= meal.food_stuff %></div>
+            <label><%= user.nickname %>さんの投稿</label>
           </div>
         </div>
       <% end %>
