@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_many :meals, dependent: :destroy
   has_many :comments
   has_many :likes, dependent: :destroy
-  validates :nickname, presence: true
+  validates :nickname, :profile, presence: true
 end
