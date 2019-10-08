@@ -1,0 +1,32 @@
+<body>
+  <%= render "layouts/shared/header" %>
+    <div class="detail-post-box">
+      <div class="detail-post-container">
+        <div class="detail-name">
+          <img class="user-face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+          <%= @user.nickname %>
+        </div>
+      </div>
+      <div class="detail-post-container">
+        <h2>プロフィール</h2>
+        <div class="detail-description">
+          <div class="detail-display">
+            <%= @user.profile %>
+          </div>
+        </div>
+        <% if @user.posts.any? %>
+          <h2>投稿一覧 (<%= @user.posts.count %>)</h2>
+          <div class="search-container", id="posts">
+            <%= render partial: 'posts/partial/yama-lists', collection: @posts, as:'post'%>
+          </div>
+          <%= paginate @posts %>
+        <% else %>
+          <h2>まだ投稿はありません</h2>
+        <% end %>
+        <div class="detail-btn">
+          <%= link_to '戻る', :back, class:'detail-edit-btn' %>
+        <div>
+      </div>
+    </div>
+  <%= render "layouts/shared/footer" %>
+</body>
