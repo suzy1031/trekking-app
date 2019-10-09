@@ -27,7 +27,9 @@
         <% else %>
           <h2>まだ投稿はありません</h2>
         <% end %>
-        <%= link_to '戻る', root_path %>
+        <div class="detail-btn">
+          <%= link_to 'ホーム', root_path, class:'detail-edit-btn' %>
+        </div>
       </div>
     </div>
   <%= render "layouts/shared/footer" %>
