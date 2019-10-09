@@ -2,7 +2,11 @@
 <%= render "layouts/shared/header" %>
   <div class="detail-post-box">
     <div class="user-info-top">
-      <img class="user-face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+      <% if @post.user.image.present? %>
+        <%= image_tag @post.user.image.url, class:'user-face' %>
+      <% else %>
+        <img class="user-face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+      <% end %>
       <div class="detail-user-name">
         <%= @post.user.nickname %>
       </div>
