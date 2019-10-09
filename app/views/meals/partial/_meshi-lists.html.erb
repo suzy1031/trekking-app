@@ -1,6 +1,6 @@
-<h2 class="list-title"><%= current_user.nickname %>さんが食べた山メシリスト</h2>
+<h2 class="list-title">みんなの山メシ投稿一覧</h2>
 <ul class="horizontal-list">
-  <% @current_user_meals.each do |meal| %>
+  <% @meals.each do |meal| %>
     <%= link_to "meals/#{ meal.id }",data: {"turbolinks"=>false} do %>
       <li class="item">
         <div class="box-top">
@@ -14,9 +14,6 @@
           <div class="yama-description">
             <div class="yama-display name">
               <%= meal.name %>
-            </div>
-            <div class="like">
-              <i class="fas fa-heart fa-2x"></i>
             </div>
             <div class="yama-display">
               調理時間:<%= meal.cooking_time %>分

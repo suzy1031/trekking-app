@@ -1,7 +1,9 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many   :comments
-  has_many :likes, dependent: :destroy
+  has_many   :likes, dependent: :destroy
+  has_one    :meal,  dependent: :destroy
+  accepts_nested_attributes_for :meal
   enum difficulty: [:challenge, :normal, :easy]
   mount_uploader :image, ImageUploader
   validates :name, :text, presence: true
