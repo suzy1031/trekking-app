@@ -51,19 +51,66 @@
           <%= f.text_area :text, placeholder: '登った感想を書きましょう!', id:'textarea' %>
         </div>
         <div class="form-registration-box">
-          <%= f.label :画像, class:'new-name-form' %>
+          <%= f.label :登った山画像, class:'new-name-form' %>
           <%= f.label :任意, class:'form-any-require' %>
         </div>
         <div class="photo-form">
           <div class="form-mask">
             <%= f.label :image, class:'form-mask-image' do %>
               <%= f.file_field :image, class:'hidden' %>
-              <div class="form-mask-image">お気に入りの画像をアップロード</div>
+              <div class="form-mask-image">山の画像をアップロード</div>
               <i class="far fa-image fa-3x"></i>
             <% end %>
           </div>
         </div>
         <div class="preview"></div>
+        <div class="new-name-meshi">
+          山メシを投稿しよう
+        </div>
+        <%= f.fields_for :meal do |s| %>
+          <div class="form-registration-box">
+            <%= s.label :山メシの名前, class:'new-name-form' %>
+            <%= s.label :必須, class:'form-require' %>
+          </div>
+          <div class="text-form-box">
+            <%= s.text_field :name, autofocus: true, placeholder: '例) カレー', class:'new-part-form' %>
+          </div>
+          <div class="form-registration-box">
+            <%= s.label :調理時間, class:'new-name-form' %>
+            <%= s.label :必須, class:'form-require' %>
+          </div>
+          <div class="text-form-box">
+            <%= s.text_field :cooking_time, placeholder: '例) 20分→20', class:'new-part-form' %>
+          </div>
+          <div class="form-registration-box">
+            <%= s.label :使用する食材, class:'new-name-form'  %>
+            <%= s.label :任意, class:'form-any-require' %>
+          </div>
+          <div class="text-form-box">
+            <%= s.text_area :food_stuff, placeholder: '例）ニンジン1本。じゃがいも1個', id:'textarea2' %>
+          </div>
+          <div class="form-registration-box">
+            <%= s.label :調理方法, class:'new-name-form' %>
+            <%= s.label :任意, class:'form-any-require' %>
+          </div>
+          <div class="text-form-box">
+            <%= s.text_area :cooking_method, placeholder: '例）沸騰したお湯に切った野菜を入れる', id:'textarea3' %>
+          </div>
+          <div class="form-registration-box">
+            <%= f.label :山メシ画像, class:'new-name-form' %>
+            <%= f.label :任意, class:'form-any-require' %>
+        </div>
+          <div class="photo-form2">
+            <div class="form-mask">
+              <%= s.label :image, class:'form-mask-image' do %>
+                <%= s.file_field :image, class:'hidden' %>
+                <div class="form-mask-image">山メシ画像をアップロード</div>
+                <i class="far fa-image fa-3x"></i>
+              <% end %>
+            </div>
+          </div>
+          <div class="preview2"></div>
+        <% end %>
         <%= f.submit '投稿する', class:'new-form-btn' %>
       <% end %>
     </div>
