@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :set_search
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :profile])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :profile])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :profile, :image])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :profile, :image, :remove_image])
   end
 
   def search
