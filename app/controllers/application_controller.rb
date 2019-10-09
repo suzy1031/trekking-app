@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def search
     @search = Post.ransack(search_params)
-    @search_result = @search.result
+    @search_result = @search.result.page(params[:page]).per(20)
   end
 
   private

@@ -1,15 +1,16 @@
 <body>
   <%= render "layouts/shared/header" %>
   <div class="search-result">
-    <h2 class="search-result__title">"<%= @search.name_or_text_cont %>"の検索結果</h2>
+    <h2 class="search-result__title">"<%= @search.name_or_text_cont %>"の検索結果{ <%= @search_result.total_count %>件 }</h2>
   </div>
   <% if @search_result.present? %>
     <div class="search-count">
-      <%= "1-#{ @search_result.length }件表示" %>
+      <%= @search_result.current_page %>/<%= @search_result.total_pages %>ページ
     </div>
     <div class="search-container">
       <%= render partial: 'posts/partial/yama-lists', collection: @search_result, as:'post'%>
     </div>
+    <%= paginate @search_result %>
   <% else %>
     <div class="search-result">
       <h2 class="search-result__title">該当する投稿が見つかりません。</h2>
