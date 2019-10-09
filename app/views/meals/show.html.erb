@@ -1,6 +1,16 @@
 <body>
 <%= render "layouts/shared/header" %>
   <div class="detail-post-box">
+    <div class="user-info-top">
+      <% if @post.user.image.present? %>
+        <%= image_tag @post.user.image.url, class:'user-face' %>
+      <% else %>
+        <img class="user-face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+      <% end %>
+      <div class="detail-user-name">
+        <%= @post.user.nickname %>
+      </div>
+    </div>
     <div class="detail-post-container">
       <div class="detail-name">
         <%= @meal.name %>
@@ -27,18 +37,10 @@
         <%= simple_format(@meal.cooking_method) %>
       </div>
       <h2>ユーザーさんからのコメント</h2>
-      <div class="detail-comment">ここにuser.commentを最大4件表示する。</div>
-      <% if user_signed_in? && current_user.id == @meal.user_id %>
-        <div class="detail-btn">
-          <%= link_to 'ホーム', root_path, class:'detail-edit-btn' %>
-          <%= link_to '編集', edit_meal_path(@meal), method: :get, class:'detail-edit-btn' %>
-          <%= link_to '削除する', meal_path(@meal), method: :delete, class:'detail-delete-btn' %>
-        </div>
-      <% else %>
-        <div class="detail-btn">
-          <%= link_to 'ホームへ戻る', root_path, class:'detail-edit-btn' %>
-        </div>
-      <% end %>
+      <div class="detail-comment">ここは仮置き</div>
+      <div class="detail-btn">
+        <%= link_to 'ホームへ戻る', root_path, class:'detail-edit-btn' %>
+      </div>
     </div>
   </div>
 <%= render "layouts/shared/footer" %>

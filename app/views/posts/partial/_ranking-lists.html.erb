@@ -1,0 +1,42 @@
+<% @all_ranks.each.with_index(1) do |post, i| %>
+  <%= link_to post_path(post),data: {"turbolinks"=>false} do %>
+    <li class="item">
+      <div class="box-top">
+        <div class="picture">
+          <% if post.image.present? %>
+            <%= image_tag post.image.url, class:"yama-picture"%>
+          <% else %>
+            <%= image_tag"no_image.png", class:"yama-picture"%>
+          <% end %>
+        </div>
+        <div class="yama-description">
+          <div class="like-ranking">
+            <%="第#{i}位"%>
+          </div>
+          <div class="ranking-profile"><%= post.user.nickname %>さんの投稿</div>
+          <div class="yama-display name">
+            <%= post.name %>
+          </div>
+          <div class="yama-display">
+            山頂標高：<%= post.elevation %>M
+          </div>
+          <div class="yama-display">
+            歩行距離：<%= post.walking_distance %>KM
+          </div>
+          <div class="yama-display">
+            <%= post.difficulty_i18n %>
+        </div>
+        </div>
+        <div class="ranking-like-count">
+          <i class="fas fa-heart fa-2x"></i>
+          <span><%= post.likes_count %></span>
+        </div>
+        <% if post.user.image.present? %>
+          <%= image_tag post.user.image.url, class:"user-face" %>
+        <% else %>
+          <img class="user-face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+<% end %>
