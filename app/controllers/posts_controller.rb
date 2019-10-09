@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) DESC').limit(5).pluck(:post_id))
     @posts = Post.includes(:user).order('updated_at DESC')
     @users = User.all.order('updated_at DESC')
     @meals = Meal.includes(:user).order('updated_at DESC')

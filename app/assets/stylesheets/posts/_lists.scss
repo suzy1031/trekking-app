@@ -37,6 +37,7 @@
   border: 1px solid #f5f3f4;
   .box-top {
     display: flex;
+    position: relative;
     .yama-picture {
       width: 200px;
       height: 200px;
@@ -71,6 +72,31 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+    /* 投稿ランキング */
+    .like-ranking {
+      font-size: 32px;
+    }
+    .user-face {
+      position: absolute;
+      right: 10px;
+      top: 5%;
+      border-radius: 50%;
+      width: 40px;
+    }
+    .ranking-like-count {
+      position: absolute;
+      right: 55px;
+      top: 8%;
+      .fas.fa-heart {
+        color: pink;
+      }
+      span {
+        color: black;
+      }
+    }
+    .ranking-profile {
+      padding: 10px 0;
     }
   }
 }
