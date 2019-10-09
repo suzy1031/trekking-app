@@ -61,6 +61,20 @@
         <div class="text-form-box">
           <%= f.password_field :current_password, autocomplete: "current-password",placeholder: "パスワードを入力", class:'new-part-form' %>
         </div>
+        <div class="form-registration-box">
+          <%= f.label :プロフィール画像, class:'new-name-form' %>
+        </div>
+        <div class="photo-form">
+          <%= f.file_field :image, id:'post_img' %>
+        </div>
+        <div class="update-image-area">
+          <% if @user.image.present? %>
+            <%= image_tag @user.image.url, id:'img_prev' if @user.image? %>
+          <% else %>
+            <div class="preview"></div>
+          <% end %>
+        </div>
+        <p><%= f.check_box :remove_image %>画像を削除する</p>
 
         <%= f.submit "更新する", class:'new-form-btn' %>
         <div class="devise-back-btn">
