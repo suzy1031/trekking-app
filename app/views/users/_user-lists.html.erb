@@ -6,7 +6,11 @@
     <% @users.each do |user| %>
       <%= link_to "users/#{ user.id }" do %>
         <div class="post-box">
-          <img class="user-face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+          <% if user.image.present? %>
+            <%= image_tag user.image.url, class:"user-face" %>
+          <% else %>
+            <img class="user-face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+          <% end %>
           <div class="post-yama-description">
             <label><%= user.nickname %>さん</label>
             <div class="post-latest-comment"><%= user.profile %></div>

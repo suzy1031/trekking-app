@@ -27,7 +27,7 @@
             <%= f.text_area :profile, placeholder: '自己紹介しよう！', class:'new-part-form', id:'textarea' %>
           </div>
           <div class="form-registration-box">
-            <%= f.label :パスワード, class:'new-name-form' %>
+            <%= f.label :password, class:'new-name-form' %>
           </div>
           <div class="form-registration-box">
             <% if @minimum_password_length %>
@@ -38,11 +38,24 @@
             <%= f.password_field :password, placeholder: 'パスワードを入力', autocomplete: "new-password", class:'new-part-form' %>
           </div>
           <div class="form-registration-box">
-            <%= f.label :パスワード再入力, class:'new-name-form' %>
+            <%= f.label :password_confirmation, class:'new-name-form' %>
           </div>
           <div class="text-form-box">
             <%= f.password_field :password_confirmation, placeholder: 'パスワードをもう一度入力', autocomplete: "new-password", class:'new-part-form' %>
           </div>
+          <div class="form-registration-box">
+            <%= f.label :プロフィール画像, class:'new-name-form' %>
+          </div>
+          <div class="photo-form">
+            <div class="form-mask">
+              <%= f.label :image, class:'form-mask-image' do %>
+                <%= f.file_field :image, class:'hidden' %>
+                <div class="form-mask-image">プロフィール画像をアップロード</div>
+                <i class="far fa-image fa-3x"></i>
+              <% end %>
+            </div>
+          </div>
+          <div class="preview"></div>
           <%= f.submit "登録する", class:'new-form-btn' %>
         <% end %>
         既にアカウントをお持ちですか？
