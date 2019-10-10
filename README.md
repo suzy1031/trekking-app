@@ -1,24 +1,84 @@
-# README
+# [岳人(たけと)](url)~写真共有SNSアプリ~
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+山登りや山で食べるご飯(通称:山メシ)が好きな人たちが撮った写真や感想を投稿できるアプリです！
 
-Things you may want to cover:
+## 簡単な説明
 
-* Ruby version
+自分が撮った山での写真を共有しませんか？自分がまだ登った事ない山のリアルな口コミを知りたい！山メシがいつもワンパターンになってしまう...他のSNSアプリだと盛られた写真ばかりで非現実的だなと感じている山好きの方々の為のSNSアプリ！加工なしのリアルな写真やお手軽な山メシを等身大の自分を表現できるアプリです！
 
-* System dependencies
+***デモ***
 
-* Configuration
+![デモ](https://gyazo.com/c6554c37d8f1f11b5a81a390ebafb902/raw)
 
-* Database creation
+## 機能
 
-* Database initialization
+- 写真・テキスト投稿・編集・削除
+- いいね機能
+- フォロー機能
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+他の機能は[こちら](url)を参照して下さい。
 
-* Deployment instructions
+## 必要要件
 
-* ...
+- Ruby version 2.5.1
+- Ruby on Rails version 5.2.3
+
+## 使い方
+
+1. テストユーザーが登録されています。[トップページ](url)上段右マイページボックス内の「ログイン」ボタンを押してemail「 user1@example.com 」,password「 password 」と入力するとログインできます。
+
+2. ログインすると投稿できるようになります。マイページボックス内の「投稿」ボタンを押すと入力画面に遷移します。必要項目(必須)を入力し「投稿する」ボタンを押せば投稿した内容がトップページに表示されます。
+
+3. 他ユーザーの投稿は画面左上の「最新投稿」内に表示されます。詳しい内容を確認するには該当の投稿をクリックして下さい。詳細画面では「いいね」と「コメント」機能が使えます。いいねはハートマークをクリックすれば反映されます。コメント機能は「コメントを書く」内のフォームに入力し「コメントする」を押せば反映されます。
+
+4. 「ユーザー一覧」が画面上中央に表示されています。詳しい内容を確認するには該当のユーザーをクリックして下さい。ユーザー詳細画面にはユーザーの投稿一覧の表示と「フォロー」機能が使えます。フォローしている人数・されている人数はトップページのマイページボックスにて確認できます。
+
+他の機能の使い方は[こちら](url)を参照して下さい。
+
+## インストール
+
+```
+$ git clone https://github.com/suzy1031/trekking-app.git
+$ cd trekking-app
+$ bundle install
+$ rails db:migrate
+$ rails db:seed
+$ rails server
+```
+
+
+## デプロイ
+
+1. AWS
+2. S3
+
+## その他
+
+1. 現在デプロイ作業が未完了の為、まだ本番環境で動作できてません。デプロイ完了次第リンクを貼ります。
+
+2. 現在は以下の機能がまだ使えません。不足している機能は随時、追加していきます。
+- コメントの編集・削除
+- 山メシ投稿の編集・削除
+- フォロー・フォロワーの一覧
+
+## 作者
+
+- twitter
+[@suy16676187](https://twitter.com/suzy16676187)
+
+- Qitta
+[@suzy1031](https://qiita.com/suzy1031)
+
+- はてなブログ
+https://suzyanamateurengineer.hatenablog.com/
+
+- wantedly
+
+- Mail
+52.kohei.sugawara@gmail.com
+
+## ライセンス
+
+[MIT](http://TomoakiTANAKA.mit-license.org)</blockquote>
+解説
