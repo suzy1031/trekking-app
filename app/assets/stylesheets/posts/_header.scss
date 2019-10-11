@@ -11,24 +11,25 @@
     font-weight: bold;
   }
   .yama-icon {
-    width: 100px;
+    width: 95px;
+    height: auto;
     margin-left: 10px;
   }
   .root-path-logo:hover {
     opacity: 0.7;
   }
   .small-txt {
-    color: white;
+    color: black;
     display: inline;
     font-size: 48px;
     position: absolute;
     left: 115px;
-    top: 30%;
+    top: 27%;
   }
   #search {
     position: absolute;
     right: 10px;
-    top: 25%;
+    top: 30%;
     .search-txt {
       padding: 5px 8px 5px 8px;
       width: 280px;
