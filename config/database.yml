@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: trekking-app_production
-  username: trekking-app
-  password: <%= ENV['TREKKING-APP_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock

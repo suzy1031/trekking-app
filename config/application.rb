@@ -11,6 +11,7 @@ module TrekkingApp
     # Initialize configuration defaults for originally generated Rails version.
     config.i18n.default_locale = :ja
     config.load_defaults 5.2
+    config.i18n.fallbacks = [I18n.default_locale]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
