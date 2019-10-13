@@ -10,21 +10,22 @@
     padding: 10px 0 0 10px;
     font-weight: bold;
   }
-  .yama-icon {
-    width: 95px;
-    height: auto;
-    margin-left: 10px;
+  .root-path-logo {
+    text-decoration: none;
   }
   .root-path-logo:hover {
     opacity: 0.7;
   }
-  .small-txt {
-    color: black;
-    display: inline;
-    font-size: 48px;
-    position: absolute;
-    left: 115px;
-    top: 27%;
+  .logo {
+    display: flex;
+    &__small-txt {
+      color: white;
+      font-size: 48px;
+    }
+    &__kana {
+      color: white;
+      margin: 20px 0 0 0;
+    }
   }
   #search {
     position: absolute;
@@ -45,6 +46,48 @@
       border: none;
       border-radius: 5px;
       background: #f5f3f4;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #header-main {
+    .logo-txt {
+      color: white;
+      padding: 10px 0 0 0;
+      font-size: 10px;
+    }
+    .logo {
+      display: flex;
+      &__small-txt {
+        color: white;
+        font-size: 32px;
+      }
+      &__kana {
+        color: white;
+        margin: 10px 0 0 0;
+      }
+    }
+    #search {
+      position: absolute;
+      right: 10px;
+      top: 30%;
+      .search-txt {
+        padding: 5px 8px 5px 8px;
+        width: 140px;
+        height: 28px;
+        border: none;
+        border-radius: 3px;
+      }
+      .search-btn {
+        padding: 5px 8px 5px 8px;
+        margin-left: 8px;
+        width: 50px;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+        background: #f5f3f4;
+      }
     }
   }
 }
