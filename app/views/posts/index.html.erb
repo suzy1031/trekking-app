@@ -12,8 +12,8 @@
         <ul class="horizontal-list">
           <%= render 'posts/partial/ranking-lists' %>
         </ul>
+      <%= render "meals/partial/meshi-lists" %>
       <% if signed_in? %>
-        <%= render "meals/partial/meshi-lists" %>
         <h2 class="list-title"><%=current_user.nickname %>さんが登った山リスト</h2>
         <ul class="horizontal-list">
           <%= render partial: 'posts/partial/yama-lists', collection: @current_user_posts, as:'post'%>
