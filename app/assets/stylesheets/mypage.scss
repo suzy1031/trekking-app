@@ -59,8 +59,9 @@
   position: relative;
   .user-face {
     border-radius: 50%;
-    width: 45px;
+    width: 50px;
     height: auto;
+    max-height: 50px;
     margin: 5px 0 0 10px;
   }
   .follow-box {
