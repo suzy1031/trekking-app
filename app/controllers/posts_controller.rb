@@ -63,6 +63,9 @@ class PostsController < ApplicationController
   def notification
   end
 
+  def usage
+  end
+
   private
   def post_params
     params.require(:post).permit(

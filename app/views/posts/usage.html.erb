@@ -1,0 +1,59 @@
+<body>
+  <%= render "layouts/shared/header" %>
+  <div class="detail-post-box">
+    <div class="detail-post-container">
+      <div class="detail-name">
+        アプリの使い方
+      </div>
+      <h2>ログイン</h2>
+      <div class="detail-description">
+        <div class="detail-display">
+          テストユーザーが登録されています。トップページ上段右マイページボックス内の「ログイン」ボタンを押して<br/>email「 user1@example.com 」<br/>password「 password 」<br/>と入力するとログインできます。
+        </div>
+      </div>
+      <h2>ログアウト</h2>
+      <div class="detail-description">
+        <div class="detail-display">
+          マイページボックス上の「ログアウト」ボタンを押すとログアウトできます。
+        </div>
+      </div>
+      <h2>ユーザー新規登録</h2>
+      <div class="detail-description">
+        <div class="detail-display">
+          未ログイン状態で「新規登録」ボタンを押すと会員登録画面へ遷移します。メールアドレス、ニックネーム、パスワードを入力して下さい。プロフィールとプロフィール画像は任意です。「登録する」ボタンを押して新規登録できます。
+        </div>
+      </div>
+      <h2>ユーザー情報編集</h2>
+      <div class="detail-description">
+        <div class="detail-display">
+          マイページボックス上の「プロフィール変更」を押すとユーザー情報編集ページに遷移します。変更したい項目を入力し現在のパスワードを入力して下さい。「更新する」ボタンを押すとプロフィールが更新されます。
+        </div>
+      </div>
+      <h2>投稿</h2>
+      <div class="detail-description">
+        <div class="detail-display">
+          ログインすると投稿できるようになります。マイページボックス内の「投稿」ボタンを押すと入力画面に遷移します。必要項目(必須)を入力し「投稿する」ボタンを押せば投稿した内容がトップページに表示されます。
+        </div>
+      </div>
+      <h2>投稿一覧</h2>
+      <div class="detail-description">
+        <div class="detail-display">
+          他ユーザーの投稿は画面左上の「最新投稿」内に表示されます。詳しい内容を確認するには該当の投稿をクリックして下さい。詳細画面では「いいね」と「コメント」機能が使えます。いいねはハートマークをクリックすれば反映されます。コメント機能は「コメントを書く」内のフォームに入力し「コメントする」を押せば反映されます。
+        </div>
+      </div>
+      <h2>ユーザー 一覧</h2>
+      <div class="detail-description">
+        <div class="detail-display">
+          「ユーザー一覧」が画面上中央に表示されています。詳しい内容を確認するには該当のユーザーをクリックして下さい。ユーザー詳細画面にはユーザーの投稿一覧の表示と「フォロー」機能が使えます。フォローしている人数・されている人数はトップページのマイページボックスにて確認できます。
+        </div>
+      </div>
+      <h2>検索機能</h2>
+      <div class="detail-description">
+        <div class="detail-display">
+          画面右上の検索窓で投稿されている山の名前とコメントを検索できます。例）「テスト山」と入力し「検索」ボタンを押すと「テスト山」を含む投稿が検索されます。
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render "layouts/shared/footer" %>
+</body>

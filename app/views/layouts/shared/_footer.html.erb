@@ -4,7 +4,9 @@
       <%= link_to about_posts_path, class:'site-link' do %>
         <li class="information">このサイトについて</li>
       <% end %>
-      <li class="information">使い方</li>
+      <%= link_to usage_posts_path, class:'site-link' do %>
+        <li class="information">使い方</li>
+      <% end %>
         <li class="information">お知らせ</li>
     </ul>
     <div class="footer-copyright">

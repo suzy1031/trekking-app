@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       get 'about'
+      get 'usage'
     end
   end
 
