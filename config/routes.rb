@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get 'search'
       get 'about'
       get 'usage'
+      get 'notification'
     end
   end
 

@@ -61,6 +61,8 @@ $ rails server
 - 山メシ投稿の編集・削除
 - フォロー・フォロワーの一覧
 
+最新情報は[こちら](http://3.114.125.180/posts/notification)を参照して下さい
+
 ## 作者
 
 - twitter
