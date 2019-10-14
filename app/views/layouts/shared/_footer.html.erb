@@ -1,9 +1,11 @@
 <footer id="footer-main">
   <div id="footer">
     <ul class="footer-list">
-      <li class="information">このサイトについて</li>
+      <%= link_to about_posts_path, class:'site-link' do %>
+        <li class="information">このサイトについて</li>
+      <% end %>
       <li class="information">使い方</li>
-      <li class="information">お知らせ</li>
+        <li class="information">お知らせ</li>
     </ul>
     <div class="footer-copyright">
       <a>Copyright（C） 2019　kohei sugawara All Rights Reserved.</a>

@@ -4,20 +4,18 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
+  # get '/notification', to: 'posts#notification'
+  # get 'usage'
+
   resources :posts do
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create]
     resources :users, only: [:index, :show]
     collection do
       get 'search'
+      get 'about'
     end
   end
-
-  # resources :users do
-  #   resource :relationships, only: [:create, :destroy]
-  #   get :follows, on: :member
-  #   get :followers, on: :member
-  # end
 
   resources :users do
     member do

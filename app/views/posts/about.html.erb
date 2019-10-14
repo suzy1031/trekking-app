@@ -1,0 +1,69 @@
+<body>
+  <%= render "layouts/shared/header" %>
+  <div class="detail-post-box">
+    <div class="detail-post-container">
+      <div class="detail-name">
+        このアプリについて
+      </div>
+      <h2>概要</h2>
+      <div class="detail-description">
+        <div class="detail-display">
+          山登りや山で食べるご飯(通称:山メシ)が好きな人たちが撮った写真や感想を投稿できるSNSアプリです！
+        </div>
+      </div>
+      <h2>説明</h2>
+      <div class="detail-description">
+        <div class="detail-display">
+          自分が撮った山での写真を共有しませんか？<br/>自分がまだ登った事ない山のリアルな口コミを知りたい！山メシがいつもワンパターンになってしまう...<br/>他のSNSアプリだと盛られた写真ばかりで非現実的だなと感じている山好きの方々の為のSNSアプリ！<br/>加工しないリアルな写真やお手軽な山メシを等身大の自分を表現できるアプリです！
+        </div>
+      </div>
+      <h2>機能</h2>
+      <div class="detail-description">
+        <div class="detail-display">
+          <li>写真・テキスト投稿・編集・削除</li>
+          <li>投稿一覧</li>
+          <li>いいね機能</li>
+          <li>フォロー機能</li>
+          <li>コメント投稿機能</li>
+          <li>ユーザーログイン・ログアウト機能</li>
+          <li>ユーザー情報編集・削除</li>
+          <li>ユーザー 一覧</li>
+          <li>投稿検索機能</li>
+        </div>
+      </div>
+      <h2>備考</h2>
+      <div class="detail-description">
+        現在は以下の機能がまだ使えません。機能は随時、追加していきます。
+        <div class="detail-display">
+          <li>コメント編集・削除</li>
+          <li>山メシ投稿の編集・削除</li>
+          <li>フォロー・フォロワーの一覧</li>
+        </div>
+      </div>
+      <h2>作者の自己紹介</h2>
+      <div class="detail-description">
+        <div class="detail-display">
+          webエンジニアを目指し転職活動中です！<br/>2019年4月から小売業界で店長として働きながら半年間Ruby,Ruby on Railsを学習しています。
+        </div>
+      </div>
+      <h2>SNS</h2>
+      <div class="detail-description">
+        <div class="detail-display">
+          <%= link_to '#', target: :_blank do %>
+            wantedly<br/>
+          <% end %>
+          <%= link_to 'https://twitter.com/suzy16676187', target: :_blank do %>
+            twitter<br/>
+          <% end %>
+          <%= link_to 'https://qiita.com/suzy1031', target: :_blank do %>
+            Qitta<br/>
+          <% end %>
+          <%= link_to 'https://suzyanamateurengineer.hatenablog.com/', target: :_blank do %>
+            はてなブログ
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render "layouts/shared/footer" %>
+</body>
