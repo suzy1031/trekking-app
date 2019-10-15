@@ -42,6 +42,7 @@
 $ git clone https://github.com/suzy1031/trekking-app.git
 $ cd trekking-app
 $ bundle install
+$ rails db:create
 $ rails db:migrate
 $ rails db:seed
 $ rails server
