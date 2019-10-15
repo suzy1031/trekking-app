@@ -19,7 +19,7 @@
           <%= f.label :必須, class:'form-require' %>
         </div>
         <div class="text-form-box">
-          <%= f.text_field :name, autofocus: true, placeholder: '例) 高尾山', class:'new-part-form' %>
+          <%= f.text_field :name, autofocus: true, placeholder: '例) 高尾山', class:'new-part-form', id:'yama-new-name' %>
         </div>
         <div class="form-registration-box">
           <%= f.label :歩行距離, class:'new-name-form' %>
@@ -57,7 +57,7 @@
         <div class="photo-form">
           <div class="form-mask">
             <%= f.label :image, class:'form-mask-image' do %>
-              <%= f.file_field :image, class:'hidden' %>
+              <%= f.file_field :image, class:'hidden', id:'yama-new-picture' %>
               <div class="form-mask-image">山の画像をアップロード</div>
               <i class="far fa-image fa-3x"></i>
             <% end %>
@@ -73,14 +73,14 @@
             <%= s.label :必須, class:'form-require' %>
           </div>
           <div class="text-form-box">
-            <%= s.text_field :name, autofocus: true, placeholder: '例) カレー', class:'new-part-form' %>
+            <%= s.text_field :name, autofocus: true, placeholder: '例) カレー', class:'new-part-form', id:'meshi-new-name' %>
           </div>
           <div class="form-registration-box">
             <%= s.label :調理時間, class:'new-name-form' %>
             <%= s.label :必須, class:'form-require' %>
           </div>
           <div class="text-form-box">
-            <%= s.text_field :cooking_time, placeholder: '例) 20分→20', class:'new-part-form' %>
+            <%= s.text_field :cooking_time, placeholder: '例) 20分→20', class:'new-part-form', id:'cooking_time' %>
           </div>
           <div class="form-registration-box">
             <%= s.label :使用する食材, class:'new-name-form'  %>
