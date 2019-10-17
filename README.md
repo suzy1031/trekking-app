@@ -55,6 +55,10 @@ $ rails server
 2. AWS クラウドストレージS3利用
 3. capistranoを使用した自動デプロイ
 
+## テスト駆動開発
+
+- Rspec
+
 ## その他
 
 現在は以下の機能がまだ使えません。不足している機能は随時、追加していきます。
@@ -76,6 +80,7 @@ $ rails server
 https://suzyanamateurengineer.hatenablog.com/
 
 - wantedly
+https://www.wantedly.com/users/120417283
 
 - Mail
 52.kohei.sugawara@gmail.com
