@@ -1,0 +1,26 @@
+<div class="middle-container">
+  <div class="list-container">
+    <div class="list-container__title">山登り好きの最新投稿</div>
+    <div class="list-container__icon">
+      <p>new</p>
+    </div>
+  </div>
+  <div class="list-box">
+    <% @posts.each do |post| %>
+      <%= link_to "posts/#{ post.id }" do %>
+        <div class="post-box">
+          <% if post.image.present? %>
+            <%= image_tag post.image.url, class:"post-box__picture"%>
+          <% else %>
+            <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="post-box__picture">
+          <% end %>
+          <div class="post-box__description">
+            <label><%= post.user.nickname %>さんの投稿</label><br/>
+            <%= post.name %><br/>
+            <%= post.text %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
