@@ -1,36 +1,42 @@
-/* posts/newページ */
+/* posts/new/editページ */
+/* devise/registration/new/editページ */
+/* devise/session/newページ */
 
 .new-post-box {
   width: 800px;
   height: auto;
   margin: 0 auto;
   background: white;
-  .new-post-container {
+  &__container {
     width: 100%;
     text-align: center;
-    .new-name {
+    &__name {
       font-size: 32px;
       font-weight: bold;
       padding: 32px 16px;
       border-bottom: solid 1px #f5f3f4;
-    }
-    .new-name-meshi {
-      font-size: 32px;
-      font-weight: bold;
-      padding: 32px 16px;
       border-top: solid 1px #f5f3f4;
-      border-bottom: solid 1px #f5f3f4;
     }
+  }
+  &__btn {
+    width: 300px;
+    height: 50px;
+    background: #ccc;
+    margin: 20px 0;
+    border: solid 1px #ccc;
+    border-radius: 3px;
+    font-size: 24px;
+    color: white;
   }
   .form-registration-box {
     width: 100%;
     height: auto;
     text-align: center;
-    .new-name-form {
+    &__name {
       font-size: 24px;
       font-weight: bold;
     }
-    .form-require {
+    &__require {
       font-size: 16px;
       width: 50px;
       height: 25px;
@@ -40,7 +46,7 @@
       padding: 2px;
       margin-left: 5px;
     }
-    .form-any-require {
+    &__any-require {
       font-size: 16px;
       width: 50px;
       height: 25px;
@@ -51,16 +57,14 @@
       margin-left: 5px;
     }
   }
-  .text-form-box {
-    .new-part-form {
-      width: 300px;
-      height: 50px;
-      margin: 20px 10px;
-      font-size: 18px;
-      padding-left: 5px;
-      border: solid 1px #ccc;
-      border-radius: 3px;
-    }
+  .new-part-form {
+    width: 300px;
+    height: 50px;
+    margin: 20px 10px;
+    font-size: 18px;
+    padding-left: 5px;
+    border: solid 1px #ccc;
+    border-radius: 3px;
   }
   .select-form-box {
     position: relative;
@@ -106,16 +110,6 @@
         display: none;
       }
     }
-  }
-  .new-form-btn {
-    width: 300px;
-    height: 50px;
-    background: #ccc;
-    margin: 20px 0;
-    border: solid 1px #ccc;
-    border-radius: 3px;
-    font-size: 24px;
-    color: white;
   }
   // =============================
   // signupページ下部loginボタン

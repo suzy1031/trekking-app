@@ -1,50 +1,43 @@
 <body>
-  <%= render "layouts/shared/header" %>
+  <%= render 'layouts/shared/header' %>
     <div class="new-post-box">
-      <div class="new-post-container">
-        <div class="new-name">
+      <div class="new-post-box__container">
+        <div class="new-post-box__container__name">
           新規会員登録
         </div>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
 
           <div class="form-registration-box">
-            <%= f.label :email, class:'new-name-form' %>
+            <%= f.label :email, class:'form-registration-box__name' %>
           </div>
-          <div class="text-form-box">
-            <%= f.email_field :email, autofocus: true, placeholder: 'メールアドレスを入力', class:'new-part-form' %>
-          </div>
+          <%= f.email_field :email, autofocus: true, placeholder: 'メールアドレスを入力', class:'new-part-form' %>
+
           <div class="form-registration-box">
-            <%= f.label :nickname, class:'new-name-form' %>
+            <%= f.label :nickname, class:'form-registration-box__name' %>
           </div>
-          <div class="text-form-box">
-            <%= f.text_field :nickname, placeholder: 'ニックネームを入力', maxlength:20, class:'new-part-form' %>
-          </div>
+          <%= f.text_field :nickname, placeholder: 'ニックネームを入力', maxlength:20, class:'new-part-form' %>
+
           <div class="form-registration-box">
-            <%= f.label :profile, class:'new-name-form' %>
+            <%= f.label :profile, class:'form-registration-box__name' %>
           </div>
-          <div class="text-form-box">
-            <%= f.text_area :profile, placeholder: '自己紹介しよう！', class:'new-part-form', id:'textarea' %>
-          </div>
+          <%= f.text_area :profile, placeholder: '自己紹介しよう！', class:'new-part-form', id:'textarea' %>
+
           <div class="form-registration-box">
-            <%= f.label :password, class:'new-name-form' %>
-          </div>
-          <div class="form-registration-box">
+            <%= f.label :password, class:'form-registration-box__name' %>
             <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> 文字以上)</em>
+              <em>(<%= @minimum_password_length %> 文字以上)</em>
             <% end %>
           </div>
-          <div class="text-form-box">
-            <%= f.password_field :password, placeholder: 'パスワードを入力', autocomplete: "new-password", class:'new-part-form' %>
-          </div>
+          <%= f.password_field :password, placeholder: 'パスワードを入力', autocomplete: "new-password", class:'new-part-form' %>
+
           <div class="form-registration-box">
-            <%= f.label :password_confirmation, class:'new-name-form' %>
+            <%= f.label :password_confirmation, class:'form-registration-box__name' %>
           </div>
-          <div class="text-form-box">
-            <%= f.password_field :password_confirmation, placeholder: 'パスワードをもう一度入力', autocomplete: "new-password", class:'new-part-form' %>
-          </div>
+          <%= f.password_field :password_confirmation, placeholder: 'パスワードをもう一度入力', autocomplete: "new-password", class:'new-part-form' %>
+
           <div class="form-registration-box">
-            <%= f.label :プロフィール画像, class:'new-name-form' %>
+            <%= f.label :プロフィール画像, class:'form-registration-box__name' %>
           </div>
           <div class="photo-form">
             <div class="form-mask">
@@ -56,11 +49,12 @@
             </div>
           </div>
           <div class="preview"></div>
-          <%= f.submit "登録する", class:'new-form-btn' %>
+
+          <%= f.submit "登録する", class:'new-post-box__btn' %>
         <% end %>
         既にアカウントをお持ちですか？
-        <%= render "devise/shared/links" %>
+        <%= render 'devise/shared/links' %>
       </div>
     </div>
-  <%= render "layouts/shared/footer" %>
+  <%= render 'layouts/shared/footer' %>
 </body>

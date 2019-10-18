@@ -23,7 +23,6 @@ RSpec.feature "Posts", type: :feature do
 
       fill_in "yama-new-name",        with: "テスト山"
       fill_in "textarea",             with: "始めての登山！"
-      attach_file "yama-new-picture", "#{Rails.root}/db/fixtures/利尻山.jpeg"
       fill_in "meshi-new-name",       with: "カレー"
       fill_in "cooking_time",         with: "20"
 

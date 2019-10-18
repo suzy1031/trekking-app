@@ -1,105 +1,96 @@
 <body>
-  <%= render "layouts/shared/header" %>
+  <%= render 'layouts/shared/header' %>
   <%= render 'layouts/shared/flash' %>
-  <% if @post.errors.any? %>
-    <ul>
-      <% @post.errors.full_messages.each do |message|%>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <%= render 'layouts/shared/validation-message' %>
   <div class="new-post-box">
-    <div class="new-post-container">
-      <div class="new-name">
+    <div class="new-post-box__container">
+      <div class="new-post-box__container__name">
         登った山を投稿しよう
       </div>
       <%= form_for @post do |f| %>
         <div class="form-registration-box">
-          <%= f.label :山の名前, class:'new-name-form' %>
-          <%= f.label :必須, class:'form-require' %>
+          <%= f.label :山の名前, class:'form-registration-box__name' %>
+          <%= f.label :必須, class:'form-registration-box__require' %>
         </div>
-        <div class="text-form-box">
-          <%= f.text_field :name, autofocus: true, placeholder: '例) 高尾山', class:'new-part-form', id:'yama-new-name' %>
-        </div>
+        <%= f.text_field :name, autofocus: true, placeholder: '例) 高尾山', class:'new-part-form', id:'yama-new-name' %>
+
         <div class="form-registration-box">
-          <%= f.label :歩行距離, class:'new-name-form' %>
-          <%= f.label :任意, class:'form-any-require' %>
+          <%= f.label :歩行距離, class:'form-registration-box__name' %>
+          <%= f.label :任意, class:'form-registration-box__any-require' %>
         </div>
-        <div class="text-form-box">
-          <%= f.text_field :walking_distance, placeholder: '例) 1.2km→12', class:'new-part-form' %>
-        </div>
+        <%= f.text_field :walking_distance, placeholder: '例) 1.2km→12', class:'new-part-form' %>
+
         <div class="form-registration-box">
-          <%= f.label :山頂標高, class:'new-name-form'  %>
-          <%= f.label :任意, class:'form-any-require' %>
+          <%= f.label :山頂標高, class:'form-registration-box__name'  %>
+          <%= f.label :任意, class:'form-registration-box__any-require' %>
         </div>
-        <div class="text-form-box">
-          <%= f.text_field :elevation, placeholder: '例) 1200m→1200', class:'new-part-form' %>
-        </div>
+        <%= f.text_field :elevation, placeholder: '例) 1200m→1200', class:'new-part-form' %>
+
         <div class="form-registration-box">
-          <%= f.label :難易度, class:'new-name-form' %>
-          <%= f.label :任意, class:'form-any-require' %>
+          <%= f.label :難易度, class:'form-registration-box__name' %>
+          <%= f.label :任意, class:'form-registration-box__any-require' %>
         </div>
         <div class="select-form-box">
           <i class="fa fa-chevron-down"></i>
           <%= f.select :difficulty, Post.difficulties_i18n.invert, include_blank: '---', placeholder: '歩行距離(km)' %>
         </div>
+
         <div class="form-registration-box">
-          <%= f.label :コメント, class:'new-name-form' %>
-          <%= f.label :必須, class:'form-require' %>
+          <%= f.label :コメント, class:'form-registration-box__name' %>
+          <%= f.label :必須, class:'form-registration-box__require' %>
         </div>
-        <div class="text-form-box">
-          <%= f.text_area :text, placeholder: '登った感想を書きましょう!', id:'textarea' %>
-        </div>
+        <%= f.text_area :text, placeholder: '登った感想を書きましょう!', id:'textarea' %>
+
         <div class="form-registration-box">
-          <%= f.label :登った山画像, class:'new-name-form' %>
-          <%= f.label :任意, class:'form-any-require' %>
+          <%= f.label :登った山画像, class:'form-registration-box__name' %>
+          <%= f.label :任意, class:'form-registration-box__any-require' %>
         </div>
+
         <div class="photo-form">
           <div class="form-mask">
             <%= f.label :image, class:'form-mask-image' do %>
-              <%= f.file_field :image, class:'hidden', id:'yama-new-picture' %>
+              <%= f.file_field :image, class:'hidden' %>
               <div class="form-mask-image">山の画像をアップロード</div>
               <i class="far fa-image fa-3x"></i>
             <% end %>
           </div>
         </div>
         <div class="preview"></div>
-        <div class="new-name-meshi">
+
+        <div class="new-post-box__container__name">
           山メシを投稿しよう
         </div>
+
         <%= f.fields_for :meal do |s| %>
           <div class="form-registration-box">
-            <%= s.label :山メシの名前, class:'new-name-form' %>
-            <%= s.label :必須, class:'form-require' %>
+            <%= s.label :山メシの名前, class:'form-registration-box__name' %>
+            <%= s.label :必須, class:'form-registration-box__require' %>
           </div>
-          <div class="text-form-box">
-            <%= s.text_field :name, autofocus: true, placeholder: '例) カレー', class:'new-part-form', id:'meshi-new-name' %>
-          </div>
+          <%= s.text_field :name, autofocus: true, placeholder: '例) カレー', class:'new-part-form', id:'meshi-new-name' %>
+
           <div class="form-registration-box">
-            <%= s.label :調理時間, class:'new-name-form' %>
-            <%= s.label :必須, class:'form-require' %>
+            <%= s.label :調理時間, class:'form-registration-box__name' %>
+            <%= s.label :必須, class:'form-registration-box__require' %>
           </div>
-          <div class="text-form-box">
-            <%= s.text_field :cooking_time, placeholder: '例) 20分→20', class:'new-part-form', id:'cooking_time' %>
-          </div>
+          <%= s.text_field :cooking_time, placeholder: '例) 20分→20', class:'new-part-form', id:'cooking_time' %>
+
           <div class="form-registration-box">
-            <%= s.label :使用する食材, class:'new-name-form'  %>
-            <%= s.label :任意, class:'form-any-require' %>
+            <%= s.label :使用する食材, class:'form-registration-box__name'  %>
+            <%= s.label :任意, class:'form-registration-box__any-require' %>
           </div>
-          <div class="text-form-box">
-            <%= s.text_area :food_stuff, placeholder: '例）ニンジン1本。じゃがいも1個', id:'textarea2' %>
-          </div>
+          <%= s.text_area :food_stuff, placeholder: '例）ニンジン1本。じゃがいも1個', id:'textarea2' %>
+
           <div class="form-registration-box">
-            <%= s.label :調理方法, class:'new-name-form' %>
-            <%= s.label :任意, class:'form-any-require' %>
+            <%= s.label :調理方法, class:'form-registration-box__name' %>
+            <%= s.label :任意, class:'form-registration-box__any-require' %>
           </div>
-          <div class="text-form-box">
-            <%= s.text_area :cooking_method, placeholder: '例）沸騰したお湯に切った野菜を入れる', id:'textarea3' %>
-          </div>
+          <%= s.text_area :cooking_method, placeholder: '例）沸騰したお湯に切った野菜を入れる', id:'textarea3' %>
+
           <div class="form-registration-box">
-            <%= f.label :山メシ画像, class:'new-name-form' %>
-            <%= f.label :任意, class:'form-any-require' %>
-        </div>
+            <%= f.label :山メシ画像, class:'form-registration-box__name' %>
+            <%= f.label :任意, class:'form-registration-box__any-require' %>
+          </div>
+
           <div class="photo-form2">
             <div class="form-mask">
               <%= s.label :image, class:'form-mask-image' do %>
@@ -111,9 +102,10 @@
           </div>
           <div class="preview2"></div>
         <% end %>
-        <%= f.submit '投稿する', class:'new-form-btn' %>
+
+        <%= f.submit '投稿する', class:'new-post-box__btn' %>
       <% end %>
     </div>
   </div>
-  <%= render "layouts/shared/footer" %>
+  <%= render 'layouts/shared/footer' %>
 </body>
