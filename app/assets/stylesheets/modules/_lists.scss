@@ -1,4 +1,5 @@
-.list-title {
+/* indexページ非ログインユーザー表示部分 */
+.before-login-title {
   font-size: 28px;
   text-align: center;
   color: black;
@@ -11,10 +12,81 @@
   height: 225px;
   background: white;
   margin-bottom: 20px;
-  .before-login-text {
+  &__text {
     font-size: 16px;
     text-align: center;
     line-height: 225px;
+  }
+}
+/* indexページ _post-lists/_user-lists表示部分 */
+.large-container {
+  display: flex;
+  .middle-container {
+    width: 100%;
+    margin-left: 10px;
+    .list-container {
+      width: 100%;
+      display: flex;
+      &__title {
+        font-size: 20px;
+        text-align: center;
+        color: black;
+        font-weight: bold;
+        padding: 20px;
+      }
+      &__icon {
+        margin-top: 20px;
+        border: 1px solid red;
+        background: red;
+        width: 50px;
+        height: 25px;
+        text-align: center;
+        color: white;
+        border-radius: 4px;
+        p {
+          font-size: 18px;
+        }
+      }
+    }
+    .list-box {
+      width:100%;
+      height:300px;
+      background-color: white;
+      overflow-y: scroll;
+      border: 1px solid #f5f3f4;
+      margin: 0 10px;
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .post-box:hover {
+        opacity: 0.7;
+      }
+      .post-box {
+        display: flex;
+        &__picture {
+          width: 80px;
+          height: auto;
+          margin: 10px 10px 10px 10px;
+          border-radius: 3px;
+        }
+        &__description {
+          width: 100%;
+          margin: 10px;
+          border: 1px solid #f5f3f4;
+          padding: 5px;
+          label {
+            font-size: 18px;
+          }
+        }
+        .user-face {
+          border-radius: 50%;
+          width: 45px;
+          height: auto;
+          margin: 15px;
+        }
+      }
+    }
   }
 }
 .horizontal-list {

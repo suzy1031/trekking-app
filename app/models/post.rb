@@ -8,6 +8,8 @@ class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
   validates :name, :text, presence: true
 
+  validates :elevation, :walking_distance, numericality: { only_integer: true }
+
   def liked?(user)
     likes.where(user_id: user.id).exists?
   end

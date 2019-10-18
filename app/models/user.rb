@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes,    dependent: :destroy
 
+  before_save   :downcase_email
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :email,     presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
@@ -34,5 +35,9 @@ class User < ApplicationRecord
   # 現在のユーザーがフォローしてたらtrueを返す
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def downcase_email
+    self.email.downcase!
   end
 end
