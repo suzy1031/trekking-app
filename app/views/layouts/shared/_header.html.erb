@@ -1,53 +1,16 @@
-<header id="header-main">
-  <div id="header">
-    <h3 class="logo-txt">大好きな山や山メシをシェアしよう</h3>
-    <div class="logo-box">
-      <div class="logo">
-        <%= link_to root_path, class:'root-path-logo' do %>
-          <h1 class="logo__small-txt">岳人</h1>
-          <a class="logo__kana">〜たけと〜</a>
-        <% end %>
-      </div>
-    </div>
-    <div id="search">
-      <%= search_form_for @search, url:search_posts_path do |f| %>
-        <%= f.search_field :name_or_text_cont, class: 'search-txt', placeholder: '山の名前を検索' %>
-        <%= f.submit '検索', class:'search-btn' %>
-      <% end %>
-    </div>
+<header class="header-main">
+  <h3 class="header-main__logo-txt">大好きな山や山メシをシェアしよう</h3>
+  <div class="logo">
+    <%= link_to root_path, class:'logo__root-path' do %>
+      <h1 class="logo__small-txt">岳人</h1>
+      <a class="logo__kana">〜たけと〜</a>
+    <% end %>
+  </div>
+  <div class="header-main__search">
+    <%= search_form_for @search, url:search_posts_path do |f| %>
+      <%= f.search_field :name_or_text_cont, class: 'header-main__search__text', placeholder: '山の名前を検索' %>
+      <%= f.submit '検索', class:'header-main__search__btn' %>
+    <% end %>
   </div>
 </header>
-  <% if user_signed_in? %>
-<div id="mypage-header">
-  <div class="mypage-contents">
-    <div class="user-link">
-      <%= link_to "登った山とメシを投稿", new_post_path, class:'user-link-yama header' %>
-    </div>
-    <div class="user-link">
-      <%= link_to "#", class:'user-link-meshi header' do %>
-        マイページ
-      <% end %>
-    </div>
-    <div class="logout-btn">
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'user-link-logout' %>
-    </div>
-    <div class="profile-btn">
-      <%= link_to 'プロフィール変更', edit_user_registration_path, class:'user-link-profile' %>
-    </div>
-  </div>
-</div>
-<% else %>
-  <div id="mypage-header">
-    <div class="mypage-contents">
-      <h2 class="user-name">
-        こんにちは！ユーザーさん！
-      </h2>
-      <div class="user-link">
-        <%= link_to "ログイン", new_user_session_path, class:'user-link-yama header' %>
-      </div>
-      <div class="user-link">
-        <%= link_to "新規登録", new_user_registration_path, class:'user-link-yama header' %>
-      </div>
-    </div>
-  </div>
-<% end %>
+<%= render 'users/shared/login-header' %>
