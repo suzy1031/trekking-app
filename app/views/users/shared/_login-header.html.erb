@@ -1,33 +1,33 @@
 <% if user_signed_in? %>
-  <div id="mypage-header">
+  <div class="mypage-header">
     <div class="mypage-contents">
-      <div class="user-link">
-        <%= link_to "登った山とメシを投稿", new_post_path, class:'user-link-yama header' %>
+      <div class="mypage-contents__link">
+        <%= link_to "登った山とメシを投稿", new_post_path, class:'mypage-contents__link__path header' %>
       </div>
-      <div class="user-link">
-        <%= link_to "#", class:'user-link-meshi header' do %>
+      <div class="mypage-contents__link">
+        <%= link_to "#", class:'mypage-contents__link__path header' do %>
           マイページ
         <% end %>
       </div>
-      <div class="logout-btn">
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'user-link-logout' %>
+      <div class="mypage-contents__btn">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'mypage-contents__btn__path' %>
       </div>
-      <div class="profile-btn">
-        <%= link_to 'プロフィール変更', edit_user_registration_path, class:'user-link-profile' %>
+      <div class="mypage-contents__btn">
+        <%= link_to "プロフィール変更", edit_user_registration_path, class:'mypage-contents__btn__path' %>
       </div>
     </div>
   </div>
 <% else %>
-  <div id="mypage-header">
+  <div class="mypage-header">
     <div class="mypage-contents">
-      <h2 class="user-name">
+      <h2 class="mypage-contents__name">
         こんにちは！ユーザーさん！
       </h2>
-      <div class="user-link">
-        <%= link_to "ログイン", new_user_session_path, class:'user-link-yama header' %>
+      <div class="mypage-contents__link">
+        <%= link_to "ログイン", new_user_session_path, class:'mypage-contents__link__path header' %>
       </div>
-      <div class="user-link">
-        <%= link_to "新規登録", new_user_registration_path, class:'user-link-yama header' %>
+      <div class="mypage-contents__link">
+        <%= link_to "新規登録", new_user_registration_path, class:'mypage-contents__link__path header' %>
       </div>
     </div>
   </div>

@@ -1,0 +1,37 @@
+/* topページフォロー表示部分 */
+.follow-box {
+  text-align: center;
+  &__link {
+  text-decoration: none;
+  margin-left: 5px;
+  color: black;
+  }
+  &__link:hover {
+    opacity: 0.7;
+  }
+  &__follower {
+    display: inline;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+/* users#showページのフォロー表示部分 */
+.user-follow-box {
+  padding-top: 10px;
+  .following-btn, .followed-btn {
+    width: 150px;
+    height: 30px;
+    color: #2AD1FF;
+    border: solid 1px #2AD1FF;
+    border-radius: 25px;
+    padding: 3px;
+    margin-top: 10px;
+  }
+  .followed-btn {
+    background: #2AD1FF;
+    color: white;
+  }
+  .detail-nickname {
+    font-size: 32px;
+  }
+}

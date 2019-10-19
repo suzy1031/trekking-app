@@ -9,41 +9,4 @@
       height: auto;
     }
   }
-  .user-follow-box {
-    padding-top: 10px;
-    .follow-box {
-      .follow-link {
-      text-decoration: none;
-      margin-left: 5px;
-      color: black;
-        .follower {
-          display: inline;
-          font-size: 18px;
-          font-weight: bold;
-        }
-      }
-    }
-    .following-btn {
-      width: 150px;
-      height: 30px;
-      color: #2AD1FF;
-      border: solid 1px #2AD1FF;
-      border-radius: 25px;
-      padding: 3px;
-      margin-top: 10px;
-    }
-    .followed-btn {
-      width: 150px;
-      height: 30px;
-      background: #2AD1FF;
-      color: white;
-      border: solid 1px #2AD1FF;
-      border-radius: 25px;
-      padding: 3px;
-      margin-top: 10px;
-    }
-    .detail-nickname {
-      font-size: 32px;
-    }
-  }
 }
