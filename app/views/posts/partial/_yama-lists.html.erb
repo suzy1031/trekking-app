@@ -1,31 +1,23 @@
 <%# トップページ・検索結果ページ・user#showでrender~collectionしているファイル %>
 <%= link_to post_path(post),data: {"turbolinks"=>false} do %>
-  <li class="item">
-    <div class="box-top">
-      <div class="picture">
-        <% if post.image.present? %>
-          <%= image_tag post.image.url, class:"yama-picture"%>
-        <% else %>
-          <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="yama-picture">
-        <% end %>
-      </div>
-      <div class="yama-description">
-        <div class="yama-display name">
+  <li class="item-box">
+    <div class="box-left">
+      <% if post.image.present? %>
+        <%= image_tag post.image.url, class:"box-left__picture"%>
+      <% else %>
+        <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="box-left__picture">
+      <% end %>
+      <div class="item-description">
+        <div class="item-description__name">
           <%= post.name %>
         </div>
-        <div class="yama-description">
-          <div class="yama-display">
-            山頂標高：<%= post.elevation %>M
-          </div>
-          <div class="yama-display">
-            歩行距離：<%= post.walking_distance %>KM
-          </div>
-          <div class="yama-display">
-            <%= post.difficulty_i18n %>
-          </div>
+        <div class="item-description">
+          山頂標高：<%= post.elevation %>M<br>
+          歩行距離：<%= post.walking_distance %>KM<br>
+          <%= post.difficulty_i18n %>
         </div>
         <label><%= post.user.nickname %>さんの一言コメント</label>
-        <div class="latest-comment">
+        <div class="item-description__comment">
           <%= post.text %>
         </div>
         <div class="like">
