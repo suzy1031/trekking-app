@@ -1,0 +1,13 @@
+#like-button {
+  text-decoration: none;
+  color: black;
+}
+.detail-like {
+  display: inline;
+  .far.fa-heart {
+    color: pink;
+  }
+  .fas.fa-heart {
+    color: pink;
+  }
+}

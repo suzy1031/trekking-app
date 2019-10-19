@@ -1,0 +1,34 @@
+<h2><%= @post.user.nickname %>さんのコメント</h2>
+<div class="detail-comment">
+  <%= simple_format(@post.text) %>
+</div>
+<h2>ユーザーさんからのコメント(<%= @comments.count %>)</h2>
+<div class="detail-comment">
+  <div class="detail-comment__box">
+    <% if @comments.present? %>
+      <% @comments.each do |comment| %>
+        <div class="comment-text-area">
+          <div class="comment-text-area__name">
+            <%= comment.user.nickname %>さんからのコメント
+          </div>
+          <div class="comment-text-area__text">
+          <%= simple_format(comment.text) %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <h2>まだコメントはありません</h2>
+    <% end %>
+  </div>
+</div>
+<% if current_user %>
+  <h2>コメントを書く</h2>
+  <div class="detail-description">
+    <div class="detail-description__display">
+      <%= form_for [@post, Comment.new] do |f| %>
+        <%= f.text_area :text, class:"comment-form", id:"textarea" %>
+        <%= f.submit 'コメントする', class:"comment-btn" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
