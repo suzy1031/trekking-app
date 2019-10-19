@@ -40,7 +40,7 @@
         <div class="detail-btn">
           <%= link_to 'ホーム', root_path, class:'detail-btn__gray' %>
           <%= link_to '編集', edit_post_path(@post), method: :get, class:'detail-btn__gray' %>
-          <%= link_to '削除する', post_path(@post), method: :delete, class:'detail-btn__red' %>
+          <%= link_to '削除する', post_path(@post), method: :delete, class:'detail-btn__red', data: { confirm: "本当に削除しますか?" } %>
         </div>
       <% else %>
         <div class="detail-btn">

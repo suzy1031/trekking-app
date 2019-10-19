@@ -18,13 +18,13 @@
           <%= f.label :歩行距離, class:'form-registration-box__name' %>
           <%= f.label :任意, class:'form-registration-box__any-require' %>
         </div>
-        <%= f.text_field :walking_distance, placeholder: '例) 1.2km→12', class:'new-part-form' %>
+        <%= f.number_field :walking_distance, placeholder: '例) 1.2km→12', class:'new-part-form' %>
 
         <div class="form-registration-box">
           <%= f.label :山頂標高, class:'form-registration-box__name'  %>
           <%= f.label :任意, class:'form-registration-box__any-require' %>
         </div>
-        <%= f.text_field :elevation, placeholder: '例) 1200m→1200', class:'new-part-form' %>
+        <%= f.number_field :elevation, placeholder: '例) 1200m→1200', class:'new-part-form' %>
 
         <div class="form-registration-box">
           <%= f.label :難易度, class:'form-registration-box__name' %>
@@ -72,7 +72,7 @@
             <%= s.label :調理時間, class:'form-registration-box__name' %>
             <%= s.label :必須, class:'form-registration-box__require' %>
           </div>
-          <%= s.text_field :cooking_time, placeholder: '例) 20分→20', class:'new-part-form', id:'cooking_time' %>
+          <%= s.number_field :cooking_time, placeholder: '例) 20分→20', class:'new-part-form', id:'cooking_time' %>
 
           <div class="form-registration-box">
             <%= s.label :使用する食材, class:'form-registration-box__name'  %>
