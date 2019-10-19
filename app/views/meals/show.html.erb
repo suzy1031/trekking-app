@@ -1,30 +1,28 @@
 <body>
-<%= render "layouts/shared/header" %>
+<%= render 'layouts/shared/header' %>
   <div class="detail-post-box">
-    <div class="user-info-top">
+    <div class="user-info">
       <% if @post.user.image.present? %>
-        <%= image_tag @post.user.image.url, class:'user-face' %>
+        <%= image_tag @post.user.image.url, class:'user-info__face' %>
       <% else %>
-        <img class="user-face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+        <img class="user-info__face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
       <% end %>
-      <div class="detail-user-name">
+      <div class="user-info__name">
         <%= @post.user.nickname %>
       </div>
     </div>
-    <div class="detail-post-container">
-      <div class="detail-name">
+    <div class="detail-container">
+      <div class="detail-container__name">
         <%= @meal.name %>
       </div>
-      <div class="detail-post-picture">
-        <% if @meal.image.present? %>
-          <%= image_tag @meal.image.url, class:"detail-yama-picture"%>
-        <% else %>
-          <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="yama-picture">
-        <% end %>
-      </div>
+      <% if @meal.image.present? %>
+        <%= image_tag @meal.image.url, class:'detail-container__picture' %>
+      <% else %>
+        <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="detail-container__picture">
+      <% end %>
       <h2>山メシの詳細データ</h2>
       <div class="detail-description">
-        <div class="detail-display">
+        <div class="detail-description__display">
           調理時間:<%= @meal.cooking_time %>分
         </div>
       </div>
@@ -39,7 +37,7 @@
       <h2>ユーザーさんからのコメント</h2>
       <div class="detail-comment">ここは仮置き</div>
       <div class="detail-btn">
-        <%= link_to 'ホームへ戻る', root_path, class:'detail-edit-btn' %>
+        <%= link_to 'ホームへ戻る', root_path, class:'detail-btn__gray' %>
       </div>
     </div>
   </div>

@@ -1,0 +1,25 @@
+.detail-comment {
+  width: 450px;
+  height: auto;
+  margin: 10px auto;
+  background: #f5f3f4;
+  border: 1px solid #f5f3f4;
+  border-radius: 3px;
+  padding: 10px;
+  &__box {
+    overflow-y: scroll;
+    height: 300px;
+    .comment-text-area {
+      padding: 5px;
+      background: white;
+      margin: 10px 0px;
+      &__name {
+        padding: 5px;
+        border-bottom: solid 1px #8b7a83;
+      }
+      &__text {
+        padding: 5px;
+      }
+    }
+  }
+}
