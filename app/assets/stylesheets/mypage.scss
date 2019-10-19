@@ -2,54 +2,7 @@
   display: block !important;
   width: 100%;
 }
-.user-top {
-  width: 100%;
-  display: flex;
-}
-.user-name {
-  font-size: 20px;
-  text-align: center;
-  color: black;
-  font-weight: bold;
-  padding: 20px;
-}
-.logout-btn,.profile-btn {
-  margin-top: 25px;
-  .user-link-logout,.user-link-profile {
-    text-decoration: none;
-    color: black;
-    background: #f5f3f4;
-    margin: 0 5px 0 5px;
-    padding: 5px;
-    border: solid 1px white;
-    border-radius: 3px;
-  }
-  .user-link-logout:hover,.user-link-profile:hover {
-    opacity: 0.7;
-  }
-}
-.user-link {
-  margin-top: 25px;
-  text-align: center;
-  .user-link-meshi,.user-link-yama {
-    font-size: 21px;
-    text-decoration: none;
-    color: black;
-    background: white;
-    margin: 0 5px 0 5px;
-    padding: 5px;
-    border: solid 1px rgba(29,161,242,1.00);
-    border-radius: 3px;
-  }
-  .user-link-meshi:hover,.user-link-yama:hover {
-    opacity: 0.7;
-  }
-  .user-link-yama.header,.user-link-meshi.header {
-    background: #f5f3f4;
-    margin-left: 10px;
-  }
-}
-.responsive-user-box {
+.user-box {
   width: 100%;
   height: 300px;
   background-color: white;
@@ -57,6 +10,12 @@
   overflow-y: scroll;
   border: 1px solid #f5f3f4;
   position: relative;
+  &__before {
+    font-size: 21px;
+    font-weight: bold;
+    padding: 10px 0 0 15px;
+    text-align: center;
+  }
   .user-face {
     border-radius: 50%;
     width: 50px;
@@ -64,71 +23,44 @@
     max-height: 50px;
     margin: 5px 0 0 10px;
   }
-  .follow-box {
-    text-align: center;
-    .follow-link {
-    text-decoration: none;
-    margin-left: 5px;
-    color: black;
-      .follower {
-        display: inline;
-        font-size: 18px;
-        font-weight: bold;
-      }
-    }
+  &__count {
+    position: absolute;
+    left: 60px;
+    top: 2%;
+    font-size: 21px;
+    font-weight: bold;
+    padding: 10px 0 0 15px;
   }
-}
-.user-box-top {
-  width: 100%;
-}
-.posts-count {
-  position: absolute;
-  left: 60px;
-  top: 2%;
-  font-size: 21px;
-  font-weight: bold;
-  padding: 10px 0 0 15px;
-}
-.posts-count-before {
-  font-size: 21px;
-  font-weight: bold;
-  padding: 10px 0 0 15px;
-  text-align: center;
-}
-.mypage-count-box {
-  width: 100%;
-  height: auto;
-  background: white;
-  margin: 10px 15px 10px 15px;
-  padding: 10px 0;
-  text-align: center;
-  font-size: 18px;
-  border: solid 1px #f5f3f4;
-  border-radius: 3px;
-}
-.follow-link:hover {
-  opacity: 0.7;
-}
-.user-description {
-  width: 100%;
-  height: auto;
-  margin: 10px;
-  .user-box {
+  &__count-box {
     width: 100%;
     height: auto;
-    background: #f5f3f4;
-    padding: 10px;
+    background: white;
+    margin: 10px 15px 10px 15px;
+    padding: 10px 0;
     text-align: center;
-    border: solid 1px #ccc;
-    &__yama {
-      font-size: 18px;
+    font-size: 18px;
+    border: solid 1px #f5f3f4;
+    border-radius: 3px;
+  }
+  &__link {
+    margin-top: 25px;
+    text-align: center;
+    &__path {
+      font-size: 21px;
+      text-decoration: none;
+      color: black;
+      background: white;
+      margin: 0 5px 0 5px;
+      padding: 5px;
+      border: solid 1px rgba(29,161,242,1.00);
+      border-radius: 3px;
     }
-    &__meshi {
-      font-size: 18px;
+    &__path:hover {
+      opacity: 0.7;
     }
   }
 }
-#mypage-header {
+.mypage-header {
   display: none !important;
 }
 
@@ -136,7 +68,7 @@
   .middle-container.mypage {
     display: none !important;
   }
-  #mypage-header {
+  .mypage-header {
     height: 80px;
     display: block !important;
     background: #f5f3f4;
@@ -144,20 +76,42 @@
     border-radius: 3px;
     .mypage-contents {
       display: flex;
-      .link-reg {
-        display: flex;
-        border: 1px solid #f5f3f4;
-        border-radius: 3px;
-        background: white;
-        margin: 0 auto;
-        .mypage-box {
-          color: black;
-          font-size: 24px;
-          margin: 5px 10px;
+      &__name {
+        font-size: 20px;
+        text-align: center;
+        color: black;
+        font-weight: bold;
+        padding: 20px;
+      }
+      &__link {
+        margin-top: 25px;
+        text-align: center;
+        &__path {
+          font-size: 21px;
           text-decoration: none;
+          color: black;
+          margin: 0 5px 0 5px;
+          padding: 5px;
+          border: solid 1px rgba(29,161,242,1.00);
+          border-radius: 3px;
         }
-        i.fa, .far {
-          margin: 5px 5px 5px 10px;
+        &__path:hover {
+          opacity: 0.7
+        }
+      }
+      &__btn {
+        margin-top: 25px;
+        &__path {
+          text-decoration: none;
+          color: black;
+          background: #f5f3f4;
+          margin: 0 5px 0 5px;
+          padding: 5px;
+          border: solid 1px white;
+          border-radius: 3px;
+        }
+        &__path:hover {
+          opacity: 0.7;
         }
       }
     }
