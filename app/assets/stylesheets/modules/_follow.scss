@@ -35,3 +35,72 @@
     font-size: 32px;
   }
 }
+/* users#followers/users#followingページ表示部分 */
+.follow-list {
+  width: 800px;
+  margin: 0 auto;
+  background: white;
+  &__container {
+    width: 100%;
+  }
+  &__title {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+    text-align: center;
+  }
+  &__paginate {
+    text-align: center;
+    a {
+    text-decoration: none;
+    color: black;
+    padding: 0 5px;
+    }
+    a:hover {
+      opacity: 0.7;
+    }
+  }
+  &__btn {
+    margin-top: 40px;
+    height: 80px;
+    text-align: center;
+    &__gray {
+      font-size: 24px;
+      color: black;
+      background: #f5f3f4;
+      border: none;
+      border-radius: 3px;
+      margin: 10px;
+      padding: 10px;
+      text-decoration: none;
+    }
+  }
+  .follow-user {
+    width: 350px;
+    height: 120px;
+    margin: 10px auto;
+    border: solid 1px #f5f3f4;
+    border-radius: 3px;
+    position: relative;
+    &__link {
+      text-decoration: none;
+      color: black;
+    }
+    &__link:hover {
+      opacity: 0.7;
+    }
+    &__picture {
+      width: 100px;
+      height: 100px;
+      border-radius: 3px;
+      position: absolute;
+      left: 40px;
+      top: 7%;
+    }
+    &__nickname {
+      position: absolute;
+      right: 40px;
+      top: 40%;
+    }
+  }
+}
