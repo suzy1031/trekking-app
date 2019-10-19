@@ -1,88 +1,53 @@
 <body>
 <%= render "layouts/shared/header" %>
   <div class="detail-post-box">
-    <div class="user-info-top">
+    <div class="user-info">
       <% if @post.user.image.present? %>
-        <%= image_tag @post.user.image.url, class:'user-face' %>
+        <%= image_tag @post.user.image.url, class:'user-info__face' %>
       <% else %>
-        <img class="user-face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+        <img class="user-info__face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
       <% end %>
-      <div class="detail-user-name">
+      <div class="user-info__name">
         <%= @post.user.nickname %>
       </div>
     </div>
-    <div class="detail-post-container">
-      <div class="detail-name">
+    <div class="detail-container">
+      <div class="detail-container__name">
         <%= @post.name %>
         <%= render 'likes/like' %>
       </div>
-      <div class="detail-post-picture">
-        <% if @post.image.present? %>
-          <%= image_tag @post.image.url, class:"detail-yama-picture"%>
-        <% else %>
-          <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="yama-picture">
-        <% end %>
-      </div>
+      <% if @post.image.present? %>
+        <%= image_tag @post.image.url, class:'detail-container__picture' %>
+      <% else %>
+        <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="detail-container__picture">
+      <% end %>
       <h2>山の詳細データ</h2>
       <div class="detail-description">
-        <div class="detail-display">
+        <div class="detail-description__display">
           山頂標高:<%= @post.elevation %>M
         </div>
-        <div class="detail-display">
+        <div class="detail-description__display">
           歩行距離:<%= @post.walking_distance %>KM
         </div>
-        <div class="detail-display">
+        <div class="detail-description__display">
           <%= @post.difficulty_i18n %>
         </div>
       </div>
-      <h2><%= @post.user.nickname %>さんのコメント</h2>
-      <div class="detail-comment">
-        <%= simple_format(@post.text) %>
-      </div>
-      <h2>ユーザーさんからのコメント(<%= @comments.count %>)</h2>
-      <div class="detail-comment">
-        <div class="comment-box">
-          <div class="comment-box-small">
-            <% if @comments.present? %>
-              <% @comments.each do |comment| %>
-                <div class="comment-text-area">
-                  <div class="comment-user-name">
-                    <%= comment.user.nickname %>さんからのコメント
-                  </div>
-                  <div class="comment-text">
-                  <%= simple_format(comment.text) %>
-                  </div>
-                </div>
-              <% end %>
-            <% else %>
-              <h2>まだコメントはありません</h2>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <% if current_user %>
-        <h2>コメントを書く</h2>
-        <div class="detail-description">
-          <div class="detail-display">
-            <%= form_for [@post, Comment.new] do |f| %>
-              <%= f.text_area :text, class:"comment-form", id:"textarea" %>
-              <%= f.submit 'コメントする', class:"comment-btn" %>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+
+      <%= render 'comments/comment' %>
+
       <% if user_signed_in? && current_user.id == @post.user_id %>
         <div class="detail-btn">
-          <%= link_to 'ホーム', root_path, class:'detail-edit-btn' %>
-          <%= link_to '編集', edit_post_path(@post), method: :get, class:'detail-edit-btn' %>
-          <%= link_to '削除する', post_path(@post), method: :delete, class:'detail-delete-btn' %>
+          <%= link_to 'ホーム', root_path, class:'detail-btn__gray' %>
+          <%= link_to '編集', edit_post_path(@post), method: :get, class:'detail-btn__gray' %>
+          <%= link_to '削除する', post_path(@post), method: :delete, class:'detail-btn__red' %>
         </div>
       <% else %>
         <div class="detail-btn">
-          <%= link_to 'ホーム', root_path, class:'detail-edit-btn' %>
+          <%= link_to 'ホーム', root_path, class:'detail-btn__gray' %>
         </div>
       <% end %>
     </div>
   </div>
-<%= render "layouts/shared/footer" %>
+<%= render 'layouts/shared/footer' %>
 </body>
