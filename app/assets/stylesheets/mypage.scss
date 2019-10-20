@@ -63,6 +63,11 @@
 .mypage-header {
   display: none !important;
 }
+@media screen and (max-width: 500px) {
+  .mypage-header {
+    display: none !important;
+  }
+}
 
 @media screen and (max-width: 1024px) {
   .middle-container.mypage {
