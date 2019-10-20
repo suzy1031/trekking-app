@@ -1,8 +1,31 @@
 <header class="sp-header-main">
   <i class="fas fa-bars fa-2x"></i>
-  <div class="logo-box">
+  <%= link_to root_path, class:'logo-box' do %>
     <h1 class="logo-box__sp-logo">岳人</h1>
     <h3 class="logo-box__sp-kana">〜たけと〜</h3>
-  </div>
-  <i class="fas fa-user fa-2x"></i>
+  <% end %>
+  <% if user_signed_in? %>
+    <% if current_user.image.present? %>
+      <%= image_tag current_user.image.url, class:"user-face" %>
+    <% end %>
+  <% else %>
+    <i class="fas fa-user fa-2x"></i>
+  <% end %>
+  <aside class="sidebar">
+    <% if user_signed_in? %>
+      <h2 class="sidebar__user-name">こんにちは！<%= current_user.nickname %>さん！</h2>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'sidebar__user-link' %>
+      <%= link_to 'プロフィール変更', edit_user_registration_path, class:'sidebar__user-link',data: {"turbolinks"=>false} %>
+      <div class="sidebar__count">
+        登った山は<%= @current_user_posts.count %>ヶ所です！
+      </div>
+      <%= render 'users/shared/stats' %>
+      <%= link_to "登った山とメシを投稿", new_post_path, class:'sidebar__link-path',data: {"turbolinks"=>false} %>
+    <% else %>
+      <h2 class="sidebar__user-name">こんにちは！ユーザーさん！</h2>
+      <h2 class="sidebar__login-text">まずはログインしよう！</h2>
+      <%= link_to "ログイン", new_user_session_path, class:'sidebar__link-path' %>
+      <%= link_to "新規登録", new_user_registration_path, class:'sidebar__link-path',data: {"turbolinks"=>false} %>
+    <% end %>
+  </aside>
 </header>
