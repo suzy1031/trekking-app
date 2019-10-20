@@ -1,9 +1,4 @@
 <header class="sp-header-main">
-  <i class="fas fa-bars fa-2x"></i>
-  <%= link_to root_path, class:'logo-box' do %>
-    <h1 class="logo-box__sp-logo">岳人</h1>
-    <h3 class="logo-box__sp-kana">〜たけと〜</h3>
-  <% end %>
   <% if user_signed_in? %>
     <% if current_user.image.present? %>
       <%= image_tag current_user.image.url, class:"user-face" %>
@@ -28,4 +23,9 @@
       <%= link_to "新規登録", new_user_registration_path, class:'sidebar__link-path',data: {"turbolinks"=>false} %>
     <% end %>
   </aside>
+  <i class="fa fa-search fa-2x"></i>
+  <%= link_to root_path, class:'logo-box' do %>
+    <h1 class="logo-box__sp-logo">岳人</h1>
+    <h3 class="logo-box__sp-kana">〜たけと〜</h3>
+  <% end %>
 </header>
