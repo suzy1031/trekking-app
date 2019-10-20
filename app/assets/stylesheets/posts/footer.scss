@@ -1,4 +1,8 @@
+.sp-footer-main {
+  display: none !important;
+}
 .footer-main {
+  display: block !important;
   background: green;
   width: 100%;
   height: 70px;
@@ -21,5 +25,29 @@
     text-align: center;
     margin: 10px;
     color: white;
+  }
+}
+@media screen and (max-width: 500px) {
+  .footer-main {
+    display: none !important;
+  }
+  .sp-footer-main {
+    display: block !important;
+    width: 500px;
+    height: 110px;
+    padding: 5px 0;
+    background: green;
+    &__link {
+      text-align: center;
+      text-decoration: none;
+      &__information {
+        margin: 5px 0 0 0;
+        color: white;
+      }
+    }
+    &__copyright {
+      color: white;
+      text-align: center;
+    }
   }
 }

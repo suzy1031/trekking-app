@@ -64,9 +64,11 @@
     width: 500px;
     height: 80px;
     position: relative;
-    .fas.fa-bars {
+    .fa.fa-search {
       color: white;
-      margin: 25px 10px;
+      position: absolute;
+      right: 10px;
+      top: 25px;
     }
     .logo-box {
       position: absolute;
@@ -87,16 +89,12 @@
       height: auto;
       max-height: 50px;
       margin: 5px 0 0 10px;
-      position: absolute;
-      right: 10px;
-      top: 10px;
+      margin: 12px 10px;
       border: solid 2px white;
     }
     .fas.fa-user {
       color: white;
-      position: absolute;
-      right: 10px;
-      top: 25px;
+      margin: 25px 10px;
     }
   }
   .sidebar {
