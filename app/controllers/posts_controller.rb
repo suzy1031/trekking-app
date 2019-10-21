@@ -69,6 +69,13 @@ class PostsController < ApplicationController
   def notification
   end
 
+  def ranking
+    @all_ranks = Post.create_all_ranks
+    if user_signed_in?
+      @current_user_posts=Post.where(user_id:current_user.id).order('updated_at DESC')
+  end
+  end
+
   private
   def post_params
     params.require(:post).permit(
