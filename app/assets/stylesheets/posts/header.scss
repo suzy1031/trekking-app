@@ -104,6 +104,7 @@
     background: white;
     border: solid 1px #f5f3f4;
     height: auto;
+    z-index: 5;
     &__user-name {
       font-size: 20px;
       font-weight: bold;
@@ -143,6 +144,7 @@
       position: fixed;
       top: 80px;
       width: 100%;
+      z-index: 5;
   }
   .modal__bg{
       background: #f5f3f4;

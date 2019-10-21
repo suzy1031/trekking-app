@@ -4,8 +4,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  # get '/notification', to: 'posts#notification'
-  # get 'usage'
+
 
   resources :posts do
     resources :likes, only: [:create, :destroy]
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
       get 'about'
       get 'usage'
       get 'notification'
+      get 'ranking'
     end
   end
 
