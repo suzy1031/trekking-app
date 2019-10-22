@@ -55,6 +55,9 @@
 }
 
 @media screen and (max-width: 500px) {
+  main {
+    display: none !important;
+  }
   .header-main {
     display: none !important;
   }
@@ -73,7 +76,7 @@
     .logo-box {
       position: absolute;
       top: 5px;
-      left: 170px;
+      left: 165px;
       text-decoration: none;
       &__sp-logo {
         color: white;
