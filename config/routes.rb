@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
 
   resources :posts do
-    resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create]
     resources :users, only: [:index, :show]
     collection do
@@ -25,6 +24,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post   '/like/:post_id' => 'likes#like',   as: 'like'
+  delete '/like/:post_id' => 'likes#unlike', as: 'unlike'
   resources :relationships, only: [:create, :destroy]
   resources :meals
 
