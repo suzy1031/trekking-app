@@ -61,7 +61,7 @@
   .sp-header-main {
     display: block !important;
     background: green;
-    width: 500px;
+    width: 100%;
     height: 80px;
     position: relative;
     .fa.fa-search {
@@ -73,7 +73,7 @@
     .logo-box {
       position: absolute;
       top: 5px;
-      left: 215px;
+      left: 170px;
       text-decoration: none;
       &__sp-logo {
         color: white;
@@ -100,7 +100,7 @@
   .sidebar {
     position: fixed;
     display:none;
-    width: 500px;
+    width: 100%;
     background: white;
     border: solid 1px #f5f3f4;
     height: auto;
@@ -154,7 +154,7 @@
       opacity: 0.7;
   }
   .modal__content{
-    width: 450px;
+    width: 200px;
     position: absolute;
     left: 50%;
     top: 60px;
@@ -163,7 +163,7 @@
       padding-left: 10px;
       margin-top: 10px;
       width: 100%;
-      height: 60px;
+      height: 40px;
       border: solid 0.5px #fff;
       line-height: 30px;
       background: white;
@@ -172,7 +172,7 @@
       width: 50px;
       position: absolute;
       right: 0px;
-      height: 60px;
+      height: 40px;
       margin-top: 10px;
       border: solid 1px #f5f3f4;
       background: #f5f3f4;
