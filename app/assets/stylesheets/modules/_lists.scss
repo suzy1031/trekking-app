@@ -100,6 +100,12 @@
           label {
             font-size: 18px;
           }
+          &__comment {
+            width: 230px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
         }
         .user-face {
           border-radius: 50%;
@@ -196,28 +202,4 @@
     }
   }
 }
-.sp-banner {
-  display: none !important;
-}
 
-@media screen and (max-width: 500px) {
-  .large-container {
-    display: none !important;
-  }
-  .sp-banner {
-    display: block !important;
-    &__icon {
-      // position: fixed;
-      width: 100%;
-      height: auto;
-      background: #f5f3f4;
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid gray;
-      .fas {
-        color: white;
-        margin: 15px 20px;
-      }
-    }
-  }
-}
