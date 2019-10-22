@@ -32,9 +32,11 @@
     display: none !important;
   }
   .sp-footer-main {
+    position: fixed;
+    bottom: 0;
     display: block !important;
     width: 100%;
-    height: 110px;
+    height: auto;;
     padding: 5px 0;
     background: green;
     &__link {

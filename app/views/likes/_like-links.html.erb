@@ -1,0 +1,24 @@
+<% if user_signed_in? %>
+  <div class="like-link" id="like-link-<%= post.id %>">
+    <% if current_user.likes.find_by(post_id: post.id) %>
+      <%=link_to unlike_path(post.id), method: :delete, class:'like-button', remote: true do %>
+        <div class="detail-like" id="heart-<%= post.id %>">
+          <i class="fas fa-heart fa-2x"></i>
+          <span><%= post.likes.count %></span>
+        </div>
+      <% end %>
+    <% else %>
+      <%=link_to like_path(post.id), method: :post, class:'like-button', remote: true do %>
+        <div class="detail-like" id="heart-<%= post.id %>">
+          <i class="far fa-heart fa-2x"></i>
+          <span><%= post.likes.count %></span>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="detail-like">
+    <i class="fas fa-heart fa-2x"></i>
+    <span><%= post.likes.count %></span>
+  </div>
+<% end %>

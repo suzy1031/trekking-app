@@ -1,0 +1,22 @@
+.sp-banner {
+  display: none !important;
+}
+@media screen and (max-width: 500px) {
+  .sp-banner {
+    display: block !important;
+    &__icon {
+      position: fixed;
+      bottom: 105px;
+      width: 100%;
+      height: auto;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid gray;
+      .fas {
+        color: gray;
+        margin: 15px 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<%= link_to "posts/#{ post.id }" do %>
+  <div class="sp-post-box">
+    <% if post.image.present? %>
+      <%= image_tag post.image.url, class:"sp-post-box__picture"%>
+    <% else %>
+      <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="sp-post-box__picture">
+    <% end %>
+    <div class="sp-post-box__description">
+      <label><%= post.user.nickname %></label><br/>
+      <%= post.name %>
+      <div class="sp-post-box__description__comment">
+        <%= post.text %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<div class="sp-post-box__like">
+  <%= render 'likes/like-links', post: post %>
+  <i class="far fa-comment fa-2x"><span><%= post.comments.count %></span></i>
+</div>

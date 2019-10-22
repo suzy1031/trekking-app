@@ -14,7 +14,7 @@
     <div class="detail-container">
       <div class="detail-container__name">
         <%= @post.name %>
-        <%= render 'likes/like' %>
+        <%= render 'likes/like-links', post: @post %>
       </div>
       <% if @post.image.present? %>
         <%= image_tag @post.image.url, class:'detail-container__picture' %>
@@ -32,6 +32,10 @@
         <div class="detail-description__display">
           <%= @post.difficulty_i18n %>
         </div>
+      </div>
+      <h2><%= @post.user.nickname %>さんのコメント</h2>
+      <div class="detail-comment">
+        <%= simple_format(@post.text) %>
       </div>
 
       <%= render 'comments/comment' %>

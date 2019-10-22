@@ -1,6 +1,6 @@
 <body>
   <%= render "layouts/shared/header" %>
-  <%= render "layouts/shared/sp-header" %>
+  <%= render "layouts/shared/sp-header" %><%# スマホ用ヘッダー %>
   <%= render "layouts/shared/flash" %>
   <main>
     <div class="large-container">
@@ -17,13 +17,18 @@
       <% if signed_in? %>
         <h2 class="list-title"><%=current_user.nickname %>さんが登った山リスト</h2>
         <ul class="horizontal-list">
-          <%= render partial: 'posts/partial/yama-lists', collection: @current_user_posts, as:'post'%>
+          <%= render partial: 'posts/partial/yama-lists', collection: @current_user_posts, as:'post' %>
         </ul>
       <% else %>
         <%= render "posts/partial/before-lists" %>
       <% end %>
     </div>
   </main>
-  <%= render "layouts/shared/footer" %>
-  <%= render "layouts/shared/sp-footer" %>
+  <h1 class="sp-top-home">ホーム</h1>
+  <div class="sp-list-box">
+    <%= render partial: 'posts/partial/sp-index', collection: @posts, as: :post %>
+  </div>
+  <%= render 'layouts/shared/sp-banner' %>
+  <%= render 'layouts/shared/footer' %><%# スマホ用バナー %>
+  <%= render 'layouts/shared/sp-footer' %><%# スマホ用フッダー %>
 </body>
