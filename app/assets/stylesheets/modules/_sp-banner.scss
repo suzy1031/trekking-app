@@ -19,4 +19,18 @@
       }
     }
   }
+  .sp-footer-btn {
+    bottom: 75px;
+    right: 10px;
+    width: 75px;
+    height: 75px;
+    position: fixed;
+    z-index: 1000;
+    border-radius: 50%;
+    background: green;
+    .far.fa-paper-plane {
+      color: white;
+      margin: 15px 12px;
+    }
+  }
 }
