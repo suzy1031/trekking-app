@@ -1,4 +1,4 @@
-<%= link_to "posts/#{ post.id }" do %>
+<%= link_to post_path(post) do %>
   <div class="sp-post-box">
     <% if post.image.present? %>
       <%= image_tag post.image.url, class:"sp-post-box__picture"%>
@@ -16,5 +16,7 @@
 <% end %>
 <div class="sp-post-box__like">
   <%= render 'likes/like-links', post: post %>
-  <i class="far fa-comment fa-2x"><span><%= post.comments.count %></span></i>
+  <i class="far fa-comment fa-2x">
+    <span><%= post.comments.count %></span>
+  </i>
 </div>

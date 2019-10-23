@@ -21,3 +21,49 @@
     font-size: 18px;
   }
 }
+.sp-search {
+  display: none !important;
+}
+@media screen and (max-width: 500px) {
+  .search-result {
+    display: none !important;
+  }
+  .sp-search {
+    display: block !important;
+    text-align: center;
+    background: white;
+    #q_name_or_text_cont {
+      padding: 0 10px;
+      margin: 10px 5px;
+      height: 32px;
+      background: white;
+      border: 1px solid gray;
+    }
+    &__btn {
+      background: white;
+      border: 1px solid gray;
+      padding: 5px;
+    }
+    &__result {
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      background: white;
+    }
+    &__text {
+      text-align: center;
+      background: white;
+    }
+    &__paginate {
+      padding:10px 0 70px 0;
+      text-align: center;
+      background: white;
+      a {
+        color: black;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 0 5px 0 0;
+      }
+    }
+  }
+}
