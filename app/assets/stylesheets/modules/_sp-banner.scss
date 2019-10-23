@@ -12,10 +12,10 @@
       background: white;
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid gray;
-      .fas {
+      border-top: 1px solid gray;
+      .fas, .fa {
         color: gray;
-        margin: 15px 20px;
+        margin: 10px 15px;
       }
     }
   }
