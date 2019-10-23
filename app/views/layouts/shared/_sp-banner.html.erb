@@ -3,7 +3,9 @@
     <%= link_to root_path do %>
       <i class="fas fa-sticky-note fa-3x"></i>
     <% end %>
-    <i class="fas fa-hamburger fa-3x"></i>
+    <%= link_to meals_path do %>
+      <i class="fas fa-hamburger fa-3x"></i>
+    <% end %>
     <i class="fas fa-users fa-3x"></i>
     <%= link_to ranking_posts_path do %>
       <i class="fas fa-heart fa-3x"></i>
@@ -12,9 +14,9 @@
       <i class="fa fa-search fa-3x"></i>
     <% end %>
   </div>
-</div>
-<% if user_signed_in? %>
-  <%=link_to new_post_path, class:'sp-footer-btn' do %>
-    <i class="far fa-paper-plane fa-3x"></i>
+  <% if user_signed_in? %>
+    <%=link_to new_post_path, class:'sp-footer-btn' do %>
+      <i class="far fa-paper-plane fa-3x"></i>
+    <% end %>
   <% end %>
-<% end %>
+</div>
