@@ -8,8 +8,11 @@ class ApplicationController < ActionController::Base
   end
 
   def search
-    @search = Post.ransack(search_params)
-    @search_result = @search.result.page(params[:page]).per(20)
+    if params[:q].present?
+      @search_result = @search.result.page(params[:page]).per(20)
+    else
+      render :search
+    end
   end
 
   private
