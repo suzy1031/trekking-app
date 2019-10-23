@@ -12,7 +12,7 @@
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'sidebar__user-link' %>
       <%= link_to 'プロフィール変更', edit_user_registration_path, class:'sidebar__user-link',data: {"turbolinks"=>false} %>
       <div class="sidebar__count">
-        登った山は<%= @current_user_posts.count %>ヶ所です！
+        登った山は<%= current_user.posts.count %>ヶ所です！
       </div>
       <%= render 'users/shared/stats' %>
       <%= link_to "登った山とメシを投稿", new_post_path, class:'sidebar__link-path',data: {"turbolinks"=>false} %>
@@ -23,19 +23,6 @@
       <%= link_to "新規登録", new_user_registration_path, class:'sidebar__link-path',data: {"turbolinks"=>false} %>
     <% end %>
   </aside>
-  <i class="fa fa-search fa-2x"></i>
-  <div class="modal js-modal">
-    <div class="modal__bg js-modal-close"></div>
-    <div class="modal__content">
-      <%= search_form_for @search, url:search_posts_path do |f| %>
-        <%= f.search_field :name_or_text_cont, class: 'modal__content__search-box', placeholder: '山の名前を検索' %>
-        <%= f.submit '検索', class:'modal__content__search-btn' %>
-      <% end %>
-      <div class="close-box">
-        <a class="js-modal-close" href="">閉じる</a>
-      </div>
-    </div>
-  </div>
   <%= link_to root_path, class:'logo-box' do %>
     <h1 class="logo-box__sp-logo">岳人</h1>
     <h3 class="logo-box__sp-kana">〜たけと〜</h3>
