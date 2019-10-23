@@ -26,9 +26,11 @@
   </main>
   <%# スマホ用topページ %>
   <h1 class="sp-top-home">ホーム</h1>
-  <div class="sp-list-box">
-    <%= render partial: 'posts/partial/sp-index', collection: @posts, as: :post %>
-  </div>
+  <div class="sp-main">
+    <div class="sp-list-box">
+      <%= render partial: 'posts/partial/sp-index', collection: @posts, as: :post %>
+    </div>
+  <div class="sp-main">
   <%# スマホ用バナー %>
   <%= render 'layouts/shared/sp-banner' %>
   <%= render 'layouts/shared/footer' %>

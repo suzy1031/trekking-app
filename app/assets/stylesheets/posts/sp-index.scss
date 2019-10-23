@@ -1,10 +1,11 @@
-h1.sp-top-home {
-  display: none !important;
-}
-.sp-list-box {
+h1.sp-top-home,.sp-list-box,.sp-main {
   display: none !important;
 }
 @media screen and (max-width: 500px) {
+  .sp-main {
+    display: block !important;
+    margin-bottom: 70px;
+  }
   h1.sp-top-home {
     display: block !important;
     font-size: 20px;

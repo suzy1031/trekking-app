@@ -1,0 +1,26 @@
+<%= render "layouts/shared/sp-header" %>
+<h1 class="sp-top-home">山メシ</h1>
+<div class="sp-main">
+  <% @meals.each do |meal| %>
+    <div class="sp-list-box">
+      <%= link_to meal_path(meal) do %>
+        <div class="sp-post-box">
+          <% if meal.image.present? %>
+            <%= image_tag meal.image.url, class:"sp-post-box__picture"%>
+          <% else %>
+            <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="sp-post-box__picture">
+          <% end %>
+          <div class="sp-post-box__description">
+            <label><%= meal.name %></label><br/>
+            調理時間:<%= meal.cooking_time %>分
+            <div class="sp-post-box__description__comment">
+              調理方法:<%= meal.cooking_method %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<%= render 'layouts/shared/sp-banner' %>
+<%= render 'layouts/shared/footer' %>
