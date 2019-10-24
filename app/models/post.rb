@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   validates :name, :text, presence: true
 
   def self.create_all_ranks
-    Post.find(Like.group(:post_id).order('count(post_id) DESC').limit(5).pluck(:post_id))
+    Post.find(Like.group(:post_id).order('count(post_id) DESC').limit(20).pluck(:post_id))
   end
 
 end

@@ -14,7 +14,6 @@ Rails.application.routes.draw do
       get 'about'
       get 'usage'
       get 'notification'
-      get 'ranking'
     end
   end
 
@@ -27,6 +26,7 @@ Rails.application.routes.draw do
   post   '/like/:post_id' => 'likes#like',   as: 'like'
   delete '/like/:post_id' => 'likes#unlike', as: 'unlike'
   resources :relationships, only: [:create, :destroy]
-  resources :meals
+  resources :meals, only: [:index, :show]
+  resources :rankings, only: [:index, :show]
 
 end

@@ -21,6 +21,33 @@ h1.sp-top-home,.sp-list-box,.sp-main {
       text-decoration: none;
       color: black;
     }
+    &__ranking {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #ranking-1 {
+      font-size: 26px;
+      width: 60px;
+      color: white;
+      background: #DBB400;
+      border-radius: 3px;
+    }
+    #ranking-2 {
+      font-size: 22px;
+      width: 60px;
+      color: white;
+      background: #9FA0A0;
+      border-radius: 3px;
+    }
+    #ranking-3 {
+      font-size: 20px;
+      width: 60px;
+      color: white;
+      background: #C47022;
+      border-radius: 3px;
+    }
     .sp-post-box {
       display: flex;
       position: relative;
