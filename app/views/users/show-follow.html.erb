@@ -1,29 +1,60 @@
 <% provide(:title, @title) %>
 <body>
 <%= render 'layouts/shared/header' %>
-  <div class="follow-list">
-    <div class="follow-list__container">
-      <%= render 'users/shared/stats' %>
-      <div class="follow-list__title"><%= @title %></div>
-      <% if @users.any? %>
-        <% @users.each do |user| %>
-          <div class="follow-user">
-            <%= link_to user, class:'follow-user__link' do %>
-              <% if user.image.present? %>
-                <%= image_tag user.image.url, class:"follow-user__picture" %>
-              <% else %>
-                <img class="follow-user__picture" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+  <main>
+    <div class="follow-list">
+      <div class="follow-list__container">
+        <%= render 'users/shared/stats' %>
+        <div class="follow-list__title"><%= @title %></div>
+        <% if @users.any? %>
+          <% @users.each do |user| %>
+            <div class="follow-user">
+              <%= link_to user, class:'follow-user__link' do %>
+                <% if user.image.present? %>
+                  <%= image_tag user.image.url, class:"follow-user__picture" %>
+                <% else %>
+                  <img class="follow-user__picture" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+                <% end %>
+                <div class="follow-user__nickname"><%= user.nickname %></div>
               <% end %>
-              <div class="follow-user__nickname"><%= user.nickname %></div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
+          <div class="follow-list__paginate"><%= paginate @users %></div>
         <% end %>
-        <div class="follow-list__paginate"><%= paginate @users %></div>
-      <% end %>
-      <div class="follow-list__btn">
-        <%= link_to "ホーム", root_path, class:'follow-list__btn__gray' %>
+        <div class="follow-list__btn">
+          <%= link_to "ホーム", root_path, class:'follow-list__btn__gray' %>
+        </div>
       </div>
     </div>
-  </div>
+  </main>
 <%= render 'layouts/shared/footer' %>
 </body>
+<%# スマホ用フォロー一覧ページ %>
+<%= render 'layouts/shared/sp-header' %>
+<h1 class="sp-top-home"><%= @title %></h1>
+<div class="sp-main">
+  <%= render 'users/shared/stats' %>
+  <% if @users.any? %>
+    <% @users.each do |user| %>
+      <div class="sp-list-box">
+        <%= link_to user do %>
+          <div class="sp-post-box">
+            <% if user.image.present? %>
+              <%= image_tag user.image.url, class:"sp-post-box__picture" %>
+            <% else %>
+              <img class="sp-post-box__picture" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+            <% end %>
+            <div class="sp-post-box__description">
+              <%= user.nickname %>
+              <div class="sp-post-box__description__comment">
+                <label><%= user.profile %><label>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="follow-list__paginate"><%= paginate @users %></div>
+  <% end %>
+</div>
+<%= render 'layouts/shared/sp-banner' %>
