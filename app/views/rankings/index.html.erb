@@ -1,0 +1,34 @@
+<%= render 'layouts/shared/sp-header' %>
+<h1 class="sp-top-home">ランキング</h1>
+<div class="sp-main">
+  <div class="sp-list-box">
+    <% @all_ranks.each.with_index(1) do |post, i| %>
+      <%= link_to post_path(post),data: {"turbolinks"=>false} do %>
+        <div id="ranking-<%= i %>" class="sp-list-box__ranking">
+          <%="No.#{i}"%>
+        </div>
+        <div class="sp-post-box">
+          <% if post.image.present? %>
+            <%= image_tag post.image.url, class:"sp-post-box__picture"%>
+          <% else %>
+            <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="sp-post-box__picture">
+          <% end %>
+          <div class="sp-post-box__description">
+            <label><%= post.user.nickname %></label><br/>
+            <%= post.name %>
+            <div class="sp-post-box__description__comment">
+              <%= post.text %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="sp-post-box__like">
+        <%= render 'likes/like-links', post: post %>
+        <i class="far fa-comment fa-2x">
+          <span><%= post.comments.count %></span>
+        </i>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render 'layouts/shared/sp-banner' %>
