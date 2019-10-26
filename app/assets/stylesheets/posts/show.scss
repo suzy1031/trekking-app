@@ -99,3 +99,61 @@
     }
   }
 }
+.sp-detail {
+  display: none !important;
+}
+@media screen and (max-width: 500px) {
+  .sp-detail {
+    display: block !important;
+    &__user {
+      display: flex;
+      &__picture {
+        width: 50px;
+        height: auto;
+        max-height: 50px;
+        border-radius: 50%;
+        margin: 10px 15px;
+      }
+      &__nickname {
+        margin: 23px 0 0 0;
+        font-size: 18px;
+      }
+    }
+    &__pic-box {
+      &__picture {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .far.fa-heart {
+      color: gray;
+      margin: 5px 10px;
+    }
+    .far.fa-comment {
+      color: gray;
+    }
+    &__title {
+      text-align: center;
+      font-size: 21px;
+      font-weight: bold;
+    }
+    &__description {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      &__name {
+        margin: 10px 15px;
+      }
+      &__count {
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+    &__comment {
+      width: 100%;
+      text-align: center;
+      margin: 10px 0;
+      word-break: break-all;
+    }
+  }
+}

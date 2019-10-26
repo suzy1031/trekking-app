@@ -16,7 +16,9 @@
 <% end %>
 <div class="sp-post-box__like">
   <%= render 'likes/like-links', post: post %>
-  <i class="far fa-comment fa-2x">
-    <span><%= post.comments.count %></span>
-  </i>
+  <%= link_to post_path(post) do %>
+    <i class="far fa-comment fa-2x">
+      <span><%= post.comments.count %></span>
+    </i>
+  <% end %>
 </div>
