@@ -15,6 +15,7 @@
       <div class="detail-container">
         <div class="detail-container__name">
           <%= @post.name %>
+          <%= render 'likes/like-links', post: @post %>
         </div>
         <% if @post.image.present? %>
           <%= image_tag @post.image.url, class:'detail-container__picture' %>
@@ -56,9 +57,7 @@
   </main>
 <%= render 'layouts/shared/footer' %>
 </body>
-<div class='detail-like-btn'>
-  <%= render 'likes/like-links', post: @post %>
-</div>
+
 <%# スマホ用詳細ページ %>
 <%= render 'layouts/shared/sp-header' %>
 <div class="sp-main">
@@ -78,6 +77,9 @@
         <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="sp-detail__pic-box__picture">
       <% end %>
     </div>
+    <i class='far fa-heart fa-2x'>
+      <span><%= @post.likes.count %></span>
+    </i>
     <i class="far fa-comment fa-2x">
       <span><%= @post.comments.count %></span>
     </i>
