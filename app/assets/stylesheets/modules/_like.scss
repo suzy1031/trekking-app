@@ -14,3 +14,14 @@
     color: #eee;
   }
 }
+.detail-like-btn {
+  position: absolute;
+  top: 22.5%;
+  right: 640px;
+}
+@media screen and (max-width: 500px) {
+  .detail-like-btn {
+    top: 65.2%;
+    right: 280px;
+  }
+}
