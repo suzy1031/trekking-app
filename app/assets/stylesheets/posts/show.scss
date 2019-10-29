@@ -124,6 +124,16 @@
       font-size: 21px;
       font-weight: bold;
       margin: 0 0 10px 0;
+      position: relative;
+    }
+    &__btn {
+      color: gray;
+      .far.fa-edit {
+        margin-left: 10px;
+      }
+      .far.fa-trash-alt {
+        margin-left: 20px;
+      }
     }
     &__pic-box {
       &__picture {
