@@ -13,7 +13,9 @@
           <% end %>
           <div class="post-box__description">
             <label><%= user.nickname %>さん</label><br/>
-            <%= user.profile %>
+            <div class='post-box__description__profile'>
+              <%= user.profile %>
+            </div>
           </div>
         </div>
       <% end %>

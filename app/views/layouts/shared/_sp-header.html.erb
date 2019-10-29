@@ -1,7 +1,9 @@
 <header class="sp-header-main">
   <% if user_signed_in? %>
-    <% if current_user.image.present? %>
+    <% if current_user.image.url %>
       <%= image_tag current_user.image.url, class:'user-face' %>
+    <% else current_user.image.url == [] %>
+      <i class="fas fa-user fa-2x"></i>
     <% end %>
   <% else %>
     <i class="fas fa-user fa-2x"></i>

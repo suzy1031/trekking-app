@@ -100,7 +100,7 @@
           label {
             font-size: 18px;
           }
-          &__comment {
+          &__comment, &__profile {
             width: 230px;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -111,6 +111,7 @@
           border-radius: 50%;
           width: 45px;
           height: auto;
+          max-height: 80px;
           margin: 15px;
         }
       }
