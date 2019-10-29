@@ -11,12 +11,14 @@
           <img class="sp-post-box__picture" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
         <% end %>
         <div class="sp-post-box__description">
-          <% if current_user != user %>
-            <div id="follow_form">
-              <% if current_user.following?(user) %>
-                <div class='followed-btn'>フォロー中</div>
-              <% end %>
-            </div>
+          <% if user_signed_in? %>
+            <% if current_user != user %>
+              <div id="follow_form">
+                <% if current_user.following?(user) %>
+                  <div class='followed-btn'>フォロー中</div>
+                <% end %>
+              </div>
+            <% end %>
           <% end %>
           <%= user.nickname %>
           <div class="sp-post-box__description__comment">
