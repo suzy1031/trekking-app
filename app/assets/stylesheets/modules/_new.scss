@@ -143,3 +143,96 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+@media screen and (max-width: 500px) {
+  .sp-new-box {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    .new-post-box__container__name {
+      font-size: 18px;
+      text-align: center;
+    }
+    .form-registration-box {
+      width: 100%;
+      height: auto;
+      text-align: center;
+      &__name {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      &__require {
+        font-size: 12px;
+        width: 50px;
+        height: 25px;
+        background: red;
+        color: white;
+        border-radius: 3px;
+        padding: 2px;
+        margin-left: 5px;
+      }
+      &__any-require {
+        font-size: 12px;
+        width: 50px;
+        height: 25px;
+        background: #ccc;
+        color: white;
+        border-radius: 3px;
+        padding: 2px;
+        margin-left: 5px;
+      }
+    }
+    .new-part-form {
+      width: 250px;
+      height: 30px;
+      margin: 10px 5px;
+      font-size: 12px;
+      padding-left: 5px;
+      border: solid 1px #ccc;
+      border-radius: 3px;
+    }
+    .select-form-box {
+      position: relative;
+      margin: 0 auto;
+      #post_difficulty {
+        width: 250px;
+        height: 30px;
+        background: white;
+        margin: 10px 5px;
+        font-size: 12px;
+        padding-left: 5px;
+        border: solid 1px #ccc;
+        border-radius: 3px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+      .fa.fa-chevron-down {
+        position: absolute;
+        right: 75px;
+        top: 40%;
+      }
+    }
+    #textarea, #textarea2, #textarea3 {
+      width: 250px;
+      height: 30px;
+      margin: 10px 5px;
+      line-height: 30px;
+      border: solid 1px #ccc;
+      border-radius: 3px;
+    }
+    .photo-form, .photo-form2 {
+      margin: 0 52px;
+      .form-mask {
+        width: 250px;
+        height: 65px;
+        background: white;
+        margin: 10px 5px;
+        border: solid 1px #ccc;
+        border-radius: 3px;
+        .hidden {
+          display: none;
+        }
+      }
+    }
+  }
+}
