@@ -10,3 +10,29 @@
     }
   }
 }
+@media screen and (max-width: 500px) {
+  .sp-detail {
+    &__user {
+      &__follow_form {
+        margin: 12px 0 0 25px;
+        .following-btn, .followed-btn {
+          width: 90px;
+          height: 30px;
+          background: white;
+          color: #2AD1FF;
+          border: solid 1px #2AD1FF;
+          border-radius: 25px;
+          padding: 3px;
+          margin-top: 10px;
+        }
+        .followed-btn {
+          background: #2AD1FF;
+          color: white;
+        }
+      }
+    }
+  }
+  .sp-posts-count {
+    margin: 0 0 0 10px;
+  }
+}

@@ -1,5 +1,5 @@
-<body>
-  <%= render 'layouts/shared/header' %>
+<%= render 'layouts/shared/header' %>
+  <main>
     <div class="detail-post-box">
       <div class="detail-user-container">
         <div class="detail-picture">
@@ -36,5 +36,36 @@
         </div>
       </div>
     </div>
-  <%= render 'layouts/shared/footer' %>
-</body>
+  </main>
+<%= render 'layouts/shared/footer' %>
+
+<%# スマホ用ページ %>
+<%= render 'layouts/shared/sp-header' %>
+<div class='sp-main'>
+  <div class='sp-detail'>
+    <div class='sp-detail__user'>
+      <% if @user.image.present? %>
+        <%= image_tag @user.image.url, class:'sp-detail__user__picture' %>
+      <% else %>
+        <img class='sp-detail__user__picture' src='https://static.mercdn.net/images/member_photo_noimage_thumb.png'>
+      <% end %>
+      <div class='sp-detail__user__nickname'><%= @user.nickname %></div>
+      <div class='sp-detail__user__follow_form'>
+        <%= render 'follow_form' if user_signed_in? %>
+      </div>
+    </div>
+    <%= render 'users/shared/stats' %>
+    <div class='sp-detail__comment'>
+      <%= simple_format(@user.profile) %>
+    </div>
+  </div>
+  <% if @user.posts.any? %>
+    <h2 class='sp-posts-count'>投稿一覧 (<%= @user.posts.count %>)</h2>
+    <div class="sp-list-box">
+      <%= render partial: 'posts/partial/sp-index', collection: @posts, as:'post'%>
+    </div>
+  <% else %>
+    <h2 class='sp-posts-count'>まだ投稿はありません</h2>
+  <% end %>
+</div>
+<%= render 'layouts/shared/sp-banner' %>
