@@ -1,0 +1,32 @@
+<%# スマホ用ユーザー 一覧ページ %>
+<%= render 'layouts/shared/sp-header' %>
+<div class="sp-main">
+<% @users.each do |user| %>
+  <div class="sp-list-box">
+    <%= link_to user do %>
+      <div class="sp-post-box">
+        <% if user.image.present? %>
+          <%= image_tag user.image.url, class:"sp-post-box__picture" %>
+        <% else %>
+          <img class="sp-post-box__picture" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+        <% end %>
+        <div class="sp-post-box__description">
+          <% if current_user != user %>
+            <div id="follow_form">
+              <% if current_user.following?(user) %>
+                <div class='followed-btn'>フォロー中</div>
+              <% end %>
+            </div>
+          <% end %>
+          <%= user.nickname %>
+          <div class="sp-post-box__description__comment">
+            <label><%= user.profile %><label>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+</div>
+<%= render 'layouts/shared/sp-button' %>
+<%= render 'layouts/shared/sp-banner' %>
