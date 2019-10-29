@@ -44,16 +44,13 @@
   <%= f.file_field :image, id:'post_img' %>
   <p><%= f.check_box :remove_image %>画像を削除する</p>
 
-  <div class="form-registration-box">
+  <div class="form-registration-box current-password-box">
     <%= f.label :current_password, class:'form-registration-box__name' %><br/>
-    変更を適用する為には現在、設定しているパスワードを入力して下さい
+    変更を適用する為には現在<br/>設定しているパスワードを入力して下さい
   </div>
 
   <%= f.password_field :current_password, autocomplete: "current-password",placeholder: "パスワードを入力", class:'new-part-form' %><br/>
   <%= f.submit "更新する", class:'new-post-box__btn' %>
-  <div class="devise-back-btn">
-    <%= link_to "戻る", :back, class:'back-btn' %>
-  </div>
 <% end %>
 
 <h3>アカウントの削除</h3>
