@@ -70,6 +70,9 @@
       <% end %>
       <div class="sp-detail__user__nickname"><%= @post.user.nickname %></div>
     </div>
+    <div class='sp-detail__post-name'>
+      <%= @post.name %>
+    </div>
     <div class="sp-detail__pic-box">
       <% if @post.image.present? %>
         <%= image_tag @post.image.url, class:'sp-detail__pic-box__picture' %>
@@ -102,7 +105,7 @@
       </div>
     </div>
     <h2 class='sp-detail__title'>一言コメント</h2>
-      <div class='sp-detail__comment'>
+    <div class='sp-detail__comment'>
       <%= simple_format(@post.text) %>
     </div>
   </div>
