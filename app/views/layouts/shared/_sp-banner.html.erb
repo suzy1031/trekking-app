@@ -6,14 +6,8 @@
     <%= link_to meals_path do %>
       <i class="fas fa-hamburger fa-3x"></i>
     <% end %>
-    <% if user_signed_in? %>
-      <%= link_to following_user_path(@user) do %>
-        <i class="fas fa-users fa-3x"></i>
-      <% end %>
-    <% else %>
-      <%= link_to new_user_session_path  do %>
-        <i class="fas fa-user fa-3x"></i>
-      <% end %>
+    <%= link_to users_path do %>
+      <i class="fas fa-users fa-3x"></i>
     <% end %>
     <%= link_to rankings_path do %>
       <i class="fas fa-heart fa-3x"></i>

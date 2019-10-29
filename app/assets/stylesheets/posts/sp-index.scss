@@ -73,6 +73,18 @@ h1.sp-top-home,.sp-list-box,.sp-main {
           text-overflow: ellipsis;
           white-space: nowrap;
         }
+        .followed-btn {
+          width: 90px;
+          height: 20px;
+          color: white;
+          border: solid 1px #2AD1FF;
+          border-radius: 25px;
+          background: #2AD1FF;
+          text-align: center;
+        }
+        .detail-nickname {
+          font-size: 32px;
+        }
       }
       .user-face {
         border-radius: 50%;
