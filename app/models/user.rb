@@ -14,7 +14,6 @@ class User < ApplicationRecord
   validates :email,     presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :nickname,  presence: true, length: {maximum: 20}
   validates :profile,   presence: true
-  validates :password,  presence: true, length: {minimum: 6, maximum: 128}
 
   has_many :active_relationships, class_name:  "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name:  "Relationship", foreign_key: "followed_id", dependent: :destroy
