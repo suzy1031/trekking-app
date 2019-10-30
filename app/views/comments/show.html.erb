@@ -1,4 +1,8 @@
-<% @comments.each do |comment| %>
-  <%= comment.user.nickname %>さん
-  <%= simple_format(comment.text) %>
-<% end %>
+<%= render 'layouts/shared/sp-header' %>
+<div class='sp-main'>
+  <%= render 'comments/shared/sp-post-comment' %>
+  <div class='sp-detail'>
+    <%= render 'comments/shared/sp-comment-list' %>
+  </div>
+</div>
+<%= render 'layouts/shared/sp-banner' %>
