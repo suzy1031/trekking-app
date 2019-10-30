@@ -1,9 +1,10 @@
-編集仮置き
-<%= form_for [@post, @comment], url:{ action: 'update' } do |f| %>
-  <%= f.text_area :text %>
-  <%= f.submit '編集を完了する' %>
-<% end %>
-
+<main>
+  編集仮置き
+  <%= form_for [@post, @comment], url:{ action: 'update' } do |f| %>
+    <%= f.text_area :text %>
+    <%= f.submit '編集を完了する' %>
+  <% end %>
+</main>
 <%= render 'layouts/shared/sp-header' %>
 <div class='sp-main'>
   <%= render 'comments/shared/sp-post-comment' %>
