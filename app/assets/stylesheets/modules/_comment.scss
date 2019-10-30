@@ -24,3 +24,17 @@
     }
   }
 }
+.sp-new-comment-box {
+  text-align: center;
+  &__form {
+    width: 300px;
+    margin: 10px 0;
+    border: 1px solid gray;
+    border-radius: 3px;
+  }
+  &__btn {
+    background: white;
+    border: 1px solid gray;
+    border-radius: 3px;
+  }
+}
