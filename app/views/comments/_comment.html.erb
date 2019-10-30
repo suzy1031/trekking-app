@@ -21,7 +21,7 @@
   <h2>コメントを書く</h2>
   <div class="detail-description">
     <div class="detail-description__display">
-      <%= form_for [@post, Comment.new] do |f| %>
+      <%= form_for [@post, @comment] do |f| %>
         <%= f.text_area :text, class:"comment-form", id:"textarea" %>
         <%= f.submit 'コメントする', class:"comment-btn" %>
       <% end %>

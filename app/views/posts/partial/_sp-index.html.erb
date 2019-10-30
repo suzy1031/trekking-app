@@ -16,7 +16,7 @@
 <% end %>
 <div class="sp-post-box__like">
   <%= render 'likes/like-links', post: post %>
-  <%= link_to post_path(post) do %>
+  <%= link_to new_post_comment_path(post_id: post.id), method: :get do %>
     <i class="far fa-comment fa-2x">
       <span><%= post.comments.count %></span>
     </i>

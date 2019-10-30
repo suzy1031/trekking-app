@@ -1,5 +1,7 @@
 <body>
-<%= render "layouts/shared/header" %>
+<%= render 'layouts/shared/header' %>
+<%= render 'layouts/shared/flash' %>
+<%= render 'layouts/shared/validation-message' %>
   <main>
     <div class="detail-post-box">
       <div class="user-info">
@@ -116,6 +118,15 @@
     <div class='sp-detail__comment'>
       <%= simple_format(@post.text) %>
     </div>
+    <h2>ユーザーさんからのコメント(<%= @comments.count %>)</h2>
+    <% if @comments.present? %>
+      <% @comments.each do |comment| %>
+        <%= comment.user.nickname %>さん
+        <%= simple_format(comment.text) %>
+      <% end %>
+    <% else %>
+      <h2>まだコメントはありません</h2>
+    <% end %>
   </div>
 </div>
 <%= render "layouts/shared/sp-banner" %>
