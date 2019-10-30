@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find( params[:id] )
-    @comments = @post.comments.order('updated_at DESC')
+    @comments = @post.comments.order('updated_at DESC').limit(5)
     @comment = Comment.new
   end
 

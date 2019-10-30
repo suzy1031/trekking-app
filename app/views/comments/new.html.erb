@@ -1,8 +1,49 @@
-<% if user_signed_in? %>
-  <%= form_for [@post, @comment] do |f| %>
-    <%= f.text_area :text, class:"comment-form", id:"textarea" %>
-    <%= f.submit 'コメントする', class:"comment-btn" %>
-  <% end %>
-<% else %>
-  <%= link_to 'ログインしてコメントしよう！', new_user_session_path %>
-<% end %>
+<%= render 'layouts/shared/sp-header' %>
+<div class='sp-main'>
+  <div class='sp-detail'>
+    <div class='sp-detail__post-name'>
+      <%= @post.name %>
+    </div>
+    <div class="sp-detail__pic-box">
+      <% if @post.image.present? %>
+        <%= image_tag @post.image.url, class:'sp-detail__pic-box__comment-picture' %>
+      <% else %>
+        <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="sp-detail__pic-box__comment-picture">
+      <% end %>
+    </div>
+    <h2 class='sp-detail__title'>山のデータ</h2>
+    <div class='sp-detail__description'>
+      <div class='sp-detail__description__name'>
+        山頂標高:
+          <div class='sp-detail__description__count'>
+            <%= @post.elevation %>M
+          </div>
+      </div>
+      <div class='sp-detail__description__name'>
+        歩行距離:
+        <div class='sp-detail__description__count'>
+          <%= @post.walking_distance %>KM
+        </div>
+      </div>
+      <div class='sp-detail__description__name'>
+        <%= @post.difficulty_i18n %>
+      </div>
+    </div>
+    <div class='sp-detail__comment__box'>
+      <h3 class='sp-detail__comment__box__text'>
+        <%= simple_format(@post.text) %>
+      </h3>
+    </div>
+    <% if user_signed_in? %>
+      <%= form_for [@post, @comment] do |f| %>
+        <div class='sp-new-comment-box'>
+          <%= f.text_area :text, class:'sp-new-comment-box__form' %>
+          <%= f.submit 'コメントする', class:'sp-new-comment-box__btn' %>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to 'ログインしてコメントしよう！', new_user_session_path, class:'sp-comment-login-link' %>
+    <% end %>
+  </div>
+</div>
+<%= render 'layouts/shared/sp-banner' %>

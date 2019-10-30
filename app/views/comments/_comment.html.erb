@@ -1,4 +1,4 @@
-<h2>ユーザーさんからのコメント(<%= @comments.count %>)</h2>
+<h2>ユーザーさんからのコメント(<%= @post.comments.count %>)</h2>
 <div class="detail-comment">
   <div class="detail-comment__box">
     <% if @comments.present? %>
@@ -16,6 +16,7 @@
       <h2>まだコメントはありません</h2>
     <% end %>
   </div>
+  <%= link_to 'コメント一覧', post_comment_path(@post) %>
 </div>
 <% if current_user %>
   <h2>コメントを書く</h2>

@@ -65,10 +65,12 @@
 <div class="sp-main">
   <div class="sp-detail">
     <div class="sp-detail__user">
-      <% if @post.user.image.present? %>
-        <%= image_tag @post.user.image.url, class:'sp-detail__user__picture' %>
-      <% else %>
-        <img class="sp-detail__user__picture" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+      <%= link_to @post.user do %>
+        <% if @post.user.image.present? %>
+          <%= image_tag @post.user.image.url, class:'sp-detail__user__picture' %>
+        <% else %>
+          <img class="sp-detail__user__picture" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+        <% end %>
       <% end %>
       <div class="sp-detail__user__nickname"><%= @post.user.nickname %></div>
     </div>
@@ -85,9 +87,11 @@
     <i class='far fa-heart fa-2x'>
       <span><%= @post.likes.count %></span>
     </i>
-    <i class="far fa-comment fa-2x">
-      <span><%= @post.comments.count %></span>
-    </i>
+    <%= link_to new_post_comment_path(post_id: @post.id), method: :get do %>
+      <i class="far fa-comment fa-2x">
+        <span><%= @post.comments.count %></span>
+      </i>
+    <% end %>
     <% if user_signed_in? && current_user.id == @post.user_id %>
       <%= link_to edit_post_path(@post), method: :get, class:'sp-detail__btn' do %>
         <i class="far fa-edit fa-2x"></i>
@@ -114,15 +118,32 @@
         <%= @post.difficulty_i18n %>
       </div>
     </div>
-    <h2 class='sp-detail__title'>一言コメント</h2>
-    <div class='sp-detail__comment'>
-      <%= simple_format(@post.text) %>
+    <div class='sp-detail__comment__box'>
+      <h3 class='sp-detail__comment__box__text'>
+        <%= simple_format(@post.text) %>
+      </h3>
     </div>
-    <h2>ユーザーさんからのコメント(<%= @comments.count %>)</h2>
+    <h2 class='sp-detail__title'>コメント(<%= @post.comments.count %>)</h2>
     <% if @comments.present? %>
       <% @comments.each do |comment| %>
-        <%= comment.user.nickname %>さん
-        <%= simple_format(comment.text) %>
+        <div class="sp-detail__user">
+        <%= link_to comment.user do %>
+          <% if comment.user.image.url.present? %>
+            <%= image_tag comment.user.image.url, class:'sp-detail__user__comment-picture' %>
+          <% else %>
+            <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="sp-detail__user__comment-picture">
+          <% end %>
+        <% end %>
+        <div class='sp-detail__user__comment-nickname'><%= comment.user.nickname %>さん</div>
+        </div>
+        <div class='sp-detail__comment__box'>
+          <h3 class='sp-detail__comment__box__text'>
+            <%= simple_format(comment.text) %>
+          </h3>
+        </div>
+      <% end %>
+      <%= link_to post_comment_path(@post), class:'comment-show-path' do %>
+        <h3 class='comment-show-path__text'>コメント一覧</h3>
       <% end %>
     <% else %>
       <h2>まだコメントはありません</h2>

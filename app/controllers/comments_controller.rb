@@ -5,6 +5,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
+  def show
+    @post = Post.find( params[:id] )
+    @comments = @post.comments.order('updated_at DESC')
+  end
+
   def create
     @post = Post.find(params[:post_id])
     @comment = Comment.create(comment_params)
