@@ -1,0 +1,26 @@
+<h2 class='sp-detail__title'>コメント(<%= @post.comments.count %>)</h2>
+<% if @comments.present? %>
+  <% @comments.each do |comment| %>
+    <div class="sp-detail__user">
+    <%= link_to comment.user do %>
+      <% if comment.user.image.url.present? %>
+        <%= image_tag comment.user.image.url, class:'sp-detail__user__comment-picture' %>
+      <% else %>
+        <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="sp-detail__user__comment-picture">
+      <% end %>
+    <% end %>
+    <div class='sp-detail__user__comment-nickname'><%= comment.user.nickname %>さん</div>
+    </div>
+    <div class='sp-detail__comment__box'>
+      <h3 class='sp-detail__comment__box__text'>
+        <%= simple_format(comment.text) %>
+      </h3>
+    </div>
+  <% end %>
+  <%= link_to post_comment_path(@post), class:'comment-show-path' do %>
+    <h3 class='comment-show-path__text'>コメント一覧</h3>
+  <% end %>
+<% else %>
+  <h2>まだコメントはありません</h2>
+<% end %>
+</div>
