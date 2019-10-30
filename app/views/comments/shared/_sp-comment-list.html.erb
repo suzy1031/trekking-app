@@ -2,22 +2,24 @@
 <% if @comments.present? %>
   <% @comments.each do |comment| %>
     <div class="sp-detail__user">
-    <%= link_to comment.user do %>
-      <% if comment.user.image.url.present? %>
-        <%= image_tag comment.user.image.url, class:'sp-detail__user__comment-picture' %>
-      <% else %>
-        <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="sp-detail__user__comment-picture">
+      <%= link_to comment.user do %>
+        <% if comment.user.image.url.present? %>
+          <%= image_tag comment.user.image.url, class:'sp-detail__user__comment-picture' %>
+        <% else %>
+          <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="sp-detail__user__comment-picture">
+        <% end %>
       <% end %>
-    <% end %>
-    <div class='sp-detail__user__comment-nickname'><%= comment.user.nickname %>さん</div>
-    <% if current_user.id == comment.user_id %>
-      <%= link_to edit_post_comment_path(comment.post.id, comment.id), method: :get do %>
-        <i class="far fa-edit"></i>
-      <% end %>
-      <%= link_to post_comment_path(comment.post.id, comment.id), method: :delete, data: { confirm: "本当に削除しますか?" } do %>
-        <i class="far fa-trash-alt"></i>
-      <% end %>
-    <% end %>
+      <div class='sp-detail__user__comment-nickname'>
+        <%= comment.user.nickname %>さん
+        <% if user_signed_in? && current_user.id == comment.user_id %>
+          <%= link_to edit_post_comment_path(comment.post.id, comment.id), method: :get, class:'comment-edit-path' do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+          <%= link_to post_comment_path(comment.post.id, comment.id), method: :delete, data: { confirm: "本当に削除しますか?" }, class:'comment-delete-path' do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+        <% end %>
+      </div>
     </div>
     <div class='sp-detail__comment__box'>
       <h3 class='sp-detail__comment__box__text'>
