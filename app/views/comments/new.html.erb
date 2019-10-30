@@ -1,6 +1,6 @@
 <%= render 'layouts/shared/sp-header' %>
 <div class='sp-main'>
-  <%= render 'comments/sp-post-comment' %>
+  <%= render 'comments/shared/sp-post-comment' %>
     <% if user_signed_in? %>
       <%= form_for [@post, @comment] do |f| %>
         <div class='sp-new-comment-box'>
