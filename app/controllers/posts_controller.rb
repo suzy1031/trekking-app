@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+
   def index
     @all_ranks = Post.create_all_ranks
     @posts = Post.includes(:user, :likes, :comments, :meal).order('updated_at DESC')
@@ -10,7 +12,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find( params[:id] )
     @comments = @post.comments.order('updated_at DESC').limit(5)
     @comment = Comment.new
   end
@@ -33,11 +34,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.user_id == current_user.id
       if @post.update(post_params)
         flash[:success] = "編集が完了しました！"
@@ -50,13 +49,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     if @post.destroy
       flash[:success] = '商品を削除しました'
       redirect_to :root
     else
       flash.now[:alert] = '商品の削除に失敗しました'
-      render :show
+      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -90,6 +88,10 @@ class PostsController < ApplicationController
                         :food_stuff,
                         :cooking_method]
     ).merge(user_id: current_user.id)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 
 end
