@@ -15,11 +15,11 @@
             <% end %>
             <div class="comment-user__name">
               <%= comment.user.nickname %>さん
+              <% if current_user.id == comment.user_id %>
+                <%= link_to '編集', edit_post_comment_path(comment.post.id, comment.id), method: :get, class:'comment-edit-path' %>
+                <%= link_to '削除', post_comment_path(comment.post.id, comment.id), method: :delete, data: { confirm: "本当に削除しますか?" }, class:'comment-delete-path' %>
+              <% end %>
             </div>
-            <% if current_user.id == comment.user_id %>
-              <%= link_to '削除する', post_comment_path(comment.post.id, comment.id), method: :delete, data: { confirm: "本当に削除しますか?" } %>
-              <%= link_to '編集する', edit_post_comment_path(comment.post.id, comment.id), method: :get %>
-            <% end %>
           </div>
           <div class="comment-text-area">
             <%= simple_format(comment.text) %>

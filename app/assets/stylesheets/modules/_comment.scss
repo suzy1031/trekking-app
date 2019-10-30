@@ -26,6 +26,26 @@
     &__name {
       padding: 5px;
       margin: 10px;
+      .comment-edit-path {
+        border: 1px solid white;
+        border-radius: 3px;
+        background: white;
+        padding: 3px 5px;
+        text-decoration: none;
+        color: black;
+        margin: 0 30px 0 110px;
+      }
+      .comment-delete-path {
+        border: 1px solid red;
+        border-radius: 3px;
+        background: white;
+        padding: 3px 5px;
+        text-decoration: none;
+        color: black;
+      }
+      .comment-edit-path:hover, .comment-delete-path:hover {
+        opacity: 0.7;
+      }
     }
   }
   .comment-text-area {

@@ -128,6 +128,13 @@
       }
       &__comment-nickname {
         margin: 13px 0 0 0;
+        .comment-edit-path {
+          color: black;
+          margin: 0 40px 0 100px;
+        }
+        .comment-delete-path {
+          color: black;
+        }
       }
     }
     &__post-name {
