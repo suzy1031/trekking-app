@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
   resources :posts do
-    resources :comments, only: [:create]
+    resources :comments, only: [:new, :create]
     resources :users, only: [:index, :show]
     collection do
       get 'search'
