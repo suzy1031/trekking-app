@@ -10,6 +10,14 @@
       <% end %>
     <% end %>
     <div class='sp-detail__user__comment-nickname'><%= comment.user.nickname %>さん</div>
+    <% if current_user.id == comment.user_id %>
+      <%= link_to edit_post_comment_path(comment.post.id, comment.id), method: :get do %>
+        <i class="far fa-edit"></i>
+      <% end %>
+      <%= link_to post_comment_path(comment.post.id, comment.id), method: :delete, data: { confirm: "本当に削除しますか?" } do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
+    <% end %>
     </div>
     <div class='sp-detail__comment__box'>
       <h3 class='sp-detail__comment__box__text'>
