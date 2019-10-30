@@ -1,3 +1,41 @@
+<%= render 'layouts/shared/header' %>
+<main>
+  <div class="detail-post-box">
+    <h2 class='comment-title'>ユーザーさんからのコメント(<%= @post.comments.count %>)</h2>
+    <div class="detail-comment">
+      <% if @comments.present? %>
+        <% @comments.each do |comment| %>
+          <div class="comment-user">
+            <%= link_to comment.user do %>
+              <% if comment.user.image.url.present? %>
+                <%= image_tag comment.user.image.url, class:'comment-user__comment-picture' %>
+              <% else %>
+                <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="comment-user__comment-picture">
+              <% end %>
+            <% end %>
+            <div class="comment-user__name">
+              <%= comment.user.nickname %>さん
+            </div>
+            <% if current_user.id == comment.user_id %>
+              <%= link_to '削除する', post_comment_path(comment.post.id, comment.id), method: :delete, data: { confirm: "本当に削除しますか?" } %>
+              <%= link_to '編集する', edit_post_comment_path(comment.post.id, comment.id), method: :get %>
+            <% end %>
+          </div>
+          <div class="comment-text-area">
+            <%= simple_format(comment.text) %>
+          </div>
+        <% end %>
+      <% else %>
+        <h2>まだコメントはありません</h2>
+      <% end %>
+    </div>
+    <div class="detail-btn">
+      <%= link_to '戻る', :back, class:'detail-btn__gray' %>
+    </div>
+  </div>
+</main>
+<%= render 'layouts/shared/footer' %>
+
 <%= render 'layouts/shared/sp-header' %>
 <div class='sp-main'>
   <%= render 'comments/shared/sp-post-comment' %>

@@ -5,10 +5,12 @@
   <main>
     <div class="detail-post-box">
       <div class="user-info">
-        <% if @post.user.image.present? %>
-          <%= image_tag @post.user.image.url, class:'user-info__face' %>
-        <% else %>
-          <img class="user-info__face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+        <%= link_to @post.user do %>
+          <% if @post.user.image.present? %>
+            <%= image_tag @post.user.image.url, class:'user-info__face' %>
+          <% else %>
+            <img class="user-info__face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
+          <% end %>
         <% end %>
         <div class="user-info__name">
           <%= @post.user.nickname %>
