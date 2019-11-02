@@ -1,27 +1,27 @@
 <%= render 'layouts/shared/header' %>
 <main>
-  <div class="detail-post-box">
+  <div class='detail-post-box'>
     <h2 class='comment-title'>ユーザーさんからのコメント(<%= @post.comments.count %>)</h2>
-    <div class="detail-comment">
+    <div class='detail-comment'>
       <% if @comments.present? %>
         <% @comments.each do |comment| %>
-          <div class="comment-user">
+          <div class='comment-user'>
             <%= link_to comment.user do %>
               <% if comment.user.image.url.present? %>
                 <%= image_tag comment.user.image.url, class:'comment-user__comment-picture' %>
               <% else %>
-                <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="comment-user__comment-picture">
+                <img class='comment-user__comment-picture' src='https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342' alt=''>
               <% end %>
             <% end %>
-            <div class="comment-user__name">
+            <div class='comment-user__name'>
               <%= comment.user.nickname %>さん
               <% if current_user.id == comment.user_id %>
-                <%= link_to '編集', edit_post_comment_path(comment.post.id, comment.id), method: :get, class:'comment-edit-path' %>
-                <%= link_to '削除', post_comment_path(comment.post.id, comment.id), method: :delete, data: { confirm: "本当に削除しますか?" }, class:'comment-delete-path' %>
+                <%= link_to '編集', edit_post_comment_path(comment.post.id, comment.id), class:'comment-edit-path' %>
+                <%= link_to '削除', post_comment_path(comment.post.id, comment.id), method: :delete, data: { confirm: '本当に削除しますか?' }, class:'comment-delete-path' %>
               <% end %>
             </div>
           </div>
-          <div class="comment-text-area">
+          <div class='comment-text-area'>
             <%= simple_format(comment.text) %>
           </div>
         <% end %>
@@ -29,7 +29,7 @@
         <h2>まだコメントはありません</h2>
       <% end %>
     </div>
-    <div class="detail-btn">
+    <div class='detail-btn'>
       <%= link_to '戻る', :back, class:'detail-btn__gray' %>
     </div>
   </div>
