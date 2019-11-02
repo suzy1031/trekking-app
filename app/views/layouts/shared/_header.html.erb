@@ -1,12 +1,12 @@
-<header class="header-main">
-  <h3 class="header-main__logo-txt">大好きな山や山メシをシェアしよう</h3>
+<header class='header-main'>
+  <h3 class='header-main__logo-txt'>大好きな山や山メシをシェアしよう</h3>
   <div class="logo">
     <%= link_to root_path, class:'logo__root-path' do %>
-      <h1 class="logo__small-txt">岳人</h1>
-      <a class="logo__kana">〜たけと〜</a>
+      <h1 class='logo__small-txt'>岳人</h1>
+      <a class='logo__kana'>〜たけと〜</a>
     <% end %>
   </div>
-  <div class="header-main__search">
+  <div class='header-main__search'>
     <%= search_form_for @search, url:search_posts_path do |f| %>
       <%= f.search_field :name_or_text_cont, class: 'header-main__search__text', placeholder: '山の名前を検索' %>
       <%= f.submit '検索', class:'header-main__search__btn' %>
