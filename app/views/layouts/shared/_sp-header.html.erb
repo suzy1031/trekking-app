@@ -1,45 +1,45 @@
-<header class="sp-header-main">
+<header class='sp-header-main'>
   <% if user_signed_in? %>
     <% if current_user.image.url %>
       <%= image_tag current_user.image.url, class:'user-face' %>
-    <% else current_user.image.url == [] %>
-      <i class="fas fa-user fa-2x"></i>
+    <% else %>
+      <i class='fas fa-user fa-2x'></i>
     <% end %>
   <% else %>
-    <i class="fas fa-user fa-2x"></i>
+    <i class='fas fa-user fa-2x'></i>
   <% end %>
-  <aside class="sidebar">
+  <aside class='sidebar'>
     <% if user_signed_in? %>
-      <h2 class="sidebar__user-name">こんにちは！<%= current_user.nickname %>さん！</h2>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'sidebar__user-link' %>
+      <h2 class='sidebar__user-name'>こんにちは！<%= current_user.nickname %>さん！</h2>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'sidebar__user-link' %>
       <%= link_to 'プロフィール変更', edit_user_registration_path, class:'sidebar__user-link' %>
-      <div class="sidebar__count">
+      <div class='sidebar__count'>
         登った山は<%= current_user.posts.count %>ヶ所です！
       </div>
       <%= render 'users/shared/stats' %>
     <% else %>
-      <h2 class="sidebar__user-name">こんにちは！ユーザーさん！</h2>
-      <h2 class="sidebar__login-text">まずはログインしよう！</h2>
-      <%= link_to "ログイン", new_user_session_path, class:'sidebar__user-link' %>
-      <%= link_to "新規登録", new_user_registration_path, class:'sidebar__user-link' %>
+      <h2 class='sidebar__user-name'>こんにちは！ユーザーさん！</h2>
+      <h2 class='sidebar__login-text'>まずはログインしよう！</h2>
+      <%= link_to 'ログイン', new_user_session_path, class:'sidebar__user-link' %>
+      <%= link_to '新規登録', new_user_registration_path, class:'sidebar__user-link' %>
     <% end %>
-    <div class="site-list">
+    <div class='site-list'>
       <%= link_to about_posts_path, class:'site-list__link' do %>
-        <div class="site-list__information">このサイトについて</div>
+        <div class='site-list__information'>このサイトについて</div>
       <% end %>
       <%= link_to usage_posts_path, class:'site-list__link' do %>
-        <div class="site-list__information">使い方</div>
+        <div class='site-list__information'>使い方</div>
       <% end %>
       <%= link_to notification_posts_path, class:'site-list__link' do %>
-        <div class="site-list__information">お知らせ</div>
+        <div class='site-list__information'>お知らせ</div>
       <% end %>
     </div>
-    <div class="site-main__copyright">
+    <div class='site-main__copyright'>
       <a>Copyright（C） 2019　kohei sugawara All Rights Reserved.</a>
     </div>
   </aside>
   <%= link_to root_path, class:'logo-box' do %>
-    <h1 class="logo-box__sp-logo">岳人</h1>
-    <h3 class="logo-box__sp-kana">〜たけと〜</h3>
+    <h1 class='logo-box__sp-logo'>岳人</h1>
+    <h3 class='logo-box__sp-kana'>〜たけと〜</h3>
   <% end %>
 </header>
