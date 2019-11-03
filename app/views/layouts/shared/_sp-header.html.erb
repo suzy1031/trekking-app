@@ -1,13 +1,5 @@
 <header class='sp-header-main'>
-  <% if user_signed_in? %>
-    <% if current_user.image.url %>
-      <%= image_tag current_user.image.url, class:'user-face' %>
-    <% else %>
-      <i class='fas fa-user fa-2x'></i>
-    <% end %>
-  <% else %>
-    <i class='fas fa-user fa-2x'></i>
-  <% end %>
+  <%= sp_header_login_image %>
   <aside class='sidebar'>
     <% if user_signed_in? %>
       <h2 class='sidebar__user-name'>こんにちは！<%= current_user.nickname %>さん！</h2>
