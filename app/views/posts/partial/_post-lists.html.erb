@@ -9,11 +9,7 @@
     <% @posts.each do |post| %>
       <%= link_to "posts/#{ post.id }" do %>
         <div class="post-box">
-          <% if post.image.present? %>
-            <%= image_tag post.image.url, class:"post-box__picture"%>
-          <% else %>
-            <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="post-box__picture">
-          <% end %>
+          <%= yama_post_list_image(post) %>
           <div class="post-box__description">
             <label><%= post.user.nickname %>さんの投稿</label><br/>
             <%= post.name %><br/>
