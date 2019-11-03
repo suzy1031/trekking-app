@@ -6,11 +6,7 @@
     <div class="detail-post-box">
       <div class="user-info">
         <%= link_to @post.user do %>
-          <% if @post.user.image.present? %>
-            <%= image_tag @post.user.image.url, class:'user-info__face' %>
-          <% else %>
-            <img class="user-info__face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
-          <% end %>
+          <%= meshi_show_user_image %>
         <% end %>
         <div class="user-info__name">
           <%= @post.user.nickname %>
@@ -68,11 +64,7 @@
   <div class="sp-detail">
     <div class="sp-detail__user">
       <%= link_to @post.user do %>
-        <% if @post.user.image.present? %>
-          <%= image_tag @post.user.image.url, class:'sp-detail__user__picture' %>
-        <% else %>
-          <img class="sp-detail__user__picture" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
-        <% end %>
+        <%= sp_meshi_show_user_image %>
       <% end %>
       <div class="sp-detail__user__nickname"><%= @post.user.nickname %></div>
     </div>
@@ -80,11 +72,7 @@
       <%= @post.name %>
     </div>
     <div class="sp-detail__pic-box">
-      <% if @post.image.present? %>
-        <%= image_tag @post.image.url, class:'sp-detail__pic-box__picture' %>
-      <% else %>
-        <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="sp-detail__pic-box__picture">
-      <% end %>
+      <%= sp_yama_show_image %>
     </div>
     <i class='far fa-heart fa-2x'>
       <span><%= @post.likes.count %></span>
