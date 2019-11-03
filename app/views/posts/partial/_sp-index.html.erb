@@ -1,10 +1,6 @@
 <%= link_to post_path(post) do %>
   <div class="sp-post-box">
-    <% if post.image.present? %>
-      <%= image_tag post.image.url, class:"sp-post-box__picture"%>
-    <% else %>
-      <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="sp-post-box__picture">
-    <% end %>
+    <%= yama_index_list_image(post) %>
     <div class="sp-post-box__description">
       <label><%= post.user.nickname %></label><br/>
       <%= post.name %>

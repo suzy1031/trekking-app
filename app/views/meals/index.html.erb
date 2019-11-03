@@ -5,11 +5,7 @@
     <div class="sp-list-box">
       <%= link_to meal_path(meal) do %>
         <div class="sp-post-box">
-          <% if meal.image.present? %>
-            <%= image_tag meal.image.url, class:"sp-post-box__picture"%>
-          <% else %>
-            <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="sp-post-box__picture">
-          <% end %>
+          <%= meshi_index_page_image(meal) %>
           <div class="sp-post-box__description">
             <label><%= meal.name %></label><br/>
             調理時間:<%= meal.cooking_time %>分
