@@ -3,11 +3,7 @@
   <% @comments.each do |comment| %>
     <div class='sp-detail__user'>
       <%= link_to comment.user do %>
-        <% if comment.user.image.url.present? %>
-          <%= image_tag comment.user.image.url, class:'sp-detail__user__comment-picture' %>
-        <% else %>
-          <img class='sp-detail__user__comment-picture' src='https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342' alt=''>
-        <% end %>
+        <%= sp_comment_user_image(comment) %>
       <% end %>
       <div class='sp-detail__user__comment-nickname'>
         <%= comment.user.nickname %>さん
