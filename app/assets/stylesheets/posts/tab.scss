@@ -1,0 +1,68 @@
+.nav-bar {
+  font-size: 32px;
+  text-align: center;
+  font-weight: bold;
+  margin: 10px;
+}
+.container {
+  padding: 0;
+  margin: 0 auto;
+  width: 800px;
+  background: white;
+  // border: solid 1px white;
+}
+ul.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+}
+ul.menu li {
+  display: inline-block;
+}
+ul.menu li .active {
+  background: #eee;
+  color: black;
+}
+ul.menu li .menu_item {
+  display: inline-block;
+  font-size: 24px;
+  width: 252.5px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  padding: 7px;
+}
+.menu_item:hover {
+  opacity: 0.7;
+}
+ul.contents li.show {
+  display: block;
+}
+ul.contents li {
+  list-style: none;
+  font-size: 14px;
+  padding: 7px 10px;
+  line-height: 1.4;
+  background: white;
+  min-height: 150px;
+  height: auto;
+  display: none;
+}
+.about {
+  font-size: 18px;
+  text-align: center;
+  margin: 15px 0;
+}
+.about-page {
+  text-align: center;
+  &__box {
+    width: 400px;
+    text-align: center;
+    margin: 10px auto;
+    border: solid 1px #f5f3f4;
+    border-radius: 3px;
+    padding: 5px;
+  }
+}

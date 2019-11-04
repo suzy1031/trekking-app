@@ -1,0 +1,23 @@
+<%= render 'layouts/shared/header' %>
+<div class="nav-bar">
+  このサイトについて
+</div>
+<div class="container">
+  <ul class="menu">
+    <li><a href="#" id="about" class="menu_item active">このアプリについて</a></li>
+    <li><a href="#" id="service" class="menu_item">使い方</a></li>
+    <li><a href="#" id="contact" class="menu_item">お知らせ</a></li>
+  </ul>
+  <ul class="contents">
+    <li class="content show">
+      <%= render 'posts/partial/pc-about' %>
+    </li>
+    <li class="content">
+      service service service service service service service service service service service service service service service service service service service service service service service service service service
+    </li>
+    <li class="content">
+      contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact
+    </li>
+  </ul>
+</div>
+<%= render 'layouts/shared/footer' %>

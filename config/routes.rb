@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get 'about'
       get 'usage'
       get 'notification'
+      get 'tab'
     end
   end
 
