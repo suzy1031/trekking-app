@@ -12,11 +12,7 @@
       </div>
     </div>
     <div class="user-box">
-      <% if current_user.image.present? %>
-        <%= image_tag current_user.image.url, class:"user-face" %>
-      <% else %>
-        <img class="user-face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
-      <% end %>
+      <%= sp_header_login_image %>
       <div class="user-box__count">
         <%= current_user.nickname %>さんの投稿数
       </div>
