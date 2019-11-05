@@ -5,7 +5,7 @@
         <%= link_to "登った山とメシを投稿", new_post_path, class:'mypage-contents__link__path header' %>
       </div>
       <div class="mypage-contents__link">
-        <%= link_to "#", class:'mypage-contents__link__path header' do %>
+        <%= link_to current_user, class:'mypage-contents__link__path header' do %>
           マイページ
         <% end %>
       </div>
