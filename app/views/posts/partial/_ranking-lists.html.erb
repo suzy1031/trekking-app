@@ -4,8 +4,8 @@
       <div class='box-left'>
         <%= yama_horizontal_list_image(post) %>
         <div class='item-description'>
-          <div class='item-description__ranking'>
-            <%="第#{i}位"%>
+          <div id='ranking-<%= i %>'class='item-description__ranking'>
+            <%="No.#{i}"%>
           </div>
           <div class='item-description__profile'><%= post.user.nickname %>さんの投稿</div>
           <div class='item-description__name'>
