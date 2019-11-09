@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comments = @post.comments.order('updated_at DESC').limit(5)
+    @comments = @post.comments.last(5)
     @comment = Comment.new
   end
 

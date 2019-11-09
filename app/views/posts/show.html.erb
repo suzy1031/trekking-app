@@ -77,7 +77,7 @@
     <i class='far fa-heart fa-2x'>
       <span><%= @post.likes.count %></span>
     </i>
-    <%= link_to new_post_comment_path(post_id: @post.id), method: :get do %>
+    <%= link_to post_comment_path(@post) do %>
       <i class="far fa-comment fa-2x">
         <span><%= @post.comments.count %></span>
       </i>
@@ -114,5 +114,15 @@
       </h3>
     </div>
     <%= render 'comments/shared/sp-comment-list' %>
+    <% if current_user %>
+      <div class='sp-new-comment-box''>
+        <%= form_for [@post, @comment] do |f| %>
+          <%= f.text_area :text, class:'sp-new-comment-box__form' %>
+          <%= f.submit 'コメントする', class:'sp-new-comment__btn' %>
+        <% end %>
+      </div>
+    <% else %>
+      <%= link_to 'ログインしてコメントしよう！', new_user_session_path, class:'sp-comment-login-link' %>
+    <% end %>
 </div>
 <%= render "layouts/shared/sp-banner" %>
