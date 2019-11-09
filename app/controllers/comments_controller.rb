@@ -12,12 +12,9 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(comment_params)
-    if @comment.save
-      flash[:success] = "コメントが完了しました！"
-      redirect_to post_path(@post.id)
-    else
-      flash.now[:alert] = "失敗しました。"
-        redirect_back(fallback_location: root_path)
+    respond_to do |format|
+      format.html { redirect_to post_path(@post.id)}
+      format.json
     end
   end
 
