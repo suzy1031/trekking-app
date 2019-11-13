@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def search
     if params[:q].present?
-      @search_result = @search.result.page(params[:page]).per(20)
+      @search_result = @search.result.where.not(user_id: current_user.id).page(params[:page]).per(20)
     else
       render :search
     end
