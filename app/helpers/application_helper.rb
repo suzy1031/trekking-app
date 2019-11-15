@@ -40,6 +40,22 @@ module ApplicationHelper
     end
   end
 
+  def show_follow_user_image(user)
+    if user.image.present?
+      image_tag(user.image.url, class:"follow-user__picture")
+    else
+      image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png", class:"follow-user__picture")
+    end
+  end
+
+  def sp_show_follow_user_image(user)
+    if user.image.present?
+      image_tag(user.image.url, class:"sp-post-box__picture")
+    else
+      image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png", class:"sp-post-box__picture")
+    end
+  end
+
   def sp_index_user_image(user)
     if user.image.present?
       image_tag(user.image.url, class:"sp-post-box__picture")
