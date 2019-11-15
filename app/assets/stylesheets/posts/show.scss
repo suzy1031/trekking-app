@@ -99,12 +99,8 @@
     }
   }
 }
-.sp-detail {
-  display: none !important;
-}
 @media screen and (max-width: 500px) {
   .sp-detail {
-    display: block !important;
     &__user {
       display: flex;
       &__picture {

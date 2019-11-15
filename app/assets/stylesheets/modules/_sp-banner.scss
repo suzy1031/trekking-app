@@ -1,9 +1,5 @@
-.sp-banner, .sp-footer-btn {
-  display: none !important;
-}
 @media screen and (max-width: 500px) {
   .sp-banner {
-    display: block !important;
     &__icon {
       position: fixed;
       bottom: 0;
@@ -20,7 +16,6 @@
     }
   }
   .sp-footer-btn {
-    display: block !important;
     bottom: 75px;
     right: 10px;
     width: 75px;
