@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @all_ranks = Post.create_all_ranks
-    @posts = Post.includes(:user, :likes, :comments, :meal).order('updated_at DESC')
+    @posts = Post.includes(:user, :likes, :comments, :meal).where.not(user_id: current_user.id).order('updated_at DESC')
     @users = User.order('updated_at DESC')
     @meals = Meal.includes(:post).order('updated_at DESC')
     if user_signed_in?
