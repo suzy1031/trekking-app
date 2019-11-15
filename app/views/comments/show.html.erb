@@ -7,11 +7,7 @@
         <% @comments.each do |comment| %>
           <div class='comment-user'>
             <%= link_to comment.user do %>
-              <% if comment.user.image.url.present? %>
-                <%= image_tag comment.user.image.url, class:'comment-user__comment-picture' %>
-              <% else %>
-                <img class='comment-user__comment-picture' src='https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342' alt=''>
-              <% end %>
+              <%= comment_user_image(comment) %>
             <% end %>
             <div class='comment-user__name'>
               <%= comment.user.nickname %>さん
