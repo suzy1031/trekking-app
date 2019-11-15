@@ -1,7 +1,7 @@
 <h2 class='list-title'>みんなの山メシ投稿一覧</h2>
 <ul class='horizontal-list'>
   <% @meals.each do |meal| %>
-    <%= link_to "meals/#{ meal.id }" do %>
+    <%= link_to meal_path(meal) do %>
       <li class='item-box'>
         <div class='box-left'>
           <%= meshi_horizontal_list_image(meal) %>

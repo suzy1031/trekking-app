@@ -30,3 +30,21 @@ body {
   font-weight: bold;
   padding: 20px;
 }
+.sp-header-main,.sp-banner,.sp-footer-btn,
+.sp-detail,h1.sp-top-home,.sp-list-box,.sp-main
+{
+  display: none !important;
+}
+.header-main,.footer-main {
+  display: block !important;
+}
+@media screen and (max-width: 500px) {
+  main,.header-main,.footer-main {
+    display: none !important;
+  }
+  .sp-main,h1.sp-top-home,h2.sp-top-follow,.sp-list-box,
+  .sp-header-main,.sp-banner,.sp-footer-btn,.sp-detail
+  {
+    display: block !important;
+  }
+}

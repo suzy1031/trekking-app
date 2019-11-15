@@ -1,37 +1,33 @@
 <%= render 'layouts/shared/header' %>
   <main>
-    <div class="detail-post-box">
-      <div class="detail-user-container">
-        <div class="detail-picture">
-        <% if @user.image.present? %>
-          <%= image_tag @user.image.url, class:"user-face" %>
-        <% else %>
-          <img class="user-face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
-        <% end %>
+    <div class='detail-post-box'>
+      <div class='detail-user-container'>
+        <div class='detail-picture'>
+          <%= show_user_image %>
         </div>
-        <div class="user-follow-box">
+        <div class='user-follow-box'>
           <%= render 'users/shared/stats' %>
-          <%= render 'follow_form' if user_signed_in? %>
-          <div class="detail-nickname"><%= @user.nickname %></div>
+          <%= render 'follow_form' if signed_in? %>
+          <div class='detail-nickname'><%= @user.nickname %></div>
         </div>
       </div>
-      <div class="detail-container">
+      <div class='detail-container'>
         <h2>プロフィール</h2>
-        <div class="detail-description">
-          <div class="etail-description__display">
+        <div class='detail-description'>
+          <div class='detail-description__display'>
             <%= @user.profile %>
           </div>
         </div>
         <% if @user.posts.any? %>
           <h2>投稿一覧 (<%= @user.posts.count %>)</h2>
-          <div class="search-container", id="posts">
+          <div class='search-container', id="posts">
             <%= render partial: 'posts/partial/yama-lists', collection: @posts, as:'post'%>
           </div>
           <%= paginate @posts %>
         <% else %>
           <h2>まだ投稿はありません</h2>
         <% end %>
-        <div class="detail-btn">
+        <div class='detail-btn'>
           <%= link_to 'ホーム', root_path, class:'detail-btn__gray' %>
         </div>
       </div>
@@ -44,14 +40,10 @@
 <div class='sp-main'>
   <div class='sp-detail'>
     <div class='sp-detail__user'>
-      <% if @user.image.present? %>
-        <%= image_tag @user.image.url, class:'sp-detail__user__picture' %>
-      <% else %>
-        <img class='sp-detail__user__picture' src='https://static.mercdn.net/images/member_photo_noimage_thumb.png'>
-      <% end %>
+      <%= sp_show_user_image %>
       <div class='sp-detail__user__nickname'><%= @user.nickname %></div>
       <div class='sp-detail__user__follow_form'>
-        <%= render 'follow_form' if user_signed_in? %>
+        <%= render 'follow_form' if signed_in? %>
       </div>
     </div>
     <%= render 'users/shared/stats' %>

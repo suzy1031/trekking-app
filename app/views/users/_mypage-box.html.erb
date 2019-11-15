@@ -1,5 +1,5 @@
 <div class='middle-container mypage'>
-  <% if user_signed_in? %>
+  <% if signed_in? %>
     <div class='list-container'>
       <h2 class='list-container__user-name'>
         マイページ
@@ -7,8 +7,8 @@
       <div class='list-container__btn'>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'list-container__btn__path' %>
       </div>
-      <div class="list-container__btn">
-        <%= link_to 'プロフィール変更', edit_user_registration_path, class:'list-container__btn__path',data: {"turbolinks"=>false} %>
+      <div class='list-container__btn'>
+        <%= link_to 'プロフィール変更', edit_user_registration_path, class:'list-container__btn__path' %>
       </div>
     </div>
     <div class='user-box'>

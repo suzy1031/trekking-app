@@ -1,19 +1,19 @@
 <%= link_to post_path(post) do %>
-  <div class="sp-post-box">
+  <div class='sp-post-box'>
     <%= yama_index_list_image(post) %>
-    <div class="sp-post-box__description">
+    <div class='sp-post-box__description'>
       <label><%= post.user.nickname %></label><br/>
       <%= post.name %>
-      <div class="sp-post-box__description__comment">
+      <div class='sp-post-box__description__comment'>
         <%= post.text %>
       </div>
     </div>
   </div>
 <% end %>
-<div class="sp-post-box__like">
+<div class='sp-post-box__like'>
   <%= render 'likes/like-links', post: post %>
   <%= link_to post_path(post) do %>
-    <i class="far fa-comment fa-2x">
+    <i class='far fa-comment fa-2x'>
       <span><%= post.comments.count %></span>
     </i>
   <% end %>

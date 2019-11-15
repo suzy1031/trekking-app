@@ -16,6 +16,38 @@ module ApplicationHelper
     end
   end
 
+  def show_user_image
+    if @user.image.present?
+      image_tag(@user.image.url, class:"user-face")
+    else
+      image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png", class:"user-face")
+    end
+  end
+
+  def lists_user_image(user)
+    if user.image.present?
+      image_tag(user.image.url, class:"user-face")
+    else
+      image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png", class:"user-face")
+    end
+  end
+
+  def sp_show_user_image
+    if @user.image.present?
+      image_tag(@user.image.url, class:"sp-detail__user__picture")
+    else
+      image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png", class:"sp-detail__user__picture")
+    end
+  end
+
+  def sp_index_user_image(user)
+    if user.image.present?
+      image_tag(user.image.url, class:"sp-post-box__picture")
+    else
+      image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png", class:"sp-post-box__picture")
+    end
+  end
+
   def yama_post_list_image(post)
     if post.image.present?
       image_tag(post.image.url, class:"post-box__picture")
@@ -85,6 +117,14 @@ module ApplicationHelper
       image_tag(@post.user.image.url, class:"user-info__face")
     else
       image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png", class:"user-info__face")
+    end
+  end
+
+  def post_show_image
+    if @post.image.present?
+      image_tag(@post.image.url, class:"detail-container__picture")
+    else
+      image_tag("https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342", class:"detail-container__picture")
     end
   end
 
