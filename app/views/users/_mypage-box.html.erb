@@ -1,42 +1,42 @@
-<div class="middle-container mypage">
+<div class='middle-container mypage'>
   <% if user_signed_in? %>
-    <div class="list-container">
-      <h2 class="list-container__user-name">
+    <div class='list-container'>
+      <h2 class='list-container__user-name'>
         マイページ
       </h2>
-      <div class="list-container__btn">
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'list-container__btn__path' %>
+      <div class='list-container__btn'>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'list-container__btn__path' %>
       </div>
       <div class="list-container__btn">
         <%= link_to 'プロフィール変更', edit_user_registration_path, class:'list-container__btn__path',data: {"turbolinks"=>false} %>
       </div>
     </div>
-    <div class="user-box">
+    <div class='user-box'>
       <%= sp_header_login_image %>
-      <div class="user-box__count">
+      <div class='user-box__count'>
         <%= current_user.nickname %>さんの投稿数
       </div>
-      <div class="user-box__count-box">
+      <div class='user-box__count-box'>
         登った山は<%= @current_user_posts.count %>ヶ所です！<br/>
       </div>
       <%# フォロー件数表示 %>
       <%= render 'users/shared/stats' %>
 
-      <div class="user-box__link">
-        <%= link_to "登った山とメシを投稿", new_post_path, class:'user-box__link__path',data: {"turbolinks"=>false} %>
+      <div class='user-box__link'>
+        <%= link_to '登った山とメシを投稿', new_post_path, class:'user-box__link__path' %>
       </div>
     </div>
   <% else%>
-    <div class="list-container">
-      <h2 class="list-container__user-name">こんにちは！ユーザーさん！</h2>
+    <div class='list-container'>
+      <h2 class='list-container__user-name'>こんにちは！ユーザーさん！</h2>
     </div>
-    <div class="user-box">
-      <div class="user-box__before">
+    <div class='user-box'>
+      <div class='user-box__before'>
         まずはログインしよう！
       </div>
-      <div class="user-box__link">
-        <%= link_to "ログイン", new_user_session_path, class:'user-box__link__path' %>
-        <%= link_to "新規登録", new_user_registration_path, class:'user-box__link__path',data: {"turbolinks"=>false} %>
+      <div class='user-box__link'>
+        <%= link_to 'ログイン', new_user_session_path, class:'user-box__link__path' %>
+        <%= link_to '新規登録', new_user_registration_path, class:'user-box__link__path' %>
       </div>
     </div>
 <% end %>

@@ -21,29 +21,31 @@
 
 <%# スマホ用searchページ %>
 <%= render 'layouts/shared/sp-header' %>
-<div class='sp-search'>
-  <%= search_form_for @search, url:search_posts_path do |f| %>
-    <%= f.search_field :name_or_text_cont, class: 'sp-search__box', placeholder: '山の名前を検索' %>
-    <%= f.submit '検索', class:'sp-search__btn' %>
+<div class='sp-main'>
+  <div class='sp-search'>
+    <%= search_form_for @search, url:search_posts_path do |f| %>
+      <%= f.search_field :name_or_text_cont, class: 'sp-search__box', placeholder: '山の名前を検索' %>
+      <%= f.submit '検索', class:'sp-search__btn' %>
+    <% end %>
+  </div>
+  <% if @search_result.present? %>
+    <h2 class='sp-search__result'>
+      "<%= @search.name_or_text_cont %>"の検索結果{ <%= @search_result.total_count %>件 }
+    </h2>
+    <h3 class='sp-search__text'>
+      <%= @search_result.current_page %>/<%= @search_result.total_pages %>ページ
+    </h3>
+    <div class='sp-list-box'>
+      <%= render partial: 'posts/partial/sp-index', collection: @search_result, as: :post %>
+    </div>
+    <div class='sp-search__paginate'>
+      <%= paginate @search_result %>
+    </div>
+  <% elsif @search_result == [] %>
+    <h2 class='sp-search__result'>該当する投稿が見つかりません。</h2>
+  <% else %>
+      <h2 class='sp-search__result'>キーワードを入力して下さい</h2>
   <% end %>
 </div>
-<% if @search_result.present? %>
-  <h2 class='sp-search__result'>
-    "<%= @search.name_or_text_cont %>"の検索結果{ <%= @search_result.total_count %>件 }
-  </h2>
-  <h3 class='sp-search__text'>
-    <%= @search_result.current_page %>/<%= @search_result.total_pages %>ページ
-  </h3>
-  <div class='sp-list-box'>
-    <%= render partial: 'posts/partial/sp-index', collection: @search_result, as: :post %>
-  </div>
-  <div class='sp-search__paginate'>
-    <%= paginate @search_result %>
-  </div>
-<% elsif @search_result == [] %>
-  <h2 class='sp-search__result'>該当する投稿が見つかりません。</h2>
-<% else %>
-    <h2 class='sp-search__result'>キーワードを入力して下さい</h2>
-<% end %>
 <%= render 'layouts/shared/sp-button' %>
 <%= render 'layouts/shared/sp-banner' %>
