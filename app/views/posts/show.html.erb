@@ -1,50 +1,51 @@
+<% provide(:title, @title) %>
 <body>
 <%= render 'layouts/shared/header' %>
 <%= render 'layouts/shared/flash' %>
 <%= render 'layouts/shared/validation-message' %>
   <main>
-    <div class="detail-post-box">
-      <div class="user-info">
+    <div class='detail-post-box'>
+      <div class='user-info'>
         <%= link_to @post.user do %>
           <%= meshi_show_user_image %>
         <% end %>
-        <div class="user-info__name">
+        <div class='user-info__name'>
           <%= @post.user.nickname %>
         </div>
       </div>
-      <div class="detail-container">
-        <div class="detail-container__name">
+      <div class='detail-container'>
+        <div class='detail-container__name'>
           <%= @post.name %>
           <%= render 'likes/like-links', post: @post %>
         </div>
           <%= post_show_image %>
         <h2>山の詳細データ</h2>
-        <div class="detail-description">
-          <div class="detail-description__display">
+        <div class='detail-description'>
+          <div class='detail-description__display'>
             山頂標高:<%= @post.elevation %>M
           </div>
-          <div class="detail-description__display">
+          <div class='detail-description__display'>
             歩行距離:<%= @post.walking_distance %>KM
           </div>
-          <div class="detail-description__display">
+          <div class='detail-description__display'>
             <%= @post.difficulty_i18n %>
           </div>
         </div>
         <h2><%= @post.user.nickname %>さんのコメント</h2>
-        <div class="detail-comment">
+        <div class='detail-description__display'>
           <%= simple_format(@post.text) %>
         </div>
 
         <%= render 'comments/partial/comment' %>
 
-        <% if user_signed_in? && current_user.id == @post.user_id %>
-          <div class="detail-btn">
+        <% if signed_in? && current_user.id == @post.user_id %>
+          <div class='detail-btn'>
             <%= link_to 'ホーム', root_path, class:'detail-btn__gray' %>
             <%= link_to '編集', edit_post_path(@post), method: :get, class:'detail-btn__gray' %>
             <%= link_to '削除する', post_path(@post), method: :delete, class:'detail-btn__red', data: { confirm: "本当に削除しますか?" } %>
           </div>
         <% else %>
-          <div class="detail-btn">
+          <div class='detail-btn'>
             <%= link_to 'ホーム', root_path, class:'detail-btn__gray' %>
           </div>
         <% end %>
@@ -56,34 +57,34 @@
 
 <%# スマホ用詳細ページ %>
 <%= render 'layouts/shared/sp-header' %>
-<div class="sp-main">
-  <div class="sp-detail">
-    <div class="sp-detail__user">
+<div class='sp-main'>
+  <div class='sp-detail'>
+    <div class='sp-detail__user'>
       <%= link_to @post.user do %>
         <%= sp_meshi_show_user_image %>
       <% end %>
-      <div class="sp-detail__user__nickname"><%= @post.user.nickname %></div>
+      <div class='sp-detail__user__nickname'><%= @post.user.nickname %></div>
     </div>
     <div class='sp-detail__post-name'>
       <%= @post.name %>
     </div>
-    <div class="sp-detail__pic-box">
+    <div class='sp-detail__pic-box'>
       <%= sp_yama_show_image %>
     </div>
     <i class='far fa-heart fa-2x'>
       <span><%= @post.likes.count %></span>
     </i>
     <%= link_to post_comment_path(@post) do %>
-      <i class="far fa-comment fa-2x">
+      <i class='far fa-comment fa-2x'>
         <span><%= @post.comments.count %></span>
       </i>
     <% end %>
     <% if user_signed_in? && current_user.id == @post.user_id %>
       <%= link_to edit_post_path(@post), method: :get, class:'sp-detail__btn' do %>
-        <i class="far fa-edit fa-2x"></i>
+        <i class='far fa-edit fa-2x'></i>
       <% end %>
       <%= link_to post_path(@post), method: :delete, class:'sp-detail__btn', data: { confirm: "本当に削除しますか?" } do %>
-        <i class="far fa-trash-alt fa-2x"></i>
+        <i class='far fa-trash-alt fa-2x'></i>
       <% end %>
     <% end %>
     <h2 class='sp-detail__title'>山のデータ</h2>
