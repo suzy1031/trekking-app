@@ -1,19 +1,19 @@
-<div class="middle-container">
-  <div class="list-container">
-    <div class="list-container__title">山登り好きの最新投稿</div>
-    <div class="list-container__icon">
+<div class='middle-container'>
+  <div class='list-container'>
+    <div class='list-container__title'>山登り好きの最新投稿</div>
+    <div class='list-container__icon'>
       <p>new</p>
     </div>
   </div>
-  <div class="list-box">
+  <div class='list-box'>
     <% @posts.each do |post| %>
-      <%= link_to "posts/#{ post.id }" do %>
-        <div class="post-box">
+      <%= link_to post_path(post) do %>
+        <div class='post-box'>
           <%= yama_post_list_image(post) %>
-          <div class="post-box__description">
+          <div class='post-box__description'>
             <label><%= post.user.nickname %>さんの投稿</label><br/>
             <%= post.name %><br/>
-            <div class="post-box__description__comment">
+            <div class='post-box__description__comment'>
               <%= post.text %>
             </div>
           </div>

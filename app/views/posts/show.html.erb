@@ -17,11 +17,7 @@
           <%= @post.name %>
           <%= render 'likes/like-links', post: @post %>
         </div>
-        <% if @post.image.present? %>
-          <%= image_tag @post.image.url, class:'detail-container__picture' %>
-        <% else %>
-          <img src="https://mgs01y1.wowma.net/pc/img/common/no_image300.gif?query=201908071342" alt="" class="detail-container__picture">
-        <% end %>
+          <%= post_show_image %>
         <h2>山の詳細データ</h2>
         <div class="detail-description">
           <div class="detail-description__display">

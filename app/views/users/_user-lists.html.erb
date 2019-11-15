@@ -1,17 +1,13 @@
-<div class="middle-container">
-  <div class="list-container">
-    <div class="list-container__title">ユーザー一覧</div>
+<div class='middle-container'>
+  <div class='list-container'>
+    <div class='list-container__title'>ユーザー一覧</div>
   </div>
-  <div class="list-box">
+  <div class='list-box'>
     <% @users.each do |user| %>
       <%= link_to "users/#{ user.id }" do %>
-        <div class="post-box">
-          <% if user.image.present? %>
-            <%= image_tag user.image.url, class:"user-face" %>
-          <% else %>
-            <img class="user-face" src="https://static.mercdn.net/images/member_photo_noimage_thumb.png">
-          <% end %>
-          <div class="post-box__description">
+        <div class='post-box'>
+          <%= lists_user_image(user) %>
+          <div class='post-box__description'>
             <label><%= user.nickname %>さん</label><br/>
             <div class='post-box__description__profile'>
               <%= user.profile %>
