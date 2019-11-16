@@ -30,6 +30,9 @@
           <div class='detail-description__display'>
             <%= @post.difficulty_i18n %>
           </div>
+          <div class='detail-description__display'>
+            <%= @post.prefecture.name %>
+          </div>
         </div>
         <h2><%= @post.user.nickname %>さんのコメント</h2>
         <div class='detail-description__display'>
@@ -102,6 +105,7 @@
         </div>
       </div>
       <div class='sp-detail__description__name'>
+        <%= @post.prefecture.name %><br/>
         <%= @post.difficulty_i18n %>
       </div>
     </div>
