@@ -7,8 +7,8 @@ class PostsController < ApplicationController
     @users = User.order('updated_at DESC')
     @meals = Meal.order('updated_at DESC')
     if user_signed_in?
-      @current_user_posts=Post.where(user_id:current_user.id).order('updated_at DESC')
-      @posts = Post.includes(:user).where.not(user_id: current_user.id).order('updated_at DESC')
+      @current_user_posts=Post.includes(:user).where(user_id:current_user.id).order('updated_at DESC')
+      @posts = Post.includes(:user).order('updated_at DESC')
     end
   end
 
@@ -84,6 +84,7 @@ class PostsController < ApplicationController
       :elevation,
       :walking_distance,
       :difficulty,
+      :prefecture_id,
       :remove_image,
       meal_attributes: [:id,
                         :name,
