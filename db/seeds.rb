@@ -17,7 +17,8 @@
       image:                open("#{Rails.root}/db/fixtures/利尻山.jpeg"),
       elevation:            "87#{j}",
       walking_distance:     "1#{j}",
-      difficulty:           rand(3)
+      difficulty:           rand(3),
+      prefecture_id:        rand(1..47)
     )}
 
     users.each{user.likes.create!(post_id: i, user_id: j)}
