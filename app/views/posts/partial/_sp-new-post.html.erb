@@ -26,7 +26,16 @@
   </div>
   <div class='select-form-box'>
     <i class='fa fa-chevron-down'></i>
-    <%= f.select :difficulty, Post.difficulties_i18n.invert, include_blank: '---', placeholder: '歩行距離(km)' %>
+    <%= f.select :difficulty, Post.difficulties_i18n.invert, include_blank: '---' %>
+  </div>
+
+  <div class='form-registration-box'>
+    <%= f.label :都道府県, class:'form-registration-box__name' %>
+    <%= f.label :必須, class:'form-registration-box__any-require' %>
+  </div>
+  <div class='select-form-box'>
+    <i class='fa fa-chevron-down'></i>
+    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '---' %>
   </div>
 
   <div class='form-registration-box'>

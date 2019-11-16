@@ -37,6 +37,15 @@
         </div>
 
         <div class='form-registration-box'>
+          <%= f.label :都道府県, class:'form-registration-box__name' %>
+          <%= f.label :必須, class:'form-registration-box__require' %>
+        </div>
+        <div class='select-form-box'>
+          <i class='fa fa-chevron-down'></i>
+          <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '---' %>
+        </div>
+
+        <div class='form-registration-box'>
           <%= f.label :コメント, class:'form-registration-box__name' %>
           <%= f.label :必須, class:'form-registration-box__require' %>
         </div>
