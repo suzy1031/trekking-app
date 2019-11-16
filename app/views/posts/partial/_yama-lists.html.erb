@@ -10,9 +10,10 @@
         <div class='item-description'>
           山頂標高：<%= post.elevation %>M<br>
           歩行距離：<%= post.walking_distance %>KM<br>
-          <%= post.difficulty_i18n %>
+          <%= post.difficulty_i18n %><br/>
+          <%= post.prefecture.name %>
         </div>
-        <label><%= post.user.nickname %>さんの一言コメント</label>
+        <label>一言コメント</label>
         <div class='item-description__comment'>
           <%= post.text %>
         </div>
