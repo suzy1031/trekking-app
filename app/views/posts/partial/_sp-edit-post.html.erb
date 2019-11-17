@@ -1,0 +1,55 @@
+<div class='new-post-box__container__name'>
+  投稿を編集
+</div>
+<%= form_for @post, url:{ action: 'update' } do |f| %>
+  <div class='form-registration-box'>
+    <%= f.label :山の名前, class:'form-registration-box__name' %>
+    <%= f.label :必須, class:'form-registration-box__require' %>
+  </div>
+  <%= f.text_field :name, autofocus: true, placeholder: '例) 高尾山', class:'new-part-form' %>
+
+  <div class='form-registration-box'>
+    <%= f.label :歩行距離, class:'form-registration-box__name' %>
+    <%= f.label :任意, class:'form-registration-box__any-require' %>
+  </div>
+  <%= f.text_field :walking_distance, placeholder: '例) 1.2km→12', class:'new-part-form' %>
+
+  <div class='form-registration-box'>
+    <%= f.label :山頂標高, class:'form-registration-box__name'  %>
+    <%= f.label :任意, class:'form-registration-box__any-require' %>
+  </div>
+  <%= f.text_field :elevation, placeholder: '例) 1200m→1200', class:'new-part-form' %>
+
+  <div class='form-registration-box'>
+    <%= f.label :難易度, class:'form-registration-box__name' %>
+    <%= f.label :任意, class:'form-registration-box__any-require' %>
+  </div>
+  <div class='select-form-box'>
+    <i class='fa fa-chevron-down'></i>
+    <%= f.select :difficulty, Post.difficulties_i18n.invert, include_blank: '---', placeholder: '歩行距離(km)' %>
+  </div>
+
+  <div class='form-registration-box'>
+    <%= f.label :都道府県, class:'form-registration-box__name' %>
+    <%= f.label :必須, class:'form-registration-box__require' %>
+  </div>
+  <div class='select-form-box'>
+    <i class='fa fa-chevron-down'></i>
+    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '---' %>
+  </div>
+
+  <div class='form-registration-box'>
+    <%= f.label :コメント, class:'form-registration-box__name' %>
+    <%= f.label :必須, class:'form-registration-box__require' %>
+  </div>
+  <%= f.text_area :text, placeholder: '感想を編集', id:'textarea' %>
+
+  <div class='form-registration-box'>
+    <%= f.label :画像, class:'form-registration-box__name' %>
+    <%= f.label :任意, class:'form-registration-box__any-require' %>
+  </div>
+  <%= f.file_field :image, id:'post_img' %>
+  <p><%= f.check_box :remove_image %>画像を削除する</p>
+
+  <%= f.submit '編集を完了する', class:'new-post-box__btn' %>
+<% end %>

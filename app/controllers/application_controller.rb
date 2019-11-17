@@ -18,10 +18,10 @@ class ApplicationController < ActionController::Base
   private
 
   def set_search
-    @search = Post.ransack(params[:q])
+    @search = Post.includes(:user).ransack(params[:q])
   end
 
   def search_params
-    params.require(:q).permit(:name_or_text_cont)
+    params.require(:q).permit(:name_or_text_cont, :prefecture_id_eq)
   end
 end

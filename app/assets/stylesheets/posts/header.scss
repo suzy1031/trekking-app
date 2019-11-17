@@ -30,7 +30,7 @@
   &__search {
     position: absolute;
     right: 10px;
-    top: 30%;
+    top: 20%;
     &__text {
       padding: 5px 8px 5px 8px;
       width: 280px;
@@ -46,6 +46,25 @@
       border: none;
       border-radius: 5px;
       background: #f5f3f4;
+    }
+    #q_prefecture_id_eq {
+      width: 90px;
+      height: 28px;
+      background: white;
+      border: 1px solid white;
+      position: absolute;
+      right: 251px;
+      top: 40px;
+      padding: 0 5px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    .fa.fa-chevron-down {
+      position: absolute;
+      top: 47px;
+      right: 255px;
+      z-index: 5;
     }
   }
 }

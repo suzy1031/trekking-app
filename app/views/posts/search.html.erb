@@ -2,7 +2,7 @@
   <%= render 'layouts/shared/header' %>
   <% if @search_result.present? %>
     <div class='search-result'>
-      <h2 class='search-result__title'>"<%= @search.name_or_text_cont %>"の検索結果{ <%= @search_result.total_count %>件 }</h2>
+      <h2 class='search-result__title'>検索結果{ <%= @search_result.total_count %>件 }</h2>
         <div class='search-result__count'>
           <%= @search_result.current_page %>/<%= @search_result.total_pages %>ページ
         </div>
