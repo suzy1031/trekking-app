@@ -1,28 +1,4 @@
 <h2 class='list-title'>みんなの山メシ投稿一覧</h2>
 <ul class='horizontal-list'>
-  <% @meals.each do |meal| %>
-    <%= link_to meal_path(meal) do %>
-      <li class='item-box'>
-        <div class='box-left'>
-          <%= meshi_horizontal_list_image(meal) %>
-          <div class='item-description'>
-            <div class='item-description__name'>
-              <%= meal.name %>
-            </div>
-            <div class='yama-display'>
-              調理時間:<%= meal.cooking_time %>分
-            </div>
-            <label>調理方法</label>
-            <div class='item-description__comment'>
-              <%= meal.cooking_method %>
-            </div>
-            <label>食材・材料</label>
-            <div class='item-description__comment'>
-              <%= meal.food_stuff %>
-            </div>
-          </div>
-        </div>
-      </li>
-    <% end %>
-  <% end %>
+  <%= render 'meals/shared/pc-meshi-lists' %>
 </ul>
