@@ -35,7 +35,8 @@ ActiveRecord::Schema.define(version: 2019_11_16_121458) do
     t.text "cooking_method"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "post_id"
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
