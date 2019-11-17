@@ -21,15 +21,8 @@
     font-size: 18px;
   }
 }
-.sp-search {
-  display: none !important;
-}
 @media screen and (max-width: 500px) {
-  .search-result {
-    display: none !important;
-  }
   .sp-search {
-    display: block !important;
     text-align: center;
     background: white;
     #q_name_or_text_cont {

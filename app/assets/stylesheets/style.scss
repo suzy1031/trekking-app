@@ -31,7 +31,8 @@ body {
   padding: 20px;
 }
 .sp-header-main,.sp-banner,.sp-footer-btn,
-.sp-detail,h1.sp-top-home,.sp-list-box,.sp-main
+.sp-detail,h1.sp-top-home,.sp-list-box,.sp-main,
+.sp-search
 {
   display: none !important;
 }
@@ -39,11 +40,12 @@ body {
   display: block !important;
 }
 @media screen and (max-width: 500px) {
-  main,.header-main,.footer-main {
+  main,.header-main,.footer-main,.search-result {
     display: none !important;
   }
   .sp-main,h1.sp-top-home,h2.sp-top-follow,.sp-list-box,
-  .sp-header-main,.sp-banner,.sp-footer-btn,.sp-detail
+  .sp-header-main,.sp-banner,.sp-footer-btn,.sp-detail,
+  .sp-search
   {
     display: block !important;
   }
