@@ -65,6 +65,7 @@
   </div>
 
   <%= f.fields_for :meal do |s| %>
+    <%= s.hidden_field :user_id, value: current_user.id %>
     <div class='form-registration-box'>
       <%= s.label :山メシの名前, class:'form-registration-box__name' %>
       <%= s.label :必須, class:'form-registration-box__require' %>
