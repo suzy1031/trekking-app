@@ -1,5 +1,5 @@
-<%= render 'layouts/shared/header' %>
 <main>
+  <%= render 'layouts/shared/header' %>
   <div class='detail-post-box'>
     <h2 class='comment-title'>ユーザーさんからのコメント(<%= @post.comments.count %>)</h2>
     <div class='detail-comment'>
@@ -29,14 +29,14 @@
       <%= link_to '戻る', :back, class:'detail-btn__gray' %>
     </div>
   </div>
+  <%= render 'layouts/shared/footer' %>
 </main>
-<%= render 'layouts/shared/footer' %>
 
-<%= render 'layouts/shared/sp-header' %>
 <div class='sp-main'>
+  <%= render 'layouts/shared/sp-header' %>
   <%= render 'comments/shared/sp-post-comment' %>
   <div class='sp-detail'>
     <%= render 'comments/shared/sp-comment-list' %>
   </div>
+  <%= render 'layouts/shared/sp-banner' %>
 </div>
-<%= render 'layouts/shared/sp-banner' %>

@@ -1,38 +1,37 @@
-<body>
+<main>
   <%= render 'layouts/shared/flash' %>
   <%= render 'layouts/shared/header' %>
-  <%= render 'layouts/shared/sp-header' %><%# スマホ用ヘッダー %>
-  <main>
-    <div class='large-container'>
-      <%= render 'posts/partial/post-lists' %>
-      <%= render 'users/user-lists' %>
-      <%= render 'users/mypage-box' %>
-    </div>
-    <div id='main-container'>
-      <h2 class='list-title'>人気投稿ランキング</h2>
-        <ul class='horizontal-list'>
-          <%= render 'posts/partial/ranking-lists' %>
-        </ul>
-      <%= render 'meals/partial/meshi-lists' %>
-      <% if signed_in? && @user.posts.any? %>
-        <h2 class='list-title'><%=current_user.nickname %>さんが登った山リスト</h2>
-        <ul class='horizontal-list'>
-          <%= render partial: 'posts/partial/yama-lists', collection: @current_user_posts, as:'post' %>
-        </ul>
-      <% else %>
-        <%= render 'posts/partial/before-lists' %>
-      <% end %>
-    </div>
-  </main>
-  <%# スマホ用topページ %>
-  <h1 class='sp-top-home'>ホーム</h1>
-  <div class='sp-main'>
-    <div class='sp-list-box'>
-      <%= render partial: 'posts/partial/sp-index', collection: @posts, as: :post %>
-    </div>
+  <div class='large-container'>
+    <%= render 'posts/partial/post-lists' %>
+    <%= render 'users/user-lists' %>
+    <%= render 'users/mypage-box' %>
   </div>
-  <%# スマホ用バナー %>
+  <div id='main-container'>
+    <h2 class='list-title'>人気投稿ランキング</h2>
+      <ul class='horizontal-list'>
+        <%= render 'posts/partial/ranking-lists' %>
+      </ul>
+    <%= render 'meals/partial/meshi-lists' %>
+    <% if signed_in? && @user.posts.any? %>
+      <h2 class='list-title'><%=current_user.nickname %>さんが登った山リスト</h2>
+      <ul class='horizontal-list'>
+        <%= render partial: 'posts/partial/yama-lists', collection: @current_user_posts, as:'post' %>
+      </ul>
+    <% else %>
+      <%= render 'posts/partial/before-lists' %>
+    <% end %>
+  </div>
+  <%= render 'layouts/shared/footer' %>
+</main>
+
+<%# スマホ用topページ %>
+<div class='sp-main'>
+  <%= render 'layouts/shared/sp-header' %>
+  <h1 class='sp-top-home'>ホーム</h1>
+  <div class='sp-list-box'>
+    <%= render partial: 'posts/partial/sp-index', collection: @posts, as: :post %>
+  </div>
   <%= render 'layouts/shared/sp-button' %>
   <%= render 'layouts/shared/sp-banner' %>
-  <%= render 'layouts/shared/footer' %>
-</body>
+</div>
+

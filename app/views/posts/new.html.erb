@@ -1,23 +1,23 @@
 <% provide(:title, @title) %>
-<%= render 'layouts/shared/header' %>
-<%= render 'layouts/shared/flash' %>
-<%= render 'layouts/shared/validation-message' %>
 <main>
+  <%= render 'layouts/shared/header' %>
+  <%= render 'layouts/shared/flash' %>
+  <%= render 'layouts/shared/validation-message' %>
   <div class='new-post-box'>
     <div class='new-post-box__container'>
       <%= render 'posts/partial/new-post' %>
     </div>
   </div>
+  <%= render 'layouts/shared/footer' %>
 </main>
-<%= render 'layouts/shared/footer' %>
 
 <%# スマホ用ページ %>
-<%= render 'layouts/shared/sp-header' %>
-<%= render 'layouts/shared/flash' %>
-<%= render 'layouts/shared/validation-message' %>
 <div class='sp-main'>
+  <%= render 'layouts/shared/sp-header' %>
+  <%= render 'layouts/shared/flash' %>
+  <%= render 'layouts/shared/validation-message' %>
   <div class='sp-new-box'>
     <%= render 'posts/partial/sp-new-post' %>
   </div>
+  <%= render 'layouts/shared/sp-banner' %>
 </div>
-<%= render 'layouts/shared/sp-banner' %>

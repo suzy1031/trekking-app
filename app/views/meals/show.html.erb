@@ -1,47 +1,46 @@
 <% provide(:title, @title) %>
-<body>
+<main>
 <%= render 'layouts/shared/header' %>
-  <main>
-    <div class='detail-post-box'>
-      <div class='user-info'>
-        <%= meshi_show_user_image %>
-        <div class='user-info__name'>
-          <%= @post.user.nickname %>
-        </div>
-      </div>
-      <div class='detail-container'>
-        <div class='detail-container__name'>
-          <%= @meal.name %>
-        </div>
-        <%= meshi_show_image %>
-        <h2>山メシの詳細データ</h2>
-        <div class='detail-description'>
-          <div class='detail-description__display'>
-            調理時間:<%= @meal.cooking_time %>分
-          </div>
-        </div>
-        <h2>使用する食材</h2>
-        <div class='detail-comment'>
-          <%= simple_format(@meal.food_stuff) %>
-        </div>
-        <h2>調理方法</h2>
-        <div class='detail-comment'>
-          <%= simple_format(@meal.cooking_method) %>
-        </div>
-        <h2>ユーザーさんからのコメント</h2>
-        <div class='detail-comment'>ここは仮置き</div>
-        <div class='detail-btn'>
-          <%= link_to 'ホームへ戻る', root_path, class:'detail-btn__gray' %>
-        </div>
+  <div class='detail-post-box'>
+    <div class='user-info'>
+      <%= meshi_show_user_image %>
+      <div class='user-info__name'>
+        <%= @post.user.nickname %>
       </div>
     </div>
-  </main>
-<%= render 'layouts/shared/footer' %>
-</body>
+    <div class='detail-container'>
+      <div class='detail-container__name'>
+        <%= @meal.name %>
+      </div>
+      <%= meshi_show_image %>
+      <h2>山メシの詳細データ</h2>
+      <div class='detail-description'>
+        <div class='detail-description__display'>
+          調理時間:<%= @meal.cooking_time %>分
+        </div>
+      </div>
+      <h2>使用する食材</h2>
+      <div class='detail-comment'>
+        <%= simple_format(@meal.food_stuff) %>
+      </div>
+      <h2>調理方法</h2>
+      <div class='detail-comment'>
+        <%= simple_format(@meal.cooking_method) %>
+      </div>
+      <h2>ユーザーさんからのコメント</h2>
+      <div class='detail-comment'>ここは仮置き</div>
+      <div class='detail-btn'>
+        <%= link_to 'ホームへ戻る', root_path, class:'detail-btn__gray' %>
+      </div>
+    </div>
+  </div>
+  <%= render 'layouts/shared/footer' %>
+</main>
 
 <%# スマホ用詳細ページ %>
-<%= render 'layouts/shared/sp-header' %>
+
 <div class='sp-main'>
+  <%= render 'layouts/shared/sp-header' %>
   <div class='sp-detail'>
     <div class='sp-detail__user'>
       <%= sp_meshi_show_user_image %>
@@ -69,5 +68,5 @@
       <%= cooking_method_present? %>
     </div>
   </div>
+  <%= render 'layouts/shared/sp-banner' %>
 </div>
-<%= render 'layouts/shared/sp-banner' %>

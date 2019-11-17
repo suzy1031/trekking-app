@@ -30,23 +30,17 @@ body {
   font-weight: bold;
   padding: 20px;
 }
-.sp-header-main,.sp-banner,.sp-footer-btn,
-.sp-detail,h1.sp-top-home,.sp-list-box,.sp-main,
-.sp-search
-{
+.sp-header-main,.sp-main,.sp-banner {
   display: none !important;
 }
 .header-main,.footer-main {
   display: block !important;
 }
 @media screen and (max-width: 500px) {
-  main,.header-main,.footer-main,.search-result {
+  main,.header-main,.footer-main {
     display: none !important;
   }
-  .sp-main,h1.sp-top-home,h2.sp-top-follow,.sp-list-box,
-  .sp-header-main,.sp-banner,.sp-footer-btn,.sp-detail,
-  .sp-search
-  {
+  .sp-main,.sp-header-main,.sp-banner {
     display: block !important;
   }
 }

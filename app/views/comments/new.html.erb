@@ -1,5 +1,5 @@
-<%= render 'layouts/shared/sp-header' %>
 <div class='sp-main'>
+  <%= render 'layouts/shared/sp-header' %>
   <%= render 'comments/shared/sp-post-comment' %>
     <% if signed_in? %>
       <%= form_for [@post, @comment] do |f| %>
@@ -12,5 +12,5 @@
       <%= link_to 'ログインしてコメントしよう！', new_user_session_path, class:'sp-comment-login-link' %>
     <% end %>
   </div>
+  <%= render 'layouts/shared/sp-banner' %>
 </div>
-<%= render 'layouts/shared/sp-banner' %>

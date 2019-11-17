@@ -1,6 +1,6 @@
-<%= render 'layouts/shared/sp-header' %>
-<h1 class='sp-top-home'>ランキング</h1>
 <div class='sp-main'>
+  <%= render 'layouts/shared/sp-header' %>
+  <h1 class='sp-top-home'>ランキング</h1>
   <div class='sp-list-box'>
     <% @all_ranks.each.with_index(1) do |post, i| %>
       <%= link_to post_path(post) do %>
@@ -26,6 +26,6 @@
       </div>
     <% end %>
   </div>
+  <%= render 'layouts/shared/sp-button' %>
+  <%= render 'layouts/shared/sp-banner' %>
 </div>
-<%= render 'layouts/shared/sp-button' %>
-<%= render 'layouts/shared/sp-banner' %>

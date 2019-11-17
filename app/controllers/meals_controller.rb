@@ -1,7 +1,7 @@
 class MealsController < ApplicationController
 
   def index
-    @meals = Meal.includes(:post).order('updated_at DESC')
+    @meals = Meal.order('updated_at DESC')
   end
   def show
     @title = "投稿詳細"
