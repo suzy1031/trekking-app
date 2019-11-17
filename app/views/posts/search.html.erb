@@ -24,6 +24,7 @@
   <%= render 'layouts/shared/sp-header' %>
   <div class='sp-search'>
     <%= search_form_for @search, url:search_posts_path do |f| %>
+      <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, {prompt: '都道府県'} %>
       <%= f.search_field :name_or_text_cont, class: 'sp-search__box', placeholder: '山の名前を検索' %>
       <%= f.submit '検索', class:'sp-search__btn' %>
     <% end %>
