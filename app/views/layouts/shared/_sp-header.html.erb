@@ -4,7 +4,9 @@
       <h1 class='logo-box__sp-logo'>岳人</h1>
       <h3 class='logo-box__sp-kana'>〜たけと〜</h3>
     <% end %>
-    <%= sp_header_login_image %>
+    <%= link_to @user do %>
+      <%= sp_header_login_image %>
+    <% end %>
     <%# チェックボックス。常に非表示。 %>
     <input id='nav-input' type='checkbox' class='nav-unshown'>
     <%# チェックボックスのラベル。ここで三アイコンを表示。タップによりinputがチェック状態に。 %>

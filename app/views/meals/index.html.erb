@@ -1,22 +1,7 @@
 <div class='sp-main'>
   <%= render 'layouts/shared/sp-header' %>
   <h1 class='sp-top-home'>山メシ</h1>
-  <% @meals.each do |meal| %>
-    <div class='sp-list-box'>
-      <%= link_to meal_path(meal) do %>
-        <div class='sp-post-box'>
-          <%= meshi_index_page_image(meal) %>
-          <div class='sp-post-box__description'>
-            <label><%= meal.name %></label><br/>
-            調理時間:<%= meal.cooking_time %>分
-            <div class='sp-post-box__description__comment'>
-              調理方法:<%= meal.cooking_method %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+  <%= render 'meals/shared/sp-meshi-lists' %>
   <%= render 'layouts/shared/sp-button' %>
   <%= render 'layouts/shared/sp-banner' %>
 </div>
