@@ -28,6 +28,7 @@ end
 10.times do |m|
   m += 1
   Meal.create!(
+    user_id:                "#{m}",
     post_id:                "#{m}",
     name:                   "テスト飯#{m}",
     image:                  open("#{Rails.root}/db/fixtures/カレー.jpeg"),
