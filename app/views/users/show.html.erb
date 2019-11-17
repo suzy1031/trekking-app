@@ -18,12 +18,13 @@
           <%= @user.profile %>
         </div>
       </div>
-      <% if @user.posts.any? %>
-        <h2>投稿一覧 (<%= @user.posts.count %>)</h2>
+      <% if @user.posts.any? || @user.meals.any? %>
+        <h2>投稿一覧 (<%= @user.posts.count + @user.meals.count %>)</h2>
         <div class='search-container', id="posts">
           <%= render partial: 'posts/partial/yama-lists', collection: @posts, as:'post'%>
         </div>
         <%= paginate @posts %>
+        <%= render 'meals/shared/pc-meshi-lists' %>
       <% else %>
         <h2>まだ投稿はありません</h2>
       <% end %>
@@ -52,14 +53,12 @@
       <%= simple_format(@user.profile) %>
     </div>
   </div>
-  <% if @user.posts.any? %>
+  <% if @user.posts.any? || @user.meals.any? %>
     <h2 class='sp-posts-count'>投稿一覧 (<%= @user.posts.count + @user.meals.count %>)</h2>
     <div class="sp-list-box">
       <%= render partial: 'posts/partial/sp-index', collection: @posts, as:'post'%>
     </div>
-    <% if @user.meals.any? %>
-      <%= render 'meals/shared/sp-meshi-lists' %>
-    <% end %>
+    <%= render 'meals/shared/sp-meshi-lists' %>
   <% else %>
     <h2 class='sp-posts-count'>まだ投稿はありません</h2>
   <% end %>
