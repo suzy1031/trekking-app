@@ -1,4 +1,4 @@
-<body>
+<main>
   <%= render 'layouts/shared/header' %>
   <% if @search_result.present? %>
     <div class='search-result'>
@@ -17,11 +17,11 @@
     </div>
   <% end %>
   <%= render 'layouts/shared/footer' %>
-</body>
+</main>
 
 <%# スマホ用searchページ %>
-<%= render 'layouts/shared/sp-header' %>
 <div class='sp-main'>
+  <%= render 'layouts/shared/sp-header' %>
   <div class='sp-search'>
     <%= search_form_for @search, url:search_posts_path do |f| %>
       <%= f.search_field :name_or_text_cont, class: 'sp-search__box', placeholder: '山の名前を検索' %>
@@ -46,6 +46,6 @@
   <% else %>
       <h2 class='sp-search__result'>キーワードを入力して下さい</h2>
   <% end %>
+  <%= render 'layouts/shared/sp-button' %>
+  <%= render 'layouts/shared/sp-banner' %>
 </div>
-<%= render 'layouts/shared/sp-button' %>
-<%= render 'layouts/shared/sp-banner' %>

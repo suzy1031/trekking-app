@@ -1,6 +1,6 @@
 class RankingsController < ApplicationController
   def index
-    @all_ranks = Post.create_all_ranks
+    @all_ranks = Post.includes(:user).create_all_ranks
   end
 
   def show

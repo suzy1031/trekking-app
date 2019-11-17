@@ -1,43 +1,44 @@
-<%= render 'layouts/shared/header' %>
-  <main>
-    <div class='detail-post-box'>
-      <div class='detail-user-container'>
-        <div class='detail-picture'>
-          <%= show_user_image %>
-        </div>
-        <div class='user-follow-box'>
-          <%= render 'users/shared/stats' %>
-          <%= render 'follow_form' if signed_in? %>
-          <div class='detail-nickname'><%= @user.nickname %></div>
-        </div>
+<main>
+  <%= render 'layouts/shared/header' %>
+  <div class='detail-post-box'>
+    <div class='detail-user-container'>
+      <div class='detail-picture'>
+        <%= show_user_image %>
       </div>
-      <div class='detail-container'>
-        <h2>プロフィール</h2>
-        <div class='detail-description'>
-          <div class='detail-description__display'>
-            <%= @user.profile %>
-          </div>
-        </div>
-        <% if @user.posts.any? %>
-          <h2>投稿一覧 (<%= @user.posts.count %>)</h2>
-          <div class='search-container', id="posts">
-            <%= render partial: 'posts/partial/yama-lists', collection: @posts, as:'post'%>
-          </div>
-          <%= paginate @posts %>
-        <% else %>
-          <h2>まだ投稿はありません</h2>
-        <% end %>
-        <div class='detail-btn'>
-          <%= link_to 'ホーム', root_path, class:'detail-btn__gray' %>
-        </div>
+      <div class='user-follow-box'>
+        <%= render 'users/shared/stats' %>
+        <%= render 'follow_form' if signed_in? %>
+        <div class='detail-nickname'><%= @user.nickname %></div>
       </div>
     </div>
-  </main>
-<%= render 'layouts/shared/footer' %>
+    <div class='detail-container'>
+      <h2>プロフィール</h2>
+      <div class='detail-description'>
+        <div class='detail-description__display'>
+          <%= @user.profile %>
+        </div>
+      </div>
+      <% if @user.posts.any? %>
+        <h2>投稿一覧 (<%= @user.posts.count %>)</h2>
+        <div class='search-container', id="posts">
+          <%= render partial: 'posts/partial/yama-lists', collection: @posts, as:'post'%>
+        </div>
+        <%= paginate @posts %>
+      <% else %>
+        <h2>まだ投稿はありません</h2>
+      <% end %>
+      <div class='detail-btn'>
+        <%= link_to 'ホーム', root_path, class:'detail-btn__gray' %>
+      </div>
+    </div>
+  </div>
+  <%= render 'layouts/shared/footer' %>
+</main>
 
 <%# スマホ用ページ %>
-<%= render 'layouts/shared/sp-header' %>
+
 <div class='sp-main'>
+  <%= render 'layouts/shared/sp-header' %>
   <div class='sp-detail'>
     <div class='sp-detail__user'>
       <%= sp_show_user_image %>
@@ -59,5 +60,5 @@
   <% else %>
     <h2 class='sp-posts-count'>まだ投稿はありません</h2>
   <% end %>
+  <%= render 'layouts/shared/sp-banner' %>
 </div>
-<%= render 'layouts/shared/sp-banner' %>

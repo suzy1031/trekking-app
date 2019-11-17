@@ -1,34 +1,31 @@
 <% provide(:title, @title) %>
-<body>
-<%= render 'layouts/shared/header' %>
-  <main>
-    <div class='follow-list'>
-      <div class='follow-list__container'>
-        <%= render 'users/shared/stats' %>
-        <div class='follow-list__title'><%= @title %></div>
-        <% if @users.any? %>
-          <% @users.each do |user| %>
-            <div class='follow-user'>
-              <%= link_to user, class:'follow-user__link' do %>
-                <%= show_follow_user_image(user) %>
-                <div class='follow-user__nickname'><%= user.nickname %></div>
-              <% end %>
-            </div>
-          <% end %>
-          <div class='follow-list__paginate'><%= paginate @users %></div>
+<main>
+  <%= render 'layouts/shared/header' %>
+  <div class='follow-list'>
+    <div class='follow-list__container'>
+      <%= render 'users/shared/stats' %>
+      <div class='follow-list__title'><%= @title %></div>
+      <% if @users.any? %>
+        <% @users.each do |user| %>
+          <div class='follow-user'>
+            <%= link_to user, class:'follow-user__link' do %>
+              <%= show_follow_user_image(user) %>
+              <div class='follow-user__nickname'><%= user.nickname %></div>
+            <% end %>
+          </div>
         <% end %>
-        <div class='follow-list__btn'>
-          <%= link_to "ホーム", root_path, class:'follow-list__btn__gray' %>
-        </div>
+        <div class='follow-list__paginate'><%= paginate @users %></div>
+      <% end %>
+      <div class='follow-list__btn'>
+        <%= link_to "ホーム", root_path, class:'follow-list__btn__gray' %>
       </div>
     </div>
-  </main>
-<%= render 'layouts/shared/footer' %>
-</body>
+  </div>
+  <%= render 'layouts/shared/footer' %>
+</main>
 <%# スマホ用フォロー一覧ページ %>
-<%= render 'layouts/shared/sp-header' %>
-<h1 class='sp-top-home'><%= @title %></h1>
 <div class='sp-main'>
+  <%= render 'layouts/shared/sp-header' %>
   <%= render 'users/shared/stats' %>
   <% if @users.any? %>
     <% @users.each do |user| %>
@@ -48,6 +45,6 @@
     <% end %>
     <div class='follow-list__paginate'><%= paginate @users %></div>
   <% end %>
+  <%= render 'layouts/shared/sp-button' %>
+  <%= render 'layouts/shared/sp-banner' %>
 </div>
-<%= render 'layouts/shared/sp-button' %>
-<%= render 'layouts/shared/sp-banner' %>

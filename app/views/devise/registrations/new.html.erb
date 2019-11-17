@@ -1,17 +1,17 @@
-<%= render 'layouts/shared/header' %>
 <main>
+  <%= render 'layouts/shared/header' %>
   <div class='new-post-box'>
     <div class='new-post-box__container'>
       <%= render 'devise/partial/signup' %>
     </div>
   </div>
+  <%= render 'layouts/shared/footer' %>
 </main>
-<%= render 'layouts/shared/footer' %>
 
-<%= render 'layouts/shared/sp-header' %>
 <div class='sp-main'>
+  <%= render 'layouts/shared/sp-header' %>
   <div class='sp-new-box'>
   <%= render 'devise/partial/sp-signup' %>
   </div>
+  <%= render 'layouts/shared/sp-banner' %>
 </div>
-<%= render 'layouts/shared/sp-banner' %>

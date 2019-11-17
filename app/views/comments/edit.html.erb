@@ -5,8 +5,9 @@
     <%= f.submit '編集を完了する' %>
   <% end %>
 </main>
-<%= render 'layouts/shared/sp-header' %>
+
 <div class='sp-main'>
+  <%= render 'layouts/shared/sp-header' %>
   <%= render 'comments/shared/sp-post-comment' %>
   <%= form_for [@post, @comment], url:{ action: 'update' } do |f| %>
     <div class='sp-new-comment-box'>
@@ -14,5 +15,5 @@
       <%= f.submit '編集を完了する', class:'sp-new-comment-box__btn' %>
     </div>
   <% end %>
+  <%= render 'layouts/shared/sp-banner' %>
 </div>
-<%= render 'layouts/shared/sp-banner' %>

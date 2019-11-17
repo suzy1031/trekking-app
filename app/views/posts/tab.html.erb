@@ -1,23 +1,25 @@
-<%= render 'layouts/shared/header' %>
-<div class='nav-bar'>
-  このサイトについて
-</div>
-<div class='container'>
-  <ul class='menu'>
-    <li><a href='#' id='about' class='menu_item active'>このアプリについて</a></li>
-    <li><a href='#' id='service' class='menu_item'>使い方</a></li>
-    <li><a href='#' id='contact' class='menu_item'>お知らせ</a></li>
-  </ul>
-  <ul class='contents'>
-    <li class='content show'>
-      <%= render 'posts/partial/pc-about' %>
-    </li>
-    <li class='content'>
-      <%=render 'posts/partial/pc-usage' %>
-    </li>
-    <li class='content'>
-      <%= render 'posts/partial/pc-notification' %>
-    </li>
-  </ul>
-</div>
-<%= render 'layouts/shared/footer' %>
+<main>
+  <%= render 'layouts/shared/header' %>
+  <div class='nav-bar'>
+    このサイトについて
+  </div>
+  <div class='container'>
+    <ul class='menu'>
+      <li><a href='#' id='about' class='menu_item active'>このアプリについて</a></li>
+      <li><a href='#' id='service' class='menu_item'>使い方</a></li>
+      <li><a href='#' id='contact' class='menu_item'>お知らせ</a></li>
+    </ul>
+    <ul class='contents'>
+      <li class='content show'>
+        <%= render 'posts/partial/pc-about' %>
+      </li>
+      <li class='content'>
+        <%=render 'posts/partial/pc-usage' %>
+      </li>
+      <li class='content'>
+        <%= render 'posts/partial/pc-notification' %>
+      </li>
+    </ul>
+  </div>
+  <%= render 'layouts/shared/footer' %>
+</main>
