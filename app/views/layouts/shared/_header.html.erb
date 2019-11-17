@@ -9,6 +9,8 @@
   <% if user_signed_in? %>
     <div class='header-main__search'>
       <%= search_form_for @search, url:search_posts_path do |f| %>
+        <i class='fa fa-chevron-down'></i>
+        <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, {prompt: "---"} %>
         <%= f.search_field :name_or_text_cont, class: 'header-main__search__text', placeholder: '山の名前を検索' %>
         <%= f.submit '検索', class:'header-main__search__btn' %>
       <% end %>
