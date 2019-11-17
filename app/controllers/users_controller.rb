@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @meals = @user.meals.order("created_at DESC")
     @posts = @user.posts.order("created_at DESC").page(params[:page]).per(5)
   end
 

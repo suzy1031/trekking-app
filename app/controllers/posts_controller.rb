@@ -91,7 +91,8 @@ class PostsController < ApplicationController
                         :image,
                         :cooking_time,
                         :food_stuff,
-                        :cooking_method]
+                        :cooking_method,
+                        :user_id]
     ).merge(user_id: current_user.id)
   end
 
