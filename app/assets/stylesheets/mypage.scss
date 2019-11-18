@@ -46,21 +46,20 @@
     margin-top: 25px;
     text-align: center;
     &__path {
-      border: 1px solid #76A3AF;
+      border: 1px solid green;
       border-radius: 4px;
       display: inline-block;
       text-align: center;
-      background: lightblue;
-      color: darkblue;
+      background: #f5f3f4;
+      color: green;
       transition: 0.7s;
       font-size: 21px;
       text-decoration: none;
       padding: 5px;
     }
     &__path:hover {
-      background: darkblue;
+      background: green;
       color: white;
-      // opacity: 0.7;
     }
   }
 }

@@ -65,6 +65,13 @@
     padding-left: 5px;
     border: solid 1px #ccc;
     border-radius: 3px;
+    outline: none;
+    transition: 2s;
+  }
+  .new-part-form:focus {
+    background: #DFF7C9;
+    border: 1px solid #54C43D;
+    outline: 0;
   }
   .select-form-box {
     position: relative;
@@ -96,6 +103,13 @@
     line-height: 20px;
     border: solid 1px #ccc;
     border-radius: 3px;
+    outline: none;
+    transition: 0.5s;
+  }
+  #textarea:focus, #textarea2:focus, #textarea3:focus {
+    background: #DFF7C9;
+    border: 1px solid #54C43D;
+    outline: 0;
   }
   .photo-form, .photo-form2 {
     margin: 0 240px;

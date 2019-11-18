@@ -65,9 +65,14 @@
         text-align: center;
         color: white;
         border-radius: 4px;
+        transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
         p {
           font-size: 18px;
         }
+      }
+      &__icon:hover {
+        transform: translate(300px);
+        opacity: 0;
       }
     }
     .list-box {
