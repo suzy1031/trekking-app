@@ -1,4 +1,8 @@
 $(function() {
+  $(".toggle-icon").click(function() {
+    $('#nav-container').toggleClass("pushed");
+  });
+
   var $textarea = $('#textarea');
   var $textarea2 = $('#textarea2');
   var $textarea3 = $('#textarea3');
