@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2019_11_16_121458) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "likes_count"
-    t.integer "prefecture_id", null: false
+    t.integer "prefecture_id"
   end
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
