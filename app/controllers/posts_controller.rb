@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   def show
     @title = "投稿詳細"
-    @comments = @post.comments.last(5)
+    @comments = @post.comments.includes(:user).last(5)
     @comment = Comment.new
   end
 

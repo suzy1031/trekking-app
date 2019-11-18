@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @comments = @post.comments.order('updated_at DESC')
+    @comments = @post.comments.includes(:user).order('updated_at DESC')
   end
 
   def create
