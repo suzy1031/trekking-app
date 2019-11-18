@@ -3,7 +3,7 @@
 <%= render 'layouts/shared/header' %>
   <div class='detail-post-box'>
     <div class='user-info'>
-      <%= meshi_show_user_image %>
+      <%= meshi_show_user_image(@post) %>
       <div class='user-info__name'>
         <%= @post.user.nickname %>
       </div>
@@ -12,7 +12,7 @@
       <div class='detail-container__name'>
         <%= @meal.name %>
       </div>
-      <%= meshi_show_image %>
+      <%= post_show_image(@meal) %>
       <h2>山メシの詳細データ</h2>
       <div class='detail-description'>
         <div class='detail-description__display'>
@@ -43,14 +43,14 @@
   <%= render 'layouts/shared/sp-header' %>
   <div class='sp-detail'>
     <div class='sp-detail__user'>
-      <%= sp_meshi_show_user_image %>
+      <%= sp_circle_user_image(@user) %>
       <div class='sp-detail__user__nickname'><%= @post.user.nickname %></div>
     </div>
     <div class='sp-detail__post-name'>
       <%= @meal.name %>
     </div>
     <div class='sp-detail__pic-box'>
-      <%= sp_meshi_show_image %>
+      <%= sp_show_image(@meal) %>
     </div>
     <i class='far fa-heart fa-2x'></i>
     <i class='far fa-comment fa-2x'></i>

@@ -6,7 +6,7 @@
   <div class='detail-post-box'>
     <div class='user-info'>
       <%= link_to @post.user do %>
-        <%= meshi_show_user_image %>
+        <%= meshi_show_user_image(@post) %>
       <% end %>
       <div class='user-info__name'>
         <%= @post.user.nickname %>
@@ -17,7 +17,7 @@
         <%= @post.name %>
         <%= render 'likes/like-links', post: @post %>
       </div>
-        <%= post_show_image %>
+        <%= post_show_image(@post) %>
       <h2>山の詳細データ</h2>
       <div class='detail-description'>
         <div class='detail-description__display'>
@@ -62,7 +62,7 @@
   <div class='sp-detail'>
     <div class='sp-detail__user'>
       <%= link_to @post.user do %>
-        <%= sp_meshi_show_user_image %>
+        <%= sp_circle_user_image(@user) %>
       <% end %>
       <div class='sp-detail__user__nickname'><%= @post.user.nickname %></div>
     </div>
@@ -70,7 +70,7 @@
       <%= @post.name %>
     </div>
     <div class='sp-detail__pic-box'>
-      <%= sp_yama_show_image %>
+      <%= sp_show_image(@post) %>
     </div>
     <i class='far fa-heart fa-2x'>
       <span><%= @post.likes.count %></span>

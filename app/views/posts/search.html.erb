@@ -31,7 +31,7 @@
   </div>
   <% if @search_result.present? %>
     <h2 class='sp-search__result'>
-      "<%= @search.name_or_text_cont %>"の検索結果{ <%= @search_result.total_count %>件 }
+      検索結果{ <%= @search_result.total_count %>件 }
     </h2>
     <h3 class='sp-search__text'>
       <%= @search_result.current_page %>/<%= @search_result.total_pages %>ページ

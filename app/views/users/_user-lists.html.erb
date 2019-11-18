@@ -6,7 +6,7 @@
     <% @users.each do |user| %>
       <%= link_to "users/#{ user.id }" do %>
         <div class='post-box'>
-          <%= lists_user_image(user) %>
+          <%= circle_user_image(user) %>
           <div class='post-box__description'>
             <label><%= user.nickname %>さん</label><br/>
             <div class='post-box__description__profile'>
