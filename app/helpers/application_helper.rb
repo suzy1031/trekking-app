@@ -16,6 +16,10 @@ module ApplicationHelper
     @user.posts.count + @user.meals.count
   end
 
+  def signed_in_and_current_user_comment?
+    signed_in? && current_user.id == @post.user_id
+  end
+
   def horizontal_list_image(instance)
     if instance.image.present?
       image_tag(instance.image.url, class:"box-left__picture")
