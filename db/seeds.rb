@@ -18,7 +18,7 @@
       elevation:            "87#{j}",
       walking_distance:     "1#{j}",
       difficulty:           rand(3),
-      prefecture_id:        1
+      prefecture_id:        rand(1..47)
     )}
 
     users.each{user.likes.create!(post_id: i, user_id: j)}

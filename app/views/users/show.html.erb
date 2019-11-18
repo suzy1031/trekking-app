@@ -3,7 +3,7 @@
   <div class='detail-post-box'>
     <div class='detail-user-container'>
       <div class='detail-picture'>
-        <%= show_user_image %>
+        <%= circle_user_image(@user) %>
       </div>
       <div class='user-follow-box'>
         <%= render 'users/shared/stats' %>
@@ -18,8 +18,8 @@
           <%= @user.profile %>
         </div>
       </div>
-      <% if @user.posts.any? || @user.meals.any? %>
-        <h2>投稿一覧 (<%= @user.posts.count + @user.meals.count %>)</h2>
+      <% if user_posts_meals_has? %>
+        <h2>投稿一覧 (<%= posts_and_meals_total_count %>)</h2>
         <div class='search-container', id="posts">
           <%= render partial: 'posts/partial/yama-lists', collection: @posts, as:'post'%>
         </div>
@@ -42,7 +42,7 @@
   <%= render 'layouts/shared/sp-header' %>
   <div class='sp-detail'>
     <div class='sp-detail__user'>
-      <%= sp_show_user_image %>
+      <%= sp_circle_user_image(@user) %>
       <div class='sp-detail__user__nickname'><%= @user.nickname %></div>
       <div class='sp-detail__user__follow_form'>
         <%= render 'follow_form' if signed_in? %>
@@ -53,11 +53,12 @@
       <%= simple_format(@user.profile) %>
     </div>
   </div>
-  <% if @user.posts.any? || @user.meals.any? %>
-    <h2 class='sp-posts-count'>投稿一覧 (<%= @user.posts.count + @user.meals.count %>)</h2>
+  <% if user_posts_meals_has? %>
+    <h2 class='sp-posts-count'>投稿一覧 (<%= posts_and_meals_total_count %>)</h2>
     <div class="sp-list-box">
       <%= render partial: 'posts/partial/sp-index', collection: @posts, as:'post'%>
     </div>
+    <%= paginate @posts %>
     <%= render 'meals/shared/sp-meshi-lists' %>
   <% else %>
     <h2 class='sp-posts-count'>まだ投稿はありません</h2>
