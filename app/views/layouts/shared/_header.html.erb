@@ -1,11 +1,17 @@
 <header class='header-main'>
-  <h3 class='header-main__logo-txt'>大好きな山や山メシをシェアしよう</h3>
   <div class='logo'>
     <%= link_to root_path, class:'logo__root-path' do %>
-      <h1 class='logo__small-txt'>岳人</h1>
-      <a class='logo__kana'>〜たけと〜</a>
+      <p class="animation_07">岳人</p>
     <% end %>
+    <div id='nav-container'>
+      <div class='toggle-icon'>
+        <span class='bar'></span>
+        <span class='bar'></span>
+        <span class='bar'></span>
+      </div>
+    </div>
   </div>
+  <h3 class='header-main__logo-txt'>大好きな山や山メシをシェアしよう</h3>
   <% if user_signed_in? %>
     <div class='header-main__search'>
       <%= search_form_for @search, url:search_posts_path do |f| %>
