@@ -1,34 +1,44 @@
-<% if signed_in? %>
-  <div class='mypage-header'>
-    <div class='mypage-contents'>
-      <div class='mypage-contents__link'>
-        <%= link_to '登った山とメシを投稿', new_post_path, class:'mypage-contents__link__path header' %>
-      </div>
-      <div class='mypage-contents__link'>
-        <%= link_to current_user, class:'mypage-contents__link__path header' do %>
-          マイページ
-        <% end %>
-      </div>
-      <div class='mypage-contents__btn'>
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'mypage-contents__btn__path' %>
-      </div>
-      <div class='mypage-contents__btn'>
-        <%= link_to 'プロフィール変更', edit_user_registration_path, class:'mypage-contents__btn__path' %>
-      </div>
+<div class='mypage-header'>
+  <div id='nav-drawer'>
+    <%= link_to root_path, class:'mypage-header__logo' do %>
+      <h1 class='mypage-header__text'>岳人</h1>
+      <h3 class='mypage-header__kana'>〜たけと〜</h3>
+    <% end %>
+    <input id='nav-input' type='checkbox' class='nav-unshown'>
+    <label id='nav-open' for='nav-input'><span></span></label>
+    <label class='nav-unshown' id='nav-close' for='nav-input'></label>
+    <div id='nav-content'>
+      <% if signed_in? %>
+        <div class='mypage-contents'>
+          <div class='mypage-contents__link'>
+            <%= link_to '登った山とメシを投稿', new_post_path, class:'mypage-contents__link__path header' %>
+          </div>
+          <div class='mypage-contents__link'>
+            <%= link_to current_user, class:'mypage-contents__link__path header' do %>
+              マイページ
+            <% end %>
+          </div>
+          <div class='mypage-contents__btn'>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'mypage-contents__btn__path' %>
+          </div>
+          <div class='mypage-contents__btn'>
+            <%= link_to 'プロフィール変更', edit_user_registration_path, class:'mypage-contents__btn__path' %>
+          </div>
+        </div>
+      <% else %>
+        <div class='mypage-header'>
+          <div class='mypage-contents'>
+            <h2 class='mypage-contents__name'>
+              こんにちは！ユーザーさん！
+            </h2>
+            <div class='mypage-contents__link'>
+              <%= link_to 'ログイン', new_user_session_path, class:'mypage-contents__link__path header' %>
+            </div>
+            <div class='mypage-contents__link'>
+              <%= link_to '新規登録', new_user_registration_path, class:'mypage-contents__link__path header' %>
+            </div>
+          </div>
+      <% end %>
     </div>
   </div>
-<% else %>
-  <div class='mypage-header'>
-    <div class='mypage-contents'>
-      <h2 class='mypage-contents__name'>
-        こんにちは！ユーザーさん！
-      </h2>
-      <div class='mypage-contents__link'>
-        <%= link_to 'ログイン', new_user_session_path, class:'mypage-contents__link__path header' %>
-      </div>
-      <div class='mypage-contents__link'>
-        <%= link_to '新規登録', new_user_registration_path, class:'mypage-contents__link__path header' %>
-      </div>
-    </div>
-  </div>
-<% end %>
+</div>

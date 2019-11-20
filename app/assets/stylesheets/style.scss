@@ -30,14 +30,22 @@ body {
   font-weight: bold;
   padding: 20px;
 }
-.sp-header-main,.sp-main,.sp-banner {
+.sp-header-main,.sp-main,.sp-banner,.mypage-header {
   display: none !important;
 }
 .header-main,.footer-main {
   display: block !important;
 }
+@media screen and (max-width: 1024px) {
+  .middle-container.mypage,.header-main {
+    display: none !important;
+  }
+  .mypage-header {
+    display: block !important;
+  }
+}
 @media screen and (max-width: 500px) {
-  main,.header-main,.footer-main {
+  main,.header-main,.footer-main,.mypage-header {
     display: none !important;
   }
   .sp-main,.sp-header-main,.sp-banner {
