@@ -129,7 +129,7 @@
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
 }
-.item-box:hover {
+.posts-hover:hover, .meals-hover:hover {
   opacity: 0.7;
 }
 .item-box {
@@ -147,7 +147,8 @@
     position: relative;
     &__picture {
       width: 200px;
-      height: 200px;
+      min-height: 200px;
+      max-height: 300px;
       margin: 10px;
       border-radius: 3px;
     }
@@ -211,10 +212,51 @@
       .fas.fa-heart {
         color: pink;
       }
-      span {
-        color: black;
+      span .like-count{
+        color: white;
       }
     }
   }
+}
+.as_01 {
+  position: relative;
+  overflow: hidden;
+  width: 480px;
+}
+.caption {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.6);
+  -webkit-transition: .3s;
+  transition: .3s;
+  opacity: 1;
+  color: #DDD;
+  text-align: center;
+  &__text {
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+  }
+}
+.as_01:hover .caption {
+  top: 0;
+  left: 0;
+}
+.transform01 {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.as_01:hover .transform01 {
+  -webkit-transition: scale(1.2);
+  transform: scale(1.2);
 }
 
