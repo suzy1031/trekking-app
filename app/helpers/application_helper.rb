@@ -60,6 +60,14 @@ module ApplicationHelper
     end
   end
 
+  def sp_post_circle_user_image(post)
+    if post.user.image.present?
+      image_tag(post.user.image.url, class:"sp-detail__user__picture")
+    else
+      image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png", class:"sp-detail__user__picture")
+    end
+  end
+
   def show_follow_user_image(user)
     if user.image.present?
       image_tag(user.image.url, class:"follow-user__picture")

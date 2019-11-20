@@ -64,7 +64,7 @@
   <div class='sp-detail'>
     <div class='sp-detail__user'>
       <%= link_to @post.user do %>
-        <%= sp_circle_user_image(@user) %>
+        <%= sp_post_circle_user_image(@post) %>
       <% end %>
       <div class='sp-detail__user__nickname'><%= @post.user.nickname %></div>
     </div>
