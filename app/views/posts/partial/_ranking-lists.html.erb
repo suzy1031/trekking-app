@@ -1,25 +1,33 @@
 <% @all_ranks.each.with_index(1) do |post, i| %>
   <%= link_to post_path(post) do %>
     <li class='item-box'>
-      <div class='box-left'>
-        <%= horizontal_list_image(post) %>
-        <div class='item-description'>
-          <div id='ranking-<%= i %>'class='item-description__ranking'>
-            <%="No.#{i}"%>
-          </div>
-          <div class='item-description__profile'><%= post.user.nickname %>さんの投稿</div>
-          <div class='item-description__name'>
-            <%= post.name %>
-          </div>
-            山頂標高：<%= post.elevation %>M<br/>
-            歩行距離：<%= post.walking_distance %>KM<br/>
-            <%= post.difficulty_i18n %>
-        </div>
-        <div class='ranking-like-count'>
-          <i class='fas fa-heart fa-2x'></i>
-          <span><%= post.likes_count %></span>
-        </div>
+      <div class='as_01'>
+        <div class='box-left'>
+          <%= horizontal_list_image(post) %>
+            <div class='item-description'>
+              <div id='ranking-<%= i %>'class='item-description__ranking'>
+                <%="No.#{i}"%>
+              </div>
+              <div class='item-description__profile'><%= post.user.nickname %>さんの投稿</div>
+              <div class='item-description__name'>
+                <%= post.name %>
+              </div>
+                山頂標高：<%= post.elevation %>M<br/>
+                歩行距離：<%= post.walking_distance %>KM<br/>
+                <%= post.difficulty_i18n %>
+            </div>
+          <div class='caption'>
+            <div class='ranking-like-count'>
+              <i class='fas fa-heart fa-2x'></i>
+              <span class='like-count'><%= post.likes_count %></span>
+            </div>
           <%= ranking_list_user_image(post) %>
+            <h3 class='caption__text'>
+              <%= post.user.nickname %><br/>
+              投稿詳細へ
+            </h3>
+          </div>
+        </div>
       </div>
     </li>
   <% end %>
