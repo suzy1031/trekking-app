@@ -131,6 +131,9 @@
       font-size: 18px;
       line-height: 20px;
       background: rgba(255,255,255,0);
+      // トランジッションはcssプロパティが変化する際のアニメーションの速度を操作する
+      // ease-out:開始時は緩やかに変化、終了に近くと速く変化
+      // width:横方向へ変化
       transition: width 0.2s ease-out;
     }
   }
@@ -140,89 +143,86 @@
     right: 25px;
     height: 32px;
     cursor: pointer;
-
-  > div {
-    position: relative;
-    width: 36px;
-  }
-  span {
-    width: 100%;
-    height: 1px;
-    left: 0;
-    display: block;
-    background: white;
-    position: absolute;
-    transition: transform .6s ease-in-out, top .5s ease;
-
-    &:nth-child(1) {
-      top: 0;
+    > div {
+      position: relative;
+      width: 36px;
     }
-    &:nth-child(2) {
-      top: 14px;
+    span {
+      width: 100%;
+      height: 1px;
+      left: 0;
+      display: block;
+      background: white;
+      position: absolute;
+      // transform:変形には移動、回転、伸縮、傾斜の4つ
+      // ease:開始時と終了時は緩やかに変化
+      // ease-in-out:開始時と終了時はかなり緩やかに変化
+      transition: transform .6s ease-in-out, top .5s ease;
+      // 子要素のn番目(nth)にスタイルを適用させる事ができる
+      // 要素:nth-child(値){スタイルの内容}
+      &:nth-child(1) {
+        top: 0;
+      }
+      &:nth-child(2) {
+        top: 14px;
+      }
+      &:nth-child(3) {
+        top: 28px;
+      }
     }
-    &:nth-child(3) {
-      top: 28px;
+    &:hover span:nth-child(1) {
+      top: 4px;
     }
-  }
-
-  &:hover span:nth-child(1) {
-    top: 4px;
-  }
-  &:hover span:nth-child(3) {
-    top: 23px;
-  }
-
-}
-
-.open {
-  #nav-toggle span {
-    background: #fff;
-
-    &:nth-child(1) {
-      top: 15px;
-      transform: rotate(45deg);
-    }
-    &:nth-child(2) {
-      top: 15px;
-      width: 0;
-      left: 50%;
-    }
-    &:nth-child(3) {
-      top: 15px;
-      transform: rotate(-45deg);
+    &:hover span:nth-child(3) {
+      top: 23px;
     }
   }
-}
+  .open {
+    #nav-toggle span {
+      background: #fff;
 
-  /* z-index */
+      &:nth-child(1) {
+        top: 15px;
+        // rotate:回転。2D(XY方向)。3D(XYZ方向)
+        // deg:degree(度)
+        transform: rotate(45deg);
+      }
+      &:nth-child(2) {
+        top: 15px;
+        width: 0;
+        left: 50%;
+      }
+      &:nth-child(3) {
+        top: 15px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
   #nav-toggle {
       z-index: 1000;
   }
-  #container {
-      z-index: 900;
-  }
-
   #gloval-nav {
-      background: #000;
-      color: #fff;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 990;
-      text-align: center;
-      display: flex;
-      visibility: hidden;
+    background: #000;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 990;
+    text-align: center;
+    display: flex;
+    visibility: hidden;
+    // フレックスコンテナ内のアイテムの配置方向を指定する
+    // column:フレックスコンテナの主軸は上から下になる。ブロッグ軸の方向を同じ
     flex-direction: column;
     justify-content: center;
+    // コンテナ内のアイテムの交差軸方向のデフォルト揃え位置を指定する
     align-items: center;
-      font-size: 29px;
-      opacity: 0;
-      transition: opacity .6s ease, visibility .6s ease;
+    font-size: 29px;
+    opacity: 0;
+    transition: opacity .6s ease, visibility .6s ease;
   }
-
-
   #gloval-nav {
     a {
       display: block;
@@ -235,16 +235,17 @@
         color: #666;
       }
     }
-
     ul {
       list-style: none;
 
       li {
         opacity: 0;
+        // translate():要素の表示位置を移動させる
         transform: translateX(200px);
         transition:  transform .6s ease, opacity .2s ease;
 
         &:nth-child(2) {
+          // 変化がいつ始まるかを指定する
           transition-delay: .15s;
         }
         &:nth-child(3) {
@@ -265,16 +266,12 @@
       }
     }
   }
-
-  /* open */
   .open {
       overflow: hidden;
-
     #gloval-nav {
       visibility: visible;
       opacity: 1;
     }
-
     #gloval-nav li {
       opacity: 1;
       transform: translateX(0);
