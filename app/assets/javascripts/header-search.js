@@ -23,3 +23,8 @@ $(document).ready(function() {
     $searchTrigger.addClass('active');
   });
 });
+$(function() {
+  $('#nav-toggle').on('click', function() {
+    $('body').toggleClass('open');
+  });
+});

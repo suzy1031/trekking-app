@@ -1,4 +1,32 @@
 <div class='mypage-header'>
+  <div id="nav-toggle">
+    <div>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div id="gloval-nav">
+    <% if signed_in? %>
+      <nav>
+        <ul>
+          <li><%=link_to 'Home', root_path %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to 'マイページ', current_user %></li>
+          <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+          <li><%= link_to '登った山とメシを投稿', new_post_path %></li>
+        </ul>
+      </nav>
+    <%else %>
+      <nav>
+        <ul>
+          <li><%= link_to 'ログイン', new_user_session_path %></li>
+          <li><%= link_to '新規登録', new_user_registration_path %></li>
+        </ul>
+      </nav>
+    <% end %>
+  </div>
   <h2 class='mypage-header__text'>岳人</h2>
   <h3 class='mypage-header__kana'>〜たけと〜</h3>
   <div class='wrapper'>
@@ -12,34 +40,4 @@
       </div>
     <% end %>
   </div>
-  <% if signed_in? %>
-    <div class='mypage-contents'>
-      <div class='mypage-contents__link'>
-        <%= link_to '登った山とメシを投稿', new_post_path, class:'mypage-contents__link__path header' %>
-      </div>
-      <div class='mypage-contents__link'>
-        <%= link_to current_user, class:'mypage-contents__link__path header' do %>
-          マイページ
-        <% end %>
-      </div>
-      <div class='mypage-contents__btn'>
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'mypage-contents__btn__path' %>
-      </div>
-      <div class='mypage-contents__btn'>
-        <%= link_to 'プロフィール変更', edit_user_registration_path, class:'mypage-contents__btn__path' %>
-      </div>
-    </div>
-  <% else %>
-    <div class='mypage-contents'>
-      <h2 class='mypage-contents__name'>
-        こんにちは！ユーザーさん！
-      </h2>
-      <div class='mypage-contents__link'>
-        <%= link_to 'ログイン', new_user_session_path, class:'mypage-contents__link__path header' %>
-      </div>
-      <div class='mypage-contents__link'>
-        <%= link_to '新規登録', new_user_registration_path, class:'mypage-contents__link__path header' %>
-      </div>
-    </div>
-  <% end %>
 </div>
