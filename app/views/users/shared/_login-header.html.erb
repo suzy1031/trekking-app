@@ -30,14 +30,12 @@
   <h2 class='mypage-header__text'>岳人</h2>
   <h3 class='mypage-header__kana'>〜たけと〜</h3>
   <div class='wrapper'>
-    <% if signed_in? %>
-      <div class='icon-search-container' data-ic-class='search-trigger'>
-        <span class='fa fa-search'></span>
-        <%= search_form_for @search, url:search_posts_path do |f| %>
-          <%= f.search_field :name_or_text_cont, class:'search-input', placeholder:'search' %>
-          <%= f.submit '検索', type:'hidden' %>
-        <% end %>
-      </div>
-    <% end %>
+    <div class='icon-search-container' data-ic-class='search-trigger'>
+      <span class='fa fa-search'></span>
+      <%= search_form_for @search, url:search_posts_path do |f| %>
+        <%= f.search_field :name_or_text_cont, class:'search-input', placeholder:'search' %>
+        <%= f.submit '検索', type:'hidden' %>
+      <% end %>
+    </div>
   </div>
 </div>
