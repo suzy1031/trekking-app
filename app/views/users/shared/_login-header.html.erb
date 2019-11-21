@@ -1,12 +1,17 @@
 <div class='mypage-header'>
   <div id='nav-drawer'>
-    <%= link_to root_path, class:'mypage-header__logo' do %>
-      <h1 class='mypage-header__text'>岳人</h1>
-      <h3 class='mypage-header__kana'>〜たけと〜</h3>
-    <% end %>
+    <h1 class='mypage-header__text'>岳人</h1>
+    <h3 class='mypage-header__kana'>〜たけと〜</h3>
     <input id='nav-input' type='checkbox' class='nav-unshown'>
     <label id='nav-open' for='nav-input'><span></span></label>
     <label class='nav-unshown' id='nav-close' for='nav-input'></label>
+    <div class='wrapper'>
+      <div class='icon-search-container' data-ic-class='search-trigger'>
+        <span class='fa fa-search'></span>
+        <input type='text' class='search-input' data-ic-class='search-input' placeholder='Search'>
+        <span class='fa fa-times-circle' data-ic-class='search-clear'></span>
+      </div>
+    </div>
     <div id='nav-content'>
       <% if signed_in? %>
         <div class='mypage-contents'>
@@ -38,6 +43,7 @@
               <%= link_to '新規登録', new_user_registration_path, class:'mypage-contents__link__path header' %>
             </div>
           </div>
+        </div>
       <% end %>
     </div>
   </div>
