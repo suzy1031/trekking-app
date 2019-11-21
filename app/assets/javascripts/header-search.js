@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var $searchTrigger = $('[data-ic-class="search-trigger"]'),
-      $searchInput = $('[data-ic-class="search-input"]'),
+      $searchInput = $('[class="search-input"]'),
       $searchClear = $('[data-ic-class="search-clear]');
 
   $searchTrigger.click(function() {
