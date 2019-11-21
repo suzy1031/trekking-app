@@ -1,6 +1,6 @@
 <div class='mypage-header'>
   <div id='nav-drawer'>
-    <h1 class='mypage-header__text'>岳人</h1>
+    <h2 class='mypage-header__text'>岳人</h2>
     <h3 class='mypage-header__kana'>〜たけと〜</h3>
     <input id='nav-input' type='checkbox' class='nav-unshown'>
     <label id='nav-open' for='nav-input'><span></span></label>
@@ -8,8 +8,10 @@
     <div class='wrapper'>
       <div class='icon-search-container' data-ic-class='search-trigger'>
         <span class='fa fa-search'></span>
-        <input type='text' class='search-input' data-ic-class='search-input' placeholder='Search'>
-        <span class='fa fa-times-circle' data-ic-class='search-clear'></span>
+        <%= search_form_for @search, url:search_posts_path do |f| %>
+          <%= f.search_field :name_or_text_cont, class:'search-input', placeholder:'search' %>
+          <%= f.submit '検索', type:'hidden' %>
+        <% end %>
       </div>
     </div>
     <div id='nav-content'>

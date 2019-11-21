@@ -70,9 +70,6 @@
     background: green;
     border-top: 1px solid #f5f3f4;
     border-radius: 3px;
-    &__logo {
-      text-decoration: none;
-    }
     &__text {
       color: white;
       font-size: 48px;
@@ -141,7 +138,7 @@
     &.active {
       width: 285px;
       .fa-times-circle {
-        opacity: 1;;
+        opacity: 1;
       }
       .search-input {
         width: 200px;
