@@ -124,7 +124,7 @@
   .wrapper {
     position: absolute;
     right: 10px;
-    top: 25%;
+    top: 2%;
   }
   .icon-search-container {
     display: inline-block;
@@ -176,67 +176,5 @@
       background: rgba(255,255,255,0);
       transition: width 0.2s ease-out;
     }
-  }
-  #nav-drawer {
-    position: relative;
-  }
-  .nav-unshown {
-    display: none;
-  }
-  #nav-open {
-    position: absolute;
-    left: 10px;
-    top: 30px;
-  }
-  #nav-open span, #nav-open span:before, #nav-open span:after {
-    position: absolute;
-    height: 6px;
-    width: 50px;
-    border-radius: 3px;
-    background: white;
-    display: block;
-    content: '';
-    cursor: pointer;
-  }
-  #nav-open span:before {
-    bottom: -16px;
-  }
-  #nav-open span:after {
-    bottom: -32px;
-  }
-  #nav-close {
-    display: none;
-    position: fixed;
-    z-index: 99;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    opacity: 0;
-    transition: .3s ease-in-out;
-  }
-  #nav-content {
-    overflow: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    width: 90%;
-    max-width: 600px;
-    height: 100%;
-    background: #fff;
-    transition: .3s ease-in-out;
-    -webkit-transform: translateX(-105%);
-    transform: translateX(-105%);
-  }
-  #nav-input:checked ~ #nav-close {
-    display: block;
-    opacity: .5;
-  }
-  #nav-input:checked ~ #nav-content {
-    -webkit-transform: translateX(0%);
-    transform: translateX(0%);
-    box-shadow: 6px 0 25px rgba(0, 0, 0, .15);
   }
 }
