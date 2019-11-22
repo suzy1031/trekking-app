@@ -1,10 +1,12 @@
 <div class='middle-container'>
+
   <div class='list-container'>
     <div class='list-container__title'>山登り好きの最新投稿</div>
     <div class='list-container__icon'>
       <p>new</p>
     </div>
   </div>
+
   <div class='list-box'>
     <% @posts.each do |post| %>
       <%= link_to post_path(post) do %>
@@ -21,4 +23,5 @@
       <% end %>
     <% end %>
   </div>
+
 </div>

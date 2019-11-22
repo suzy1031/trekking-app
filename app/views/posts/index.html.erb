@@ -1,11 +1,13 @@
 <main>
   <%= render 'layouts/shared/header' %>
   <%= render 'layouts/shared/flash' %>
+
   <div class='large-container'>
     <%= render 'posts/partial/post-lists' %>
     <%= render 'users/user-lists' %>
     <%= render 'users/mypage-box' %>
   </div>
+
   <div id='main-container'>
     <h2 class='list-title'>人気投稿ランキング</h2>
       <ul class='horizontal-list'>
@@ -21,7 +23,9 @@
       <%= render 'posts/partial/before-lists' %>
     <% end %>
   </div>
+
   <%= render 'layouts/shared/footer' %>
+
 </main>
 
 <%# スマホ用topページ %>

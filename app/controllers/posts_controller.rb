@@ -13,13 +13,13 @@ class PostsController < ApplicationController
   end
 
   def show
-    @title = "投稿詳細"
+    @post_show_title = "投稿詳細"
     @comments = @post.comments.includes(:user).last(5)
     @comment = Comment.new
   end
 
   def new
-    @title = "新規投稿"
+    @post_new_title = "新規投稿"
     @post = Post.new
     @post.build_meal
   end
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @title = "投稿編集"
+    @post_edit_title = "投稿編集"
   end
 
   def update
