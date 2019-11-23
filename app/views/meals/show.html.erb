@@ -1,1 +1,72 @@
-<%= @meal.name %>
+<% provide(:title, @title) %>
+<main>
+<%= render 'layouts/shared/header' %>
+  <div class='detail-post-box'>
+    <div class='user-info'>
+      <%= meshi_show_user_image(@post) %>
+      <div class='user-info__name'>
+        <%= @post.user.nickname %>
+      </div>
+    </div>
+    <div class='detail-container'>
+      <div class='detail-container__name'>
+        <%= @meal.name %>
+      </div>
+      <%= post_show_image(@meal) %>
+      <h2>山メシの詳細データ</h2>
+      <div class='detail-description'>
+        <div class='detail-description__display'>
+          調理時間:<%= @meal.cooking_time %>分
+        </div>
+      </div>
+      <h2>使用する食材</h2>
+      <div class='detail-comment'>
+        <%= simple_format(@meal.food_stuff) %>
+      </div>
+      <h2>調理方法</h2>
+      <div class='detail-comment'>
+        <%= simple_format(@meal.cooking_method) %>
+      </div>
+      <h2>ユーザーさんからのコメント</h2>
+      <div class='detail-comment'>ここは仮置き</div>
+      <div class='detail-btn'>
+        <%= link_to 'ホームへ戻る', root_path, class:'detail-btn__gray' %>
+      </div>
+    </div>
+  </div>
+  <%= render 'layouts/shared/footer' %>
+</main>
+
+<%# スマホ用詳細ページ %>
+
+<div class='sp-main'>
+  <%= render 'layouts/shared/sp-header' %>
+  <div class='sp-detail'>
+    <div class='sp-detail__user'>
+      <%= sp_circle_user_image(@post) %>
+      <div class='sp-detail__user__nickname'><%= @post.user.nickname %></div>
+    </div>
+    <div class='sp-detail__post-name'>
+      <%= @meal.name %>
+    </div>
+    <div class='sp-detail__pic-box'>
+      <%= sp_show_image(@meal) %>
+    </div>
+    <i class='far fa-heart fa-2x'></i>
+    <i class='far fa-comment fa-2x'></i>
+    <h2 class='sp-detail__title'>山メシのデータ</h2>
+    <h2 class='sp-detail__cooking-time'>調理時間</h2>
+    <div class='sp-detail__comment'>
+      <%= @meal.cooking_time %>分
+    </div>
+    <h2 class='sp-detail__title'>使用する食材</h2>
+    <div class='sp-detail__comment'>
+      <%= food_stuff_present? %>
+    </div>
+    <h2 class='sp-detail__title'>調理方法</h2>
+    <div class='sp-detail__comment'>
+      <%= cooking_method_present? %>
+    </div>
+  </div>
+  <%= render 'layouts/shared/sp-banner' %>
+</div>
