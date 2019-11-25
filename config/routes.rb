@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   post   '/like/:post_id' => 'likes#like',   as: 'like'
   delete '/like/:post_id' => 'likes#unlike', as: 'unlike'
   resources :relationships, only: [:create, :destroy]
-  resources :meals, only: [:index, :show]
+  resources :meals
   resources :rankings, only: [:index, :show]
 
 end
