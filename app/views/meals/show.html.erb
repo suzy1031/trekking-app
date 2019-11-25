@@ -35,7 +35,9 @@
           <%= link_to 'ホーム', root_path, class:'detail-btn__gray' %>
           <%= link_to '編集', edit_meal_path(@meal), method: :get, class:'detail-btn__gray' %>
         </div>
-        <button class='delete-btn'>削除する</button>
+        <%= link_to meal_path(@meal), method: :delete, data: { confirm: "本当に削除しますか?" } do %>
+          <button class='delete-btn'>削除する</button>
+        <% end %>
       <% else %>
         <div class='detail-btn'>
           <%= link_to 'ホーム', root_path, class:'detail-btn__gray' %>
