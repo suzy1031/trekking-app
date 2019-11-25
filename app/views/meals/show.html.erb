@@ -5,7 +5,7 @@
     <div class='user-info'>
       <%= meshi_show_user_image(@post) %>
       <div class='user-info__name'>
-        <%= @post.user.nickname %>
+        <%= @meal.user.nickname %>
       </div>
     </div>
     <div class='detail-container'>
@@ -30,6 +30,9 @@
       <h2>ユーザーさんからのコメント</h2>
       <div class='detail-comment'>ここは仮置き</div>
       <div class='detail-btn'>
+        <% if signed_in? && current_user.id == @meal.user_id %>
+          <%= link_to '編集', edit_meal_path(@meal), method: :get %>
+        <% end %>
         <%= link_to 'ホームへ戻る', root_path, class:'detail-btn__gray' %>
       </div>
     </div>
