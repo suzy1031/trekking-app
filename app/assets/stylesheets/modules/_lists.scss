@@ -156,8 +156,12 @@
       color: black;
       position: relative;
       &__name {
+        width: 200px;
         color: black;
         font-size: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       &__comment {
         width: 230px;
