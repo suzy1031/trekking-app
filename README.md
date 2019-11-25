@@ -88,5 +88,3 @@ https://www.wantedly.com/users/120417283
 
 ## ライセンス
 
-[MIT](http://TomoakiTANAKA.mit-license.org)</blockquote>
-解説
