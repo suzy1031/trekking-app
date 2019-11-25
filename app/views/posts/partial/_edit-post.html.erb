@@ -1,8 +1,8 @@
 <h1 class='new-post-box__container__name'>
   投稿を編集
 </h1>
-<%= form_for @post, url:{ action: 'update' } do |f| %>
-  <section>
+<section>
+  <%= form_for @post, url:{ action: 'update' } do |f| %>
     <div class='form-registration-box'>
       <%= f.label :山の名前, class:'form-registration-box__name' %>
       <%= f.label :必須, class:'form-registration-box__require' %>
@@ -61,5 +61,5 @@
     </div>
     <p><%= f.check_box :remove_image %>画像を削除する</p>
     <%= f.submit '編集を完了する', class:'new-post-box__btn' %>
-  </section>
-<% end %>
+  <% end %>
+</section>

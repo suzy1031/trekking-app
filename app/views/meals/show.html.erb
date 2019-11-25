@@ -29,12 +29,18 @@
       </div>
       <h2>ユーザーさんからのコメント</h2>
       <div class='detail-comment'>ここは仮置き</div>
-      <div class='detail-btn'>
-        <% if signed_in? && current_user.id == @meal.user_id %>
-          <%= link_to '編集', edit_meal_path(@meal), method: :get %>
-        <% end %>
-        <%= link_to 'ホームへ戻る', root_path, class:'detail-btn__gray' %>
-      </div>
+
+      <% if signed_in? && @meal.user_id == current_user.id %>
+        <div class='detail-btn'>
+          <%= link_to 'ホーム', root_path, class:'detail-btn__gray' %>
+          <%= link_to '編集', edit_meal_path(@meal), method: :get, class:'detail-btn__gray' %>
+        </div>
+        <button class='delete-btn'>削除する</button>
+      <% else %>
+        <div class='detail-btn'>
+          <%= link_to 'ホーム', root_path, class:'detail-btn__gray' %>
+        </div>
+      <% end %>
     </div>
   </div>
   <%= render 'layouts/shared/footer' %>

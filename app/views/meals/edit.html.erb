@@ -2,56 +2,54 @@
   <%= render 'layouts/shared/header' %>
   <%= render 'layouts/shared/flash' %>
   <div class='new-post-box'>
-    <div class='new-post-container'>
-      <div class='new-name'>
+    <div class='new-post-box__container'>
+      <h1 class='new-post-box__container__name'>
         投稿を編集
-      </div>
-      <%= form_for @meal, url:{ action: 'update' } do |f| %>
-        <div class='form-registration-box'>
-          <%= f.label :山メシの名前, class:'new-name-form' %>
-          <%= f.label :必須, class:'form-require' %>
-        </div>
-        <div class='text-form-box'>
+      </h1>
+      <section>
+        <%= form_for @meal, url:{ action: 'update' } do |f| %>
+          <div class='form-registration-box'>
+            <%= f.label :山メシの名前, class:'form-registration-box__name' %>
+            <%= f.label :必須, class:'form-registration-box__require' %>
+          </div>
           <%= f.text_field :name, autofocus: true, placeholder: '例) カレー', class:'new-part-form' %>
-        </div>
-        <div class='form-registration-box'>
-          <%= f.label :調理時間, class:'new-name-form' %>
-          <%= f.label :必須, class:'form-require' %>
-        </div>
-        <div class='text-form-box'>
+
+          <div class='form-registration-box'>
+            <%= f.label :調理時間, class:'form-registration-box__name' %>
+            <%= f.label :必須, class:'form-registration-box__require' %>
+          </div>
           <%= f.text_field :cooking_time, placeholder: '例) 20分→20', class:'new-part-form' %>
-        </div>
-        <div class='form-registration-box'>
-          <%= f.label :使用する食材, class:'new-name-form'  %>
-          <%= f.label :任意, class:'form-any-require' %>
-        </div>
-        <div class='text-form-box'>
+
+          <div class='form-registration-box'>
+            <%= f.label :使用する食材, class:'form-registration-box__name'  %>
+            <%= f.label :任意, class:'form-registration-box__any-require' %>
+          </div>
           <%= f.text_area :food_stuff, placeholder: '例) ニンジン1本。じゃがいも1個', id: 'textarea' %>
-        </div>
-        <div class='form-registration-box'>
-          <%= f.label :調理方法, class:'new-name-form' %>
-          <%= f.label :任意, class:'form-any-require' %>
-        </div>
-        <div class='text-form-box'>
+
+          <div class='form-registration-box'>
+            <%= f.label :調理方法, class:'form-registration-box__name' %>
+            <%= f.label :任意, class:'form-registration-box__any-require' %>
+          </div>
           <%= f.text_area :cooking_method, placeholder: '例）沸騰したお湯に切った野菜を入れる', id:'textarea2' %>
-        </div>
-        <div class='form-registration-box'>
-          <%= f.label :画像, class:'new-name-form' %>
-          <%= f.label :任意, class:'form-any-require' %>
-        </div>
-        <div class='photo-form'>
-          <%= f.file_field :image, id:'post_img' %>
-        </div>
-        <div class='update-image-area'>
-          <% if @meal.image.present? %>
-            <%= image_tag @meal.image.url, id:'img_prev' if @meal.image? %>
-          <% else %>
-            <div class='preview'></div>
-          <% end %>
-        </div>
-        <p><%= f.check_box :remove_image %>画像を削除する</p>
-        <%= f.submit '編集を完了する', class:'new-form-btn' %>
-      <% end %>
+
+          <div class='form-registration-box'>
+            <%= f.label :画像, class:'form-registration-box__name' %>
+            <%= f.label :任意, class:'form-registration-box__any-require' %>
+          </div>
+          <div class='photo-form'>
+            <%= f.file_field :image, id:'post_img' %>
+          </div>
+          <div class='update-image-area'>
+            <% if @meal.image.present? %>
+              <%= image_tag @meal.image.url, id:'img_prev' %>
+            <% else %>
+              <div class='preview'></div>
+            <% end %>
+          </div>
+          <p><%= f.check_box :remove_image %>画像を削除する</p>
+          <%= f.submit '編集を完了する', class:'new-post-box__btn' %>
+        <% end %>
+      </section>
     </div>
   </div>
   <%= render 'layouts/shared/footer' %>
