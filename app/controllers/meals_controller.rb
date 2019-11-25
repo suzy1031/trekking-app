@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-  before_action :set_meal, only: [:show, :edit, :update]
+  before_action :set_meal, only: [:show, :edit, :update, :destroy]
 
   def index
     @meals = Meal.order('updated_at DESC')
@@ -21,6 +21,16 @@ class MealsController < ApplicationController
         flash.now[:alert] = '商品の編集に失敗しました'
         render :edit
       end
+    end
+  end
+
+  def destroy
+    if @meal.destroy
+      flash[:success] = '商品を削除しました'
+      redirect_to :root
+    else
+      flash.now[:alert] = '商品の削除に失敗しました'
+      redirect_back(fallback_location: root_path)
     end
   end
 
