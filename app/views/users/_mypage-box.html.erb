@@ -1,6 +1,16 @@
 <div class='middle-container mypage'>
   <% if signed_in? %>
     <div class='list-container'>
+      <%= link_to(notifications_path) do %>
+        <% if unchecked_notifications.any? %>
+          <span class='fa-stack'>
+            <i class="far fa-bell fa-2x"></i>
+            <i class='fas fa-circle n-circle fa stack-1x'></i>
+          </span>
+        <% else %>
+          <i class='far fa-bell fa-2x'></i>
+        <% end %>
+      <% end %>
       <h2 class='list-container__user-name'>
         マイページ
       </h2>
