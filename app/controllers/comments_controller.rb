@@ -12,9 +12,11 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(comment_params)
+    @post = @comment.post
     respond_to do |format|
       format.html { redirect_to post_path(@post.id)}
       format.json
+      @post.create_notification_comment!(current_user, @comment.id)
     end
   end
 

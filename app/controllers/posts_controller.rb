@@ -42,6 +42,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.user_id == current_user.id
+      sleep 1
       if @post.update(post_params)
         flash[:success] = "編集が完了しました！"
         redirect_to :root

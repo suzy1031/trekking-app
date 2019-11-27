@@ -8,6 +8,10 @@ module ApplicationHelper
     end
   end
 
+  def unchecked_notifications
+    @notifications = current_user.passive_notifications.where(checked: false)
+  end
+
   def user_posts_meals_has?
     @user.posts.any? || @user.meals.any?
   end

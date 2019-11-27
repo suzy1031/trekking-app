@@ -5,6 +5,8 @@ class LikesController < ApplicationController
   def like
     like = current_user.likes.new(post_id: @post.id)
     like.save
+    post = Post.find(params[:post_id])
+    post.create_notification_like!(current_user)
   end
 
   def unlike
