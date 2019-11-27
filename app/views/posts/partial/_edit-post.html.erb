@@ -60,6 +60,6 @@
       <% end %>
     </div>
     <p><%= f.check_box :remove_image %>画像を削除する</p>
-    <%= f.submit '編集を完了する', class:'new-post-box__btn' %>
+    <%= f.submit '編集を完了する', data: {disable_with: '処理中...'}, class:'new-post-box__btn' %>
   <% end %>
 </section>

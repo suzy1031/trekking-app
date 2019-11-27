@@ -1,22 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-
   root 'posts#index'
-
-
-
-  resources :posts do
-    resources :comments
-    resources :users, only: [:index, :show]
-    collection do
-      get 'search'
-      get 'about'
-      get 'usage'
-      get 'notification'
-      get 'tab'
-    end
-  end
 
   resources :users do
     member do
@@ -29,5 +14,19 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :meals
   resources :rankings, only: [:index, :show]
+  resources :notifications, only: [:index]
+
+
+  resources :posts do
+    resources :comments
+    resources :users, only: [:index, :show]
+    collection do
+      get 'search'
+      get 'about'
+      get 'usage'
+      get 'notice'
+      get 'tab'
+    end
+  end
 
 end
