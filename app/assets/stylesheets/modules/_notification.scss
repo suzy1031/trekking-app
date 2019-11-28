@@ -7,6 +7,12 @@ h1.notification-page {
 .notification-article {
   display: flex;
   justify-content: center;
+  position: relative;
+  &__text {
+    font-size: 24px;
+    text-align: center;
+    margin: 10px;
+  }
 }
 .notification-section-left {
   &__image {
