@@ -1,24 +1,54 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
-
-<%= link_to user_path(visitor) do %>
-  <%= visitor.nickname %>"さんが"
-  <% case notification.action when 'follow' %>
-      あなたをフォローしました
-
-    <% when 'like' then %>
-      <%= link_to 'あなたの投稿', notification.post %>
-      にいいねしました
-
-    <% when 'comment' then %>
-      <% if notification.post.user_id == visited.id %>
-        <%= link_to 'あなたの投稿', notification.post %>
-      <%else%>
-        <%= link_to post_path(notification.post) do %>
-          <%= notification.post.user.nickname %>さんの投稿にコメントしました
-          <% Comment.find_by(id: notification.comment_id)&.comment %>
-        <% end %>
+<div class='notification-article'>
+  <div class='notification-section-left'>
+    <%= link_to user_path(visitor) do %>
+      <% if visitor.image.present? %>
+        <%= image_tag(visitor.image.url, class:'notification-section-left__image') %>
+      <% else %>
+        <%= image_tag('https://static.mercdn.net/images/member_photo_noimage_thumb.png', class:'notification-section-left__image') %>
       <% end %>
-
-  <% end %>
-<% end %>
+    <% end %>
+  </div>
+  <div class='notification-section-right'>
+    <div class='notification-section-right__content'>
+      <%= link_to user_path(visitor), class:'notification-section-right__content__link'  do %>
+        <strong><%= visitor.nickname %></strong>
+      <% end %>
+        さんが
+      <% case notification.action when 'follow' %>
+          あなたを
+          <p class='notification-section-right__content__text-bold'>
+            フォロー
+          </p>
+          しました!
+        <% when 'like' then %>
+          <%= link_to 'あなたの投稿', notification.post, class:'notification-section-right__content__link' %>
+          に
+          <p class='notification-section-right__content__text-bold'>
+            いいね!
+          </p>
+          しました!
+        <% when 'comment' then %>
+          <% if notification.post.user_id == visited.id %>
+            <%= link_to 'あなたの投稿', notification.post, class:'notification-section-right__content__link' %>
+          <%else%>
+            <%= link_to post_path(notification.post) do %>
+              <strong><%= notification.post.user.nickname %>さんの投稿</strong>
+            <% end %>
+          <% end %>
+          に
+          <p class='notification-section-right__content__text-bold'>
+            コメント
+          </p>
+          しました!
+          <div class='notification-section-right__content__comment-text'>
+            <p><%= Comment.find_by(id: notification.comment_id)&.text %></p>
+          </div>
+      <% end %>
+      <div class='notification-section-right__content__time'>
+        <p><%= time_ago_in_words(notification.created_at).upcase %></p>
+      </div>
+    </div>
+  </div>
+</div>
