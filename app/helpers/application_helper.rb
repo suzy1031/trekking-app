@@ -8,6 +8,14 @@ module ApplicationHelper
     end
   end
 
+  def notification_user_image(visitor)
+    if visitor.image.present?
+      image_tag(visitor.image.url, class:'notification-section-left__image')
+    else
+      image_tag('https://static.mercdn.net/images/member_photo_noimage_thumb.png', class:'notification-section-left__image')
+    end
+  end
+
   def unchecked_notifications
     @notifications = current_user.passive_notifications.where(checked: false)
   end

@@ -3,11 +3,7 @@
 <div class='notification-article'>
   <div class='notification-section-left'>
     <%= link_to user_path(visitor) do %>
-      <% if visitor.image.present? %>
-        <%= image_tag(visitor.image.url, class:'notification-section-left__image') %>
-      <% else %>
-        <%= image_tag('https://static.mercdn.net/images/member_photo_noimage_thumb.png', class:'notification-section-left__image') %>
-      <% end %>
+      <%= notification_user_image(visitor) %>
     <% end %>
   </div>
   <div class='notification-section-right'>
