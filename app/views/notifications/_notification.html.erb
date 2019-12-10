@@ -1,12 +1,12 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
-<div class='notification-article'>
-  <div class='notification-section-left'>
+<article class='notification-article'>
+  <section class='notification-section-left'>
     <%= link_to user_path(visitor) do %>
       <%= notification_user_image(visitor) %>
     <% end %>
-  </div>
-  <div class='notification-section-right'>
+  </section>
+  <section class='notification-section-right'>
     <div class='notification-section-right__content'>
       <%= link_to user_path(visitor), class:'notification-section-right__content__link'  do %>
         <strong><%= visitor.nickname %></strong>
@@ -46,5 +46,5 @@
         <p><%= time_ago_in_words(notification.created_at).upcase %></p>
       </div>
     </div>
-  </div>
-</div>
+  </section>
+</article>
